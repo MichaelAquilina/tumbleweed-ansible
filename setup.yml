@@ -3,4 +3,5 @@
   connection: local
   roles:
     - cli
+    - gnomeshell
     - atom
