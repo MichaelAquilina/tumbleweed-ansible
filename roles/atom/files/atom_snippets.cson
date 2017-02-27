@@ -1,0 +1,6 @@
+'.source.python':
+  'utf8 header':
+    'prefix': 'utf8header'
+    'body': """
+    # -*- coding: utf-8 -*-
+    """
