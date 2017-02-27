@@ -3,5 +3,6 @@
   connection: local
   roles:
     - cli
+    - vim
     - gnomeshell
     - atom
