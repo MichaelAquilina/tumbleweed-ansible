@@ -1,0 +1,49 @@
+- name: ZSH is installed
+  become: yes
+  zypper:
+    name: zsh
+
+- name: Python virtualenv is installed
+  become: yes
+  zypper:
+    name: "{{ item }}"
+  with_items:
+    - python-virtualenv
+    - python3-virtualenv
+
+- name: Python virtualenvwrapper is installed
+  become: yes
+  zypper:
+    name: python-virtualenvwrapper
+
+- name: Antigen
+  get_url:
+    url: https://raw.githubusercontent.com/MichaelAquilina/antigen/master/antigen.zsh
+    dest: ~/.antigen.zsh
+
+- name: dircolors
+  file:
+    state: link
+    force: yes
+    src: "{{ ansible_env.PWD }}/roles/cli/files/dircolors"
+    dest: "~/.dircolors"
+
+- name: CryptoSquirrel
+  file:
+    state: link
+    force: yes
+    src: "{{ ansible_env.PWD }}/roles/cli/files/crypto_squirrel.txt"
+    dest: "~/.crypto_squirrel"
+
+- name: ~/.zshrc
+  file:
+    state: link
+    force: yes
+    src: "{{ ansible_env.PWD }}/roles/cli/files/zshrc"
+    dest: "~/.zshrc"
+
+- name: ZSH as default shell
+  become: yes
+  user:
+    name: "{{ ansible_env.USER }}"
+    shell: /bin/zsh
