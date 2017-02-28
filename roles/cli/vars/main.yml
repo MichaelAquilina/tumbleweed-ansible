@@ -1,0 +1,6 @@
+cli_apps:
+  - colordiff
+  - git
+  - htop
+  - password-store
+  - tig

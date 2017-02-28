@@ -3,6 +3,13 @@
   zypper:
     name: zsh
 
+- name: Command Line Apps are Installed
+  become: yes
+  zypper:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ cli_apps }}"
+
 - name: Python virtualenv is installed
   become: yes
   zypper:
