@@ -1,0 +1,11 @@
+- name: Arc Theme is Installed
+  become: yes
+  zypper:
+    name: gtk3-metatheme-arc
+    state: latest
+
+- name: Use Arc Theme
+  gsettings:
+    schema: org.gnome.desktop.interface
+    key: gtk-theme
+    value: "Arc-Darker"
