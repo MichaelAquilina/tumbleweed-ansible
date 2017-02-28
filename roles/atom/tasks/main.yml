@@ -1,3 +1,10 @@
+- name: Install Atom
+  become: yes
+  zypper:
+    # Ideally would use https://atom.io/download/rpm but zypper does not handle the redirect
+    name: "https://atom-installer.github.com/v1.14.4/atom.x86_64.rpm?s=1488270993&ext=.rpm"
+    state: present
+
 - name: Setup Atom Packages
   apm:
     name: "{{ item }}"
