@@ -4,6 +4,7 @@
   roles:
     - cli
     - vim
+    - development
     - gnomeshell
     - gnomeshell-theme
     - gnomeshell-extensions

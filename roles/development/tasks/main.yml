@@ -1,0 +1,14 @@
+- name: Standard Development Tools are Installed
+  become: yes
+  zypper:
+    name: "{{ item }}"
+  with_items:
+    - automake
+    - intltool
+    - libtool
+    - libgee-devel
+    - libnotify-devel
+    - keybinder3-devel
+    - json-glib-devel
+    - zeitgeist-devel
+    - vala
