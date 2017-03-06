@@ -1,3 +1,10 @@
+# Required for some fallback icons on other themes
+- name: Default Gnome Icon Theme is Ignored
+  become: yes
+  zypper:
+    name: gnome-icon-theme
+    state: latest
+
 - name: Arc Theme is Installed
   become: yes
   zypper:
