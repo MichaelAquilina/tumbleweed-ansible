@@ -1,4 +1,5 @@
 cli_apps:
+  - aws-cli
   - colordiff
   - git
   - htop
