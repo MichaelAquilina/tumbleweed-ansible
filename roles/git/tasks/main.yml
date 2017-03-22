@@ -1,0 +1,29 @@
+- name: vim is default git editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+- name: rebase on pull
+  git_config:
+    name: pull.rebase
+    scope: global
+    value: 'true'
+
+- name: autostash on rebase
+  git_config:
+    name: rebase.autostash
+    scope: global
+    value: 'true'
+
+- name: color ui is enabled
+  git_config:
+    name: color.ui
+    scope: global
+    value: 'true'
+
+- name: simple push
+  git_config:
+    name: push.default
+    scope: global
+    value: simple
