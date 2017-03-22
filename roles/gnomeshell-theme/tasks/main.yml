@@ -8,8 +8,11 @@
 - name: Arc Theme is Installed
   become: yes
   zypper:
-    name: gtk3-metatheme-arc
+    name: "{{ item }}"
     state: latest
+  with_items:
+    - gtk3-metatheme-arc
+    - gtk2-metatheme-arc
 
 - name: Use Arc Theme
   gsettings:
