@@ -5,3 +5,4 @@ cli_apps:
   - htop
   - password-store
   - tig
+  - xsel
