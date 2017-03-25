@@ -10,6 +10,15 @@ import traceback
 from ansible.module_utils.basic import *
 
 
+def check_extension_exists(name):
+    full_path = os.path.join(
+        os.path.expanduser('~'),
+        '.local', 'share', 'gnome-shell', 'extensions',
+        name,
+    )
+    return os.path.exists(full_path)
+
+
 def get_extension_state(name):
     result = subprocess.check_output([
         'gsettings', 'get', 'org.gnome.shell', 'enabled-extensions'
@@ -82,9 +91,16 @@ def main():
     state = module.params['state']
     subfolder = module.params['subfolder']
 
+    # If the folder was removed manually, then we can assume it is disabled
+    # even if the gnome-shell-extension tool tells us otherwise
+    exists = check_extension_exists(name)
+
     try:
-        old_state = get_extension_state(name)
-        changed = old_state != state
+        current_state = get_extension_state(name)
+        if not exists:
+            current_state = 'disabled'
+
+        changed = current_state != state
 
         if changed and not module.check_mode:
             if state == 'enabled':
@@ -98,8 +114,9 @@ def main():
             changed=changed,
             state=state,
             uri=uri,
-            old_state=old_state,
+            current_state=current_state,
         )
+
 
 if __name__ == '__main__':
     main()
