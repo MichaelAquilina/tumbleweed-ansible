@@ -1,0 +1,31 @@
+- name: Docker Repo
+  become: yes
+  zypper_repository:
+    name: docker-main
+    repo: https://yum.dockerproject.org/repo/main/opensuse/13.2/
+    auto_import_keys: yes
+
+- name: Docker is Installed
+  become: yes
+  zypper:
+    name: docker-engine
+    state: latest
+
+- name: Create Docker group
+  become: yes
+  group:
+    name: docker
+    state: present
+
+- name: Add Current User to Docker group
+  become: yes
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: docker
+    append: yes
+
+- name: Start Docker Service
+  become: yes
+  service:
+    name: docker
+    state: started
