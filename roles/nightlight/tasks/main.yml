@@ -1,0 +1,17 @@
+- name: Nightlight is Enabled
+  gsettings:
+    schema: org.gnome.settings-daemon.plugins.color
+    key: night-light-enabled
+    value: "true"
+
+- name: Night Light Schedule is Automatic
+  gsettings:
+    schema: org.gnome.settings-daemon.plugins.color
+    key: night-light-schedule-automatic
+    value: "true"
+
+- name: Night Light temperature
+  gsettings:
+    schema: org.gnome.settings-daemon.plugins.color
+    key: night-light-temperature
+    value: "uint32 4000"
