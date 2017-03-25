@@ -17,6 +17,7 @@ COLOR all
 OPTIONS -F -T 0
 
 # Below, there should be one TERM entry for each termtype that is colorizable
+TERM xterm-256color
 TERM linux
 TERM console
 TERM con132x25
@@ -34,6 +35,7 @@ TERM vt100
 TERM urxvt
 TERM rxvt-unicode
 TERM rxvt-unicode-256color
+TERM terminator
 
 # EIGHTBIT, followed by '1' for on, '0' for off. (8-bit output)
 #EIGHTBIT 1
