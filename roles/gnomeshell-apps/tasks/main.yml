@@ -1,0 +1,6 @@
+- name: Gnome Shell Apps are Installed
+  become: yes
+  zypper:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ gnome_apps }}"
