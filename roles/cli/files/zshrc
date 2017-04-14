@@ -56,6 +56,12 @@ if [[ -f ~/.github ]]; then
   export GITHUB_TOKEN="$(cat ~/.github)"
 fi
 
+# Fix configuration issue with VTE on tilix
+# See https://github.com/gnunn1/tilix/wiki/VTE-Configuration-Issue
+if [[ $TILIX_ID ]]; then
+  source /etc/profile.d/vte.sh
+fi
+
 cat ~/.crypto_squirrel
 
 eval $(dircolors ~/.dircolors)
