@@ -1,3 +1,4 @@
 *.orig
 .vagrant
 setup.retry
+*.swp
