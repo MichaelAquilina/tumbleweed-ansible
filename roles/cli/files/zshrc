@@ -38,10 +38,16 @@ fi
 # show ISO8601 timestamp with history
 alias history="fc -li 1"
 
-VIRTUALENVWRAPPER="/usr/bin/virtualenvwrapper"
+VIRTUALENVWRAPPER="/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
 if [[ -f "$VIRTUALENVWRAPPER" ]]; then
   source "$VIRTUALENVWRAPPER"
   workon default3
+fi
+
+# Fix VTE Configuration Issues when using Tilix
+# https://github.com/gnunn1/tilix/wiki/VTE-Configuration-Issue#user-content-1-source-vtesh-in-bashrc
+if [[ $TILIX_ID ]]; then
+  source /etc/profile.d/vte.sh
 fi
 
 # Source any additional configuration specific to this machine
@@ -53,12 +59,6 @@ fi
 
 if [[ -f ~/.github ]]; then
   export GITHUB_TOKEN="$(cat ~/.github)"
-fi
-
-# Fix configuration issue with VTE on tilix
-# See https://github.com/gnunn1/tilix/wiki/VTE-Configuration-Issue
-if [[ $TILIX_ID ]]; then
-  source /etc/profile.d/vte.sh
 fi
 
 cat ~/.crypto_squirrel
