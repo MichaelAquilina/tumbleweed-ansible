@@ -23,10 +23,11 @@
   zypper:
     name: python-virtualenvwrapper
 
-- name: Antigen
-  get_url:
-    url: https://raw.githubusercontent.com/MichaelAquilina/antigen/master/antigen.zsh
-    dest: ~/.antigen.zsh
+- name: ZPlug is installed
+  git:
+    repo: https://github.com/MichaelAquilina/zplug
+    dest: ~/.zplug
+    update: yes
 
 - name: dircolors
   file:
