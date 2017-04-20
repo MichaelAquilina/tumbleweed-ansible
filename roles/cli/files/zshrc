@@ -69,8 +69,8 @@ eval $(dircolors ~/.dircolors)
 export ANSIBLE_NOCOWS=1
 
 # Allow ctrl+left and ctrl+right movement
-bindkey ';5D' emacs-backward-word
-bindkey ';5C' emacs-forward-word
+bindkey '5D' emacs-backward-word
+bindkey '5C' emacs-forward-word
 
 export WORDCHARS=''
 
