@@ -7,7 +7,7 @@ import subprocess
 import tempfile
 import traceback
 
-from ansible.module_utils.basic import *
+from ansible.module_utils.basic import *  # noqa: F403
 
 
 def check_extension_exists(name):
