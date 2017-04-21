@@ -4,6 +4,7 @@ cli_apps:
   - colordiff
   - git
   - htop
+  - jq
   - password-store
   - ShellCheck
   - tig
