@@ -88,7 +88,27 @@ open_pytest_file = function() {
             }
         );
       } else {
-        atom.notifications.addWarning(`${test_path} does not exist or cannot be accessed`);
+        atom.notifications.addWarning(
+            `${test_path} does not exist or cannot be accessed`,
+            {
+              'buttons': [{
+                  'className': 'btn',
+                  'onDidClick': () => {
+                    fs.closeSync(fs.openSync(test_path, 'w'));
+                    atom.workspace.open(
+                        test_path,
+                        {
+                          'split': 'right',
+                          'activatePane': false,
+                          'activateItem': true,
+                          'pending': true
+                        }
+                    );
+                  },
+                  'text': 'Create Test File'
+              }]
+            }
+        );
       }
     });
   } else {
