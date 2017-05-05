@@ -3,6 +3,7 @@
   connection: local
   roles:
     - cli
+    - cron
     - vim
     - git
     - development

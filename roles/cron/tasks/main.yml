@@ -1,0 +1,6 @@
+- name: Clear Day Old Downloads every 4 hours
+  cron:
+    job: "find ~/Downloads -type f -mtime +1 -delete"
+    hour: "*/4"
+    minute: "0"
+    name: "Clear Downloads"
