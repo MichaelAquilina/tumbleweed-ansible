@@ -160,6 +160,8 @@ alias ls="ls --color=auto"
 alias ll="ls -lh --group-directories-first"
 alias l="ls -lah --group-directories-first"
 
+alias less="less -R"
+
 alias shrug='echo $em_shrug'
 
 # Git Aliases
