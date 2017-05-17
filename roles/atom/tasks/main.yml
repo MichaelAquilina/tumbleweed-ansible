@@ -2,7 +2,7 @@
   become: yes
   zypper:
     # Ideally would use https://atom.io/download/rpm but zypper does not handle the redirect
-    name: "https://atom-installer.github.com/v1.16.0/atom.x86_64.rpm?s=1492031032&ext=.rpm"
+    name: "https://github.com/atom/atom/releases/download/v1.17.0/atom.x86_64.rpm"
     state: present
 
 - name: Setup Atom Packages
