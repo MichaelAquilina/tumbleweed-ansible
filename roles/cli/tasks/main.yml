@@ -62,3 +62,9 @@
   user:
     name: "{{ ansible_env.USER }}"
     shell: /bin/zsh
+
+- name: local bin dirtory
+  file:
+    state: directory
+    mode: 0700
+    path: ~/bin/
