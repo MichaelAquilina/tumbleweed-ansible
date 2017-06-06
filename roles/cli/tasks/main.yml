@@ -68,3 +68,10 @@
     state: directory
     mode: 0700
     path: ~/bin/
+
+- name: local man directory
+  file:
+    state: directory
+    mode: 0700
+    path: ~/man/man1
+    recurse: true
