@@ -14,9 +14,16 @@
     url: https://raw.githubusercontent.com/MichaelAquilina/molokai/master/colors/molokai.vim
     dest: ~/.vim/colors/molokai.vim
 
-- name: ~/.vimrc
+- name: vimrc
+  git:
+    repo: https://github.com/MichaelAquilina/vimrc.git
+    dest: ~/Development/vimrc
+    remote: https-origin  # allow origin to be set to ssh url
+    update: yes
+
+- name: vimrc is linked
   file:
     state: link
     force: yes
-    src: "{{ ansible_env.PWD }}/roles/vim/files/vimrc"
-    dest: "~/.vimrc"
+    src: ~/Development/vimrc/vimrc
+    dest: ~/.vimrc
