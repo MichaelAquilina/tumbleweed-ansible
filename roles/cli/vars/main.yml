@@ -5,6 +5,7 @@ cli_apps:
   - htop
   - jq
   - password-store
+  - rust
   - ShellCheck
   - tig
   - xsel
