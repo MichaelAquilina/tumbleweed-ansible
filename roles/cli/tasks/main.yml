@@ -43,12 +43,19 @@
     src: "{{ ansible_env.PWD }}/roles/cli/files/crypto_squirrel.txt"
     dest: "~/.crypto_squirrel"
 
+- name: zshrc repo
+  git:
+    repo: https://github.com/MichaelAquilina/zshrc.git
+    update: yes
+    remote: https-origin  # allow origin to be ssh url
+    dest: ~/Development/zshrc
+
 - name: ~/.zshrc
   file:
     state: link
     force: yes
-    src: "{{ ansible_env.PWD }}/roles/cli/files/zshrc"
-    dest: "~/.zshrc"
+    src: ~/Development/zshrc/zshrc
+    dest: ~/.zshrc
 
 - name: ~/.tigrc
   file:
