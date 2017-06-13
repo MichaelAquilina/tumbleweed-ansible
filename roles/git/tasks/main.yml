@@ -27,3 +27,9 @@
     name: push.default
     scope: global
     value: simple
+
+- name: cherry-pick alias
+  git_config:
+    name: alias.cp
+    scope: global
+    value: cherry-pick
