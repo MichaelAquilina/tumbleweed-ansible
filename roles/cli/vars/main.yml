@@ -4,6 +4,7 @@ cli_apps:
   - git
   - htop
   - jq
+  - osc
   - password-store
   - rust
   - ShellCheck
