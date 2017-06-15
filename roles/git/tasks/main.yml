@@ -28,6 +28,18 @@
     scope: global
     value: simple
 
+- name: dont prompt mergetool
+  git_config:
+    name: mergetool.prompt
+    scope: global
+    value: "false"
+
+- name: dont prompt difftool
+  git_config:
+    name: difftool.prompt
+    scope: global
+    value: "false"
+
 - name: cherry-pick alias
   git_config:
     name: alias.cp
