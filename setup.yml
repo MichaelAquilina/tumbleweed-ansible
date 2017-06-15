@@ -3,6 +3,7 @@
   connection: local
   roles:
     - cli
+    - docker
     - cron
     - vim
     - git
