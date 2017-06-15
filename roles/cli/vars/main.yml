@@ -1,5 +1,6 @@
 cli_apps:
   - ack
+  - cargo
   - colordiff
   - git
   - htop
