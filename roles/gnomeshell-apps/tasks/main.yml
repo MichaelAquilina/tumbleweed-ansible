@@ -1,3 +1,11 @@
+- name: Additional repos
+  become: yes
+  zypper_repository:
+    repo: "{{ item.uri }}"
+    name: "{{ item.name }}"
+    auto_import_keys: yes
+  with_items: "{{ repos }}"
+
 - name: Gnome Shell Apps are Installed
   become: yes
   zypper:
