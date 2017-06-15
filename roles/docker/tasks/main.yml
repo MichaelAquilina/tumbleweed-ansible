@@ -3,6 +3,11 @@
   zypper:
     name: docker
 
+- name: docker-compose is installed
+  become: yes
+  pip:
+    name: docker-compose
+
 - name: docker group
   become: yes
   group:
