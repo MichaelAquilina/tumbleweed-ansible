@@ -36,13 +36,6 @@
     src: "{{ ansible_env.PWD }}/roles/cli/files/dircolors"
     dest: "~/.dircolors"
 
-- name: CryptoSquirrel
-  file:
-    state: link
-    force: yes
-    src: "{{ ansible_env.PWD }}/roles/cli/files/crypto_squirrel.txt"
-    dest: "~/.crypto_squirrel"
-
 - name: zshrc repo
   git:
     repo: https://github.com/MichaelAquilina/zshrc.git
