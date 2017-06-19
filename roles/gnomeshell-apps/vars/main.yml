@@ -5,6 +5,7 @@ repos:
   - {"uri": "https://download.opensuse.org/repositories/home:/MichaelAquilina/openSUSE_Tumbleweed/", "name": "MichaelAquilina"}
 
 gnome_apps:
+  - flatpak
   - gnome-pomodoro
   - synapse
   - tilix
