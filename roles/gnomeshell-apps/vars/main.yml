@@ -7,6 +7,7 @@ repos:
 
 gnome_apps:
   - flatpak
+  - gthumb
   - gnome-pomodoro
   - synapse
   - tilix
