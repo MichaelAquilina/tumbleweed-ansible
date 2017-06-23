@@ -45,3 +45,9 @@
     name: alias.cp
     scope: global
     value: cherry-pick
+
+- name: neovim is core editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: nvim

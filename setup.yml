@@ -5,7 +5,7 @@
     - cli
     - docker
     - cron
-    - vim
+    - nvim
     - git
     - development
     - gnomeshell
