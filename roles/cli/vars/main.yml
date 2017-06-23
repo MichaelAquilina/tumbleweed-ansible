@@ -6,6 +6,7 @@ cli_apps:
   - htop
   - jq
   - osc
+  - neovim
   - password-store
   - rpmbuild
   - rust
