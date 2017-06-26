@@ -25,3 +25,11 @@
     force: yes
     src: ~/Development/vimrc/vimrc
     dest: ~/.config/nvim/init.vim
+
+- name: python neovim bindings installed
+  become: yes
+  zypper:
+    name: "{{ item }}"
+  with_items:
+    - python3-neovim
+    - python-neovim
