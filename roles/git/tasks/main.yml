@@ -46,6 +46,12 @@
     scope: global
     value: cherry-pick
 
+- name: global git ignore file
+  git_config:
+    name: core.excludesfile
+    scope: global
+    value: ~/.gitignore
+
 - name: neovim is core editor
   git_config:
     name: core.editor
