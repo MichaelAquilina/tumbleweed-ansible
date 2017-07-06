@@ -2,6 +2,7 @@ cli_apps:
   - ack
   - cargo
   - colordiff
+  - ffmpeg
   - git
   - htop
   - jq
