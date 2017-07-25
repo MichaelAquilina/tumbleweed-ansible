@@ -12,3 +12,14 @@
     name: "{{ item }}"
     state: latest
   with_items: "{{ gnome_apps }}"
+
+- name: Zim Shortcuts
+  file:
+    state: link
+    src: "{{ ansible_env.PWD }}/roles/gnomeshell-apps/files/{{ item }}"
+    dest: "~/.local/share/applications/{{ item }}"
+    force: yes
+  with_items:
+    - zim_todo.desktop
+    - zim_yesterday.desktop
+    - zim_tomorrow.desktop
