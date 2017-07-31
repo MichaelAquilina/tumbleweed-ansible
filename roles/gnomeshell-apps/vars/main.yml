@@ -1,7 +1,6 @@
 repos:
   # zypper_repository bug means that you cannot link to .repo uris. See https://github.com/ansible/ansible/issues/23257
   # sogal repo does not provide tilix for Tumbleweed, so we need to link to Leap
-  - {"uri": "https://download.opensuse.org/repositories/home:/sogal/openSUSE_Leap_42.2/", "name": "sogal"}
   - {"uri": "https://download.opensuse.org/repositories/home:/MichaelAquilina/openSUSE_Tumbleweed/", "name": "MichaelAquilina"}
   - {"uri": "http://download.opensuse.org/repositories/devel:/openSUSE:/Factory:/Apps/openSUSE_Tumbleweed/", "name": "Apps"}
 
