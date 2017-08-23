@@ -8,6 +8,7 @@ cli_apps:
   - jq
   - osc
   - neovim
+  - pandoc
   - password-store
   - rpmbuild
   - rust
