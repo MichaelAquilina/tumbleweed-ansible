@@ -11,7 +11,7 @@ bind generic Y !@sh -c "echo -n %(commit) | xclip -selection c"
 set vertical-split = false
 set line-graphics = utf-8
 set id-width = 4
-set main-view = date author id:yes,width=6 commit-title:graph=false,refs=true
+set main-view = line-number:no,interval=5 date:default author:full id:yes commit-title:yes,overflow=no
 set diff-options = --show-signature
 
 # general
@@ -101,4 +101,3 @@ color   tree.directory                221     default
 #   LINE(PALETTE_4, "", COLOR_DEFAULT, COLOR_DEFAULT, 0), \
 #   LINE(PALETTE_5, "", COLOR_WHITE, COLOR_DEFAULT, 0), \
 #   LINE(PALETTE_6, "", COLOR_RED, )
-
