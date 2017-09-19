@@ -11,7 +11,7 @@ bind generic Y !@sh -c "echo -n %(commit) | xclip -selection c"
 set vertical-split = false
 set line-graphics = utf-8
 set id-width = 4
-set main-view = line-number:no,interval=5 date:default author:full id:yes commit-title:yes,overflow=no
+set main-view = line-number:no,interval=5 date:default author:full id:yes commit-title:yes,overflow=no,refs:yes
 set diff-options = --show-signature
 
 # general
