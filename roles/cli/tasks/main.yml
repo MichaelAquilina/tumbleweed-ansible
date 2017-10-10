@@ -63,6 +63,13 @@
     name: "{{ ansible_env.USER }}"
     shell: /bin/zsh
 
+- name: User in systemd-journal group
+  become: yes
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: systemd-journal
+    append: yes
+
 - name: local bin dirtory
   file:
     state: directory
