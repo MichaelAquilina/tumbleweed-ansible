@@ -9,6 +9,7 @@ gnome_apps:
   - flatpak
   - gthumb
   - gnome-pomodoro
+  - rhythmbox
   - synapse
   - tilix
   - zim
