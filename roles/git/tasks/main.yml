@@ -1,9 +1,3 @@
-- name: vim is default git editor
-  git_config:
-    name: core.editor
-    scope: global
-    value: vim
-
 - name: rebase on pull
   git_config:
     name: pull.rebase
