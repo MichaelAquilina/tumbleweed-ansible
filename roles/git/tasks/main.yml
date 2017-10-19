@@ -44,7 +44,7 @@
   git_config:
     name: core.excludesfile
     scope: global
-    value: ~/.gitignore
+    value: "{{ ansible_env.HOME }}/.gitignore"
 
 - name: neovim is core editor
   git_config:
