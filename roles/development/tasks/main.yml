@@ -8,7 +8,7 @@
     - libtool
     - libgee-devel
     - libnotify-devel
-    - keybinder3-devel
+    - keybinder-3.0-devel
     - json-glib-devel
     - zeitgeist-devel
     - vala
