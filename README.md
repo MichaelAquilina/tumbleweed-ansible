@@ -6,3 +6,5 @@ Setup an OpenSUSE Tumbleweed machine up from scratch.
 ```
 $ ansible-playbook -i local_inventory.yml setup.yml -K
 ```
+
+Minimum version of ansible supported is 2.4
