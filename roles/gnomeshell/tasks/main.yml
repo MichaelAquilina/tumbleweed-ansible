@@ -53,6 +53,11 @@
     key: switch-windows
     value: "['<Alt>Tab']"
 
+- name: Evolution is installed
+  zypper:
+    name: evolution
+    state: latest
+
 - name: Display Reminders in Notification Area Only
   gsettings:
     schema: org.gnome.evolution.calendar
