@@ -2,6 +2,13 @@
   become: yes
   zypper:
     name: gnome-shell-devel
+    state: latest
+
+- name: Python3 gobject
+  become: yes
+  zypper:
+    name: python3-gobject
+    state: latest
 
 - name: System Monitor Extension Dependencies
   become: yes
