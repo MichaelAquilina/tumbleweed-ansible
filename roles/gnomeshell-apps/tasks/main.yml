@@ -13,6 +13,11 @@
     state: latest
   with_items: "{{ gnome_apps }}"
 
+- name: Applications Directory
+  file:
+    state: directory
+    dest: "~/.local/share/applications/"
+
 - name: Zim Shortcuts
   file:
     state: link
