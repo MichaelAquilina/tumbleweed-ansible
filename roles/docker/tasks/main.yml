@@ -20,10 +20,3 @@
     name: "{{ ansible_user_id }}"
     groups: docker
     append: yes
-
-- name: docker.service is enabled
-  become: yes
-  service:
-    name: docker
-    enabled: yes
-    state: started
