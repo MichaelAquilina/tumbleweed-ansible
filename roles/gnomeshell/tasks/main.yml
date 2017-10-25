@@ -54,6 +54,7 @@
     value: "['<Alt>Tab']"
 
 - name: Evolution is installed
+  become: yes
   zypper:
     name: evolution
     state: latest
