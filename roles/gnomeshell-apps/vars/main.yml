@@ -6,6 +6,7 @@ repos:
   - {"uri": "http://download.opensuse.org/repositories/devel:/openSUSE:/Factory:/Apps/openSUSE_Tumbleweed/", "name": "Apps"}
 
 gnome_apps:
+  - dconf-editor
   - flatpak
   - gthumb
   - gnome-pomodoro
