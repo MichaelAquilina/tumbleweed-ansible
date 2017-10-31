@@ -9,7 +9,6 @@ gnome_apps:
   - dconf-editor
   - flatpak
   - gthumb
-  - gnome-pomodoro
   - rhythmbox
   - synapse
   - tilix
