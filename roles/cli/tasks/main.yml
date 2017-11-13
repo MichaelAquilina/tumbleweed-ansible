@@ -12,11 +12,10 @@
 
 - name: Python virtualenv is installed
   become: yes
-  zypper:
+  pip:
     name: "{{ item }}"
   with_items:
-    - python-virtualenv
-    - python3-virtualenv
+    - virtualenv
 
 - name: Python virtualenvwrapper is installed
   become: yes
