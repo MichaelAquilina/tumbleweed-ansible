@@ -1,24 +1,26 @@
+---
+
 - name: ZSH is installed
-  become: yes
+  become: "yes"
   zypper:
     name: zsh
 
 - name: Command Line Apps are Installed
-  become: yes
+  become: "yes"
   zypper:
     name: "{{ item }}"
     state: latest
   with_items: "{{ cli_apps }}"
 
 - name: Python virtualenv is installed
-  become: yes
+  become: "yes"
   pip:
     name: "{{ item }}"
   with_items:
     - virtualenv
 
 - name: Python virtualenvwrapper is installed
-  become: yes
+  become: "yes"
   zypper:
     name: python-virtualenvwrapper
 
@@ -26,48 +28,48 @@
   git:
     repo: https://github.com/MichaelAquilina/zplug
     dest: ~/.zplug
-    update: yes
+    update: "yes"
 
 - name: dircolors
   file:
     state: link
-    force: yes
+    force: "yes"
     src: "{{ ansible_env.PWD }}/roles/cli/files/dircolors"
     dest: "~/.dircolors"
 
 - name: zshrc repo
   git:
     repo: https://github.com/MichaelAquilina/zshrc.git
-    update: yes
+    update: "yes"
     remote: https-origin  # allow origin to be ssh url
     dest: ~/Development/zshrc
 
 - name: ~/.zshrc
   file:
     state: link
-    force: yes
+    force: "yes"
     src: ~/Development/zshrc/zshrc
     dest: ~/.zshrc
 
 - name: ~/.tigrc
   file:
     state: link
-    force: yes
+    force: "yes"
     src: "{{ ansible_env.PWD }}/roles/cli/files/tigrc"
     dest: "~/.tigrc"
 
 - name: ZSH as default shell
-  become: yes
+  become: "yes"
   user:
     name: "{{ ansible_user_id }}"
     shell: /bin/zsh
 
 - name: User in systemd-journal group
-  become: yes
+  become: "yes"
   user:
     name: "{{ ansible_user_id }}"
     groups: systemd-journal
-    append: yes
+    append: "yes"
 
 - name: local bin dirtory
   file:

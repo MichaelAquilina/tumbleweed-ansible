@@ -1,11 +1,20 @@
+---
 
 sudo: false
 dist: trusty
 
 language: python
+addons:
+  apt:
+    packages:
+      - libyaml-dev
 
 services:
   - docker
 
+install:
+  - pip install yamllint
+
 script:
+  - yamllint .
   - docker build .

@@ -1,3 +1,5 @@
+---
+
 - name: Suspend on Battery
   gsettings:
     schema: org.gnome.settings-daemon.plugins.power
