@@ -1,2 +1,5 @@
+---
+
 repos:
-  - {"uri": "http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/Essentials/", "name": "PackmanEssentials"}
+  - uri: "http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/Essentials/"
+    name: "PackmanEssentials"

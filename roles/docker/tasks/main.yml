@@ -1,22 +1,24 @@
+---
+
 - name: docker is installed
-  become: yes
+  become: "yes"
   zypper:
     name: docker
 
 - name: docker-compose is installed
-  become: yes
+  become: "yes"
   pip:
     name: docker-compose
 
 - name: docker group
-  become: yes
+  become: "yes"
   group:
     name: docker
     state: present
 
 - name: current user is in docker group
-  become: yes
+  become: "yes"
   user:
     name: "{{ ansible_user_id }}"
     groups: docker
-    append: yes
+    append: "yes"

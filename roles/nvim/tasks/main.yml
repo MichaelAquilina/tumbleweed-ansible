@@ -1,11 +1,13 @@
+---
+
 - name: mkdir neovim
   file:
-   state: directory
-   path: "{{ item }}"
-   recurse: yes
+    state: directory
+    path: "{{ item }}"
+    recurse: "yes"
   with_items:
-   - "~/.local/share/nvim/site/autoload"
-   - "~/.config/nvim/"
+    - "~/.local/share/nvim/site/autoload"
+    - "~/.config/nvim/"
 
 - name: vim-plug is installed
   get_url:
@@ -17,17 +19,17 @@
     repo: https://github.com/MichaelAquilina/vimrc.git
     dest: ~/Development/vimrc
     remote: https-origin  # allow origin to be set to ssh url
-    update: yes
+    update: "yes"
 
 - name: nvimrc is linked
   file:
     state: link
-    force: yes
+    force: "yes"
     src: ~/Development/vimrc/vimrc
     dest: ~/.config/nvim/init.vim
 
 - name: python neovim bindings installed
-  become: yes
+  become: "yes"
   zypper:
     name: "{{ item }}"
   with_items:

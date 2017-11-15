@@ -1,13 +1,15 @@
+---
+
 - name: Additional repos
-  become: yes
+  become: "yes"
   zypper_repository:
     repo: "{{ item.uri }}"
     name: "{{ item.name }}"
-    auto_import_keys: yes
+    auto_import_keys: "yes"
   with_items: "{{ repos }}"
 
 - name: Gnome Shell Apps are Installed
-  become: yes
+  become: "yes"
   zypper:
     name: "{{ item }}"
     state: latest
@@ -23,7 +25,7 @@
     state: link
     src: "{{ ansible_env.PWD }}/roles/gnomeshell-apps/files/{{ item }}"
     dest: "~/.local/share/applications/{{ item }}"
-    force: yes
+    force: "yes"
   with_items:
     - zim_todo.desktop
     - zim_yesterday.desktop

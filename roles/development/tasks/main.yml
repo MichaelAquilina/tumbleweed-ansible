@@ -1,5 +1,7 @@
+---
+
 - name: Standard Development Tools are Installed
-  become: yes
+  become: "yes"
   zypper:
     name: "{{ item }}"
   with_items:

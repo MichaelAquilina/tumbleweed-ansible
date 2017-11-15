@@ -1,13 +1,15 @@
+---
+
 - name: Packman repos
-  become: yes
+  become: "yes"
   zypper_repository:
     repo: "{{ item.uri }}"
     name: "{{ item.name }}"
-    auto_import_keys: yes
+    auto_import_keys: "yes"
   with_items: "{{ repos }}"
 
 - name: Upgrade with Vendor Change
-  become: yes
+  become: "yes"
   zypper:
     name: "*"
     state: dist-upgrade
