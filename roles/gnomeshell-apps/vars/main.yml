@@ -10,7 +10,7 @@ repos:
     name: MichaelAquilina
 
   - uri:
-       "http://download.opensuse.org/repositories/devel:/openSUSE:/Factory:/Apps/openSUSE_Tumbleweed/"
+      "http://download.opensuse.org/repositories/devel:/openSUSE:/Factory:/Apps/openSUSE_Tumbleweed/"
     name: Apps
 
 gnome_apps:
