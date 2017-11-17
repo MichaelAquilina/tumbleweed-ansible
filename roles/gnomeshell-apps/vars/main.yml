@@ -17,6 +17,7 @@ gnome_apps:
   - dconf-editor
   - flatpak
   - gthumb
+  - meld
   - rhythmbox
   - synapse
   - tilix
