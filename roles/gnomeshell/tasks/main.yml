@@ -1,5 +1,10 @@
 ---
 
+- name: Gnome Session Wayland is installed
+  become: "yes"
+  zypper:
+    name: gnome-session-wayland
+
 - name: Show Date
   gsettings:
     schema: org.gnome.desktop.interface
