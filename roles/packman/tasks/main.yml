@@ -13,7 +13,7 @@
   zypper:
     name: "*"
     state: dist-upgrade
-    extra_args: "--no-allow-vendor-change"
+    extra_args: "--allow-vendor-change"
 
 - name: gstreamer-plugins-libav is installed
   become: "yes"
