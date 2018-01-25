@@ -1,0 +1,15 @@
+---
+
+- name: Mozilla repos
+  become: "yes"
+  zypper_repository:
+    repo: "http://download.opensuse.org/repositories/mozilla/openSUSE_Tumbleweed/"
+    name: "mozilla"
+    auto_import_keys: "yes"
+
+- name: Upgrade with Vendor Change
+  become: "yes"
+  zypper:
+    name: "*"
+    state: dist-upgrade
+    extra_args: "--allow-vendor-change"
