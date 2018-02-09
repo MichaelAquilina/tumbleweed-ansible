@@ -21,4 +21,5 @@ gnome_apps:
   - rhythmbox
   - synapse
   - tilix
+  - vlc
   - zim
