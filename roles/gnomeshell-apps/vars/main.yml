@@ -18,6 +18,7 @@ gnome_apps:
   - flatpak
   - gthumb
   - meld
+  - peek
   - rhythmbox
   - synapse
   - tilix
