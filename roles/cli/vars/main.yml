@@ -14,6 +14,7 @@ cli_apps:
   - password-store
   - rpmbuild
   - rust
+  - rust-std
   - ShellCheck
   - tig
   - xsel
