@@ -16,6 +16,7 @@ repos:
 gnome_apps:
   - dconf-editor
   - flatpak
+  - xdg-desktop-portal-gtk  # required for opening links etc..
   - gthumb
   - meld
   - peek
