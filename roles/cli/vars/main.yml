@@ -4,6 +4,7 @@ cli_apps:
   - ack
   - cargo
   - colordiff
+  - fd
   - ffmpeg
   - git
   - htop
@@ -12,6 +13,7 @@ cli_apps:
   - neovim
   - pandoc
   - password-store
+  - ripgrep
   - rpmbuild
   - rust
   - rust-std
