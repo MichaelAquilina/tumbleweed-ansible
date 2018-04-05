@@ -19,6 +19,7 @@ gnome_apps:
   - xdg-desktop-portal-gtk  # required for opening links etc..
   - gthumb
   - meld
+  - notes-up
   - peek
   - rhythmbox
   - synapse
