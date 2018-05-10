@@ -5,7 +5,6 @@ cli_apps:
   - cargo
   - colordiff
   - fd
-  - ffmpeg
   - git
   - htop
   - jq
