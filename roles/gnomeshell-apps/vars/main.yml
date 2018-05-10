@@ -20,7 +20,6 @@ gnome_apps:
   - gthumb
   - meld
   - notes-up
-  - peek
   - rhythmbox
   - synapse
   - tilix
