@@ -11,6 +11,7 @@
     - gnomeshell-theme
     - gnomeshell-apps
     - gnomeshell-extensions
+    - flatpak
     - mozilla
     - packman
     - nightlight
