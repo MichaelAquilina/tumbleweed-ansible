@@ -1,10 +1,12 @@
 ---
 
-- name: Suspend on Battery
+- name: Power Saver Settings
   gsettings:
     schema: org.gnome.settings-daemon.plugins.power
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   with_items:
-    - {key: sleep-inactive-battery-type, value: suspend}
+    - {key: power-button-action, value: "hibernate"}
+    - {key: sleep-inactive-ac-type, value: "nothing"}
+    - {key: sleep-inactive-battery-type, value: "suspend"}
     - {key: sleep-inactive-battery-timeout, value: 900}  # 15min
