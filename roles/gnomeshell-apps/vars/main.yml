@@ -19,6 +19,7 @@ gnome_apps:
   - meld
   - notes-up
   - rhythmbox
+  - quickdocs
   - synapse
   - tilix
   - zim
