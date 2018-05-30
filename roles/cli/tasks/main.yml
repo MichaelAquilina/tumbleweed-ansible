@@ -28,6 +28,8 @@
   git:
     repo: https://github.com/MichaelAquilina/zplug
     dest: ~/.zplug
+    # zplug often makes changes to itself
+    force: "yes"
     update: "yes"
 
 - name: dircolors
