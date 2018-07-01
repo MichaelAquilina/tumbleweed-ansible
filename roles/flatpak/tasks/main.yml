@@ -18,3 +18,5 @@
     state: present
     method: user
   with_items: "{{ flatpak_apps }}"
+  # Dont run this task if running inside a docker container (e.g. Travis)
+  when: dockerenv.stat.exists == False
