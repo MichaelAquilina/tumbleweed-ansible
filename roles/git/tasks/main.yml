@@ -48,6 +48,12 @@
     scope: global
     value: "{{ ansible_env.HOME }}/.gitignore"
 
+- name: gpg sign is enabled
+  git_config:
+    name: commit.gpgsign
+    scope: global
+    value: "true"
+
 - name: neovim is core editor
   git_config:
     name: core.editor
