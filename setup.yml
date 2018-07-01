@@ -1,6 +1,12 @@
 ---
 - hosts: 127.0.0.1
   connection: local
+  pre_tasks:
+    - name: "Docker Container Status"
+      stat:
+        path: "/.dockerenv"
+      register: dockerenv
+
   roles:
     - cli
     - docker
@@ -11,6 +17,7 @@
     - gnomeshell-theme
     - gnomeshell-apps
     - gnomeshell-extensions
+    - flatpak
     - mozilla
     - packman
     - nightlight

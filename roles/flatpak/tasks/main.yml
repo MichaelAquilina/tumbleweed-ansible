@@ -1,0 +1,22 @@
+---
+
+- name: flatpak is installed
+  become: "yes"
+  zypper:
+    name: flatpak
+
+- name: Flathub Remote
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    method: user
+
+- name: Flatpak Apps Installed
+  flatpak:
+    name: "{{ item }}"
+    state: present
+    method: user
+  with_items: "{{ flatpak_apps }}"
+  # Dont run this task if running inside a docker container (e.g. Travis)
+  when: dockerenv.stat.exists == False

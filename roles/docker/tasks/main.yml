@@ -23,10 +23,6 @@
     groups: docker
     append: "yes"
 
-- stat:
-    path: "/.dockerenv"
-  register: dockerenv
-
 - name: Docker is enabled
   become: "yes"
   service:
