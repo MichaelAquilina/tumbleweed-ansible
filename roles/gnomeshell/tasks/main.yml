@@ -28,7 +28,7 @@
     schema: "{{ item }}"
     key: current-workspace-only
     value: "true"
-  with_items:
+  loop:
     - org.gnome.shell.app-switcher
     - org.gnome.shell.window-switcher
 
@@ -37,7 +37,7 @@
     schema: org.gnome.desktop.privacy
     key: "{{ item.key }}"
     value: "{{ item.value }}"
-  with_items:
+  loop:
     - {key: remove-old-trash-files, value: "true"}
     - {key: old-files-age, value: "uint32 1"}
     # Do not enable - Interferes with gpgagent
@@ -92,7 +92,7 @@
     option: NoDisplay
     value: "false"
     section: "Desktop Entry"
-  with_items:
+  loop:
     - "/usr/share/applications/gnome-background-panel.desktop"
     - "/usr/share/applications/gnome-bluetooth-panel.desktop"
     - "/usr/share/applications/gnome-datetime-panel.desktop"

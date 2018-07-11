@@ -6,14 +6,14 @@
     repo: "{{ item.uri }}"
     name: "{{ item.name }}"
     auto_import_keys: "yes"
-  with_items: "{{ repos }}"
+  loop: "{{ repos }}"
 
 - name: Gnome Shell Apps are Installed
   become: "yes"
   zypper:
     name: "{{ item }}"
     state: latest
-  with_items: "{{ gnome_apps }}"
+  loop: "{{ gnome_apps }}"
 
 - name: Applications Directory
   file:
