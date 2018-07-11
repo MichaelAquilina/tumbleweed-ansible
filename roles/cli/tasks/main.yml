@@ -10,13 +10,13 @@
   zypper:
     name: "{{ item }}"
     state: latest
-  with_items: "{{ cli_apps }}"
+  loop: "{{ cli_apps }}"
 
 - name: Python virtualenv is installed
   become: "yes"
   pip:
     name: "{{ item }}"
-  with_items:
+  loop:
     - virtualenv
 
 - name: Python virtualenvwrapper is installed

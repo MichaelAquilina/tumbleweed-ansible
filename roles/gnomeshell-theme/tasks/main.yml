@@ -12,7 +12,7 @@
   zypper:
     name: "{{ item }}"
     state: latest
-  with_items:
+  loop:
     - gtk3-metatheme-arc
     - gtk2-metatheme-arc
 

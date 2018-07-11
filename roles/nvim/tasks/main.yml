@@ -5,7 +5,7 @@
     state: directory
     path: "{{ item }}"
     recurse: "yes"
-  with_items:
+  loop:
     - "~/.local/share/nvim/site/autoload"
     - "~/.config/nvim/"
 
@@ -32,6 +32,6 @@
   become: "yes"
   zypper:
     name: "{{ item }}"
-  with_items:
+  loop:
     - python3-neovim
     - python-neovim

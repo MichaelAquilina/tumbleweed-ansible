@@ -5,7 +5,7 @@
     schema: org.gnome.settings-daemon.plugins.power
     key: "{{ item.key }}"
     value: "{{ item.value }}"
-  with_items:
+  loop:
     - {key: power-button-action, value: "hibernate"}
     - {key: sleep-inactive-ac-type, value: "nothing"}
     - {key: sleep-inactive-battery-type, value: "suspend"}

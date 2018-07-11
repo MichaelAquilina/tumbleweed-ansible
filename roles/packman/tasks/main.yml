@@ -6,7 +6,7 @@
     repo: "{{ item.uri }}"
     name: "{{ item.name }}"
     auto_import_keys: "yes"
-  with_items: "{{ repos }}"
+  loop: "{{ repos }}"
 
 - name: Upgrade with Vendor Change
   become: "yes"
