@@ -1,0 +1,51 @@
+---
+
+version: 2
+
+jobs:
+  lint:
+    docker:
+      - image: "python:3.7-stretch"
+    steps:
+      - checkout
+      - run:
+          name: run linter
+          command: |
+            pip install yamllint
+            yamllint .
+
+  run_playbook:
+    docker:
+      - image: "opensuse:tumbleweed"
+    steps:
+      - checkout
+      - run:
+          name: Install additional dependencies
+          command: zypper install -y python-pip
+      - run:
+          name: Install ansible
+          command: pip install ansible==2.6.0  # Possible regression in 2.6.4?
+      - run:
+          name: Install Gnome Shell
+          command: zypper install -y gnome-shell
+      - run:
+          name: Run playbook
+          command: ansible-playbook -i local.inventory setup.yml
+
+workflows:
+  version: 2
+  monthly_test:
+    triggers:
+      - schedule:
+          cron: "0 0 1 * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - lint
+      - run_playbook
+  playbook_test:
+    jobs:
+      - lint
+      - run_playbook

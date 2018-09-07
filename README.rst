@@ -1,7 +1,7 @@
 Tumbleweed Ansible
 ==================
 
-|TravisCI|
+|CircleCI|
 
 Setup an OpenSUSE Tumbleweed machine up from scratch.
 
@@ -11,5 +11,5 @@ Setup an OpenSUSE Tumbleweed machine up from scratch.
 
 Minimum version of ansible supported is 2.6
 
-.. |TravisCI| image:: https://travis-ci.org/MichaelAquilina/tumbleweed-ansible.svg?branch=master
+.. |CircleCI| image:: https://codecov.io/gh/MichaelAquilina/tumbleweed-ansible/branch/master/graph/badge.svg
    :target: https://travis-ci.org/MichaelAquilina/tumbleweed-ansible
