@@ -67,12 +67,6 @@
     name: evolution
     state: latest
 
-- name: Display Reminders in Notification Area Only
-  gsettings:
-    schema: org.gnome.evolution.calendar
-    key: notify-with-tray
-    value: "true"
-
 - name: Center Windows
   gsettings:
     schema: org.gnome.mutter
