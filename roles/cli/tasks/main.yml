@@ -19,11 +19,6 @@
   loop:
     - virtualenv
 
-- name: Python virtualenvwrapper is installed
-  become: "yes"
-  zypper:
-    name: python-virtualenvwrapper
-
 - name: ZPlug is installed
   git:
     repo: https://github.com/MichaelAquilina/zplug
