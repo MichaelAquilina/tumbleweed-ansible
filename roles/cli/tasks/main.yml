@@ -19,11 +19,10 @@
   loop:
     - virtualenv
 
-- name: ZPlug is installed
+- name: zplugin is installed
   git:
-    repo: https://github.com/MichaelAquilina/zplug
-    dest: ~/.zplug
-    # zplug often makes changes to itself
+    repo: https://github.com/zdharma/zplugin
+    dest: ~/.zplugin/bin
     force: "yes"
     update: "yes"
 
