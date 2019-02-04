@@ -17,7 +17,7 @@
   pip:
     name: "{{ item }}"
   loop:
-    - virtualenv
+    - python3-virtualenv
 
 - name: zplugin is installed
   git:
