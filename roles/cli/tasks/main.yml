@@ -12,13 +12,6 @@
     state: latest
   loop: "{{ cli_apps }}"
 
-- name: Python virtualenv is installed
-  become: "yes"
-  pip:
-    name: "{{ item }}"
-  loop:
-    - python3-virtualenv
-
 - name: ZPlug is installed
   git:
     repo: https://github.com/MichaelAquilina/zplug

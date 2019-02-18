@@ -19,3 +19,4 @@ cli_apps:
   - ShellCheck
   - tig
   - xsel
+  - python3-virtualenv
