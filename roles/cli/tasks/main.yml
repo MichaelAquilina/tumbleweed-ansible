@@ -19,10 +19,11 @@
   loop:
     - python3-virtualenv
 
-- name: zplugin is installed
+- name: ZPlug is installed
   git:
-    repo: https://github.com/zdharma/zplugin
-    dest: ~/.zplugin/bin
+    repo: https://github.com/MichaelAquilina/zplug
+    dest: ~/.zplug
+    # zplug often makes changes to itself
     force: "yes"
     update: "yes"
 
