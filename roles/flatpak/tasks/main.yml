@@ -11,6 +11,7 @@
     state: present
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
+  when: dockerenv.stat.exists == False
 
 - name: Flatpak Apps Installed
   flatpak:
