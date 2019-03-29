@@ -1,4 +1,4 @@
-FROM opensuse:tumbleweed
+FROM opensuse/tumbleweed
 
 RUN zypper install -y python-pip gnome-shell git && \
     pip install ansible==2.6.0
