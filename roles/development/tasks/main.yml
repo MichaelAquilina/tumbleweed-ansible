@@ -8,9 +8,4 @@
     - automake
     - intltool
     - libtool
-    - libgee-devel
-    - libnotify-devel
-    - keybinder-3.0-devel
-    - json-glib-devel
-    - zeitgeist-devel
     - vala

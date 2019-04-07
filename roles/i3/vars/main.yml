@@ -1,0 +1,13 @@
+---
+
+i3_apps:
+  - dunst
+  - feh
+  - flameshot
+  - i3
+  - playerctl
+  - polybar
+  - rofi
+  - tilix
+  - xautolock
+  - xdotool    # Required by rofi-pass

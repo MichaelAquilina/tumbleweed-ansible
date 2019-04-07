@@ -5,7 +5,6 @@ cli_apps:
   - cargo
   - colordiff
   - fd
-  - git
   - htop
   - jq
   - osc

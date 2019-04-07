@@ -1,5 +1,10 @@
 ---
 
+- name: git is installed
+  become: "yes"
+  zypper:
+    name: git
+
 - name: rebase on pull
   git_config:
     name: pull.rebase

@@ -1,9 +1,12 @@
 ---
 
-- name: flatpak is installed
+- name: flatpak and dependencies is installed
   become: "yes"
   zypper:
-    name: flatpak
+    name: "{{ item }}"
+  loop:
+    - flatpak
+    - xdg-desktop-portal-gtk
 
 - name: Flathub Remote
   flatpak_remote:
