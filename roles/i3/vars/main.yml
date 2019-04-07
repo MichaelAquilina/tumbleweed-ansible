@@ -6,7 +6,6 @@ i3_apps:
   - feh
   - flameshot
   - i3
-  - nm-applet
   - playerctl
   # Currently polybar is not in the standard Factory repo
   # - polybar
