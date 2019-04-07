@@ -8,7 +8,8 @@ i3_apps:
   - i3
   - nm-applet
   - playerctl
-  - polybar
+  # Currently polybar is not in the standard Factory repo
+  # - polybar
   - rofi
   - tilix
   - xautolock
