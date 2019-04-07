@@ -16,7 +16,7 @@ jobs:
 
   run_playbook:
     docker:
-      - image: "opensuse:tumbleweed"
+      - image: "opensuse/tumbleweed"
     steps:
       - checkout
       - run:
