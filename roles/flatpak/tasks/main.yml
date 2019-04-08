@@ -1,9 +1,12 @@
 ---
 
-- name: flatpak is installed
+- name: flatpak and dependencies is installed
   become: "yes"
   zypper:
-    name: flatpak
+    name: "{{ item }}"
+  loop:
+    - flatpak
+    - xdg-desktop-portal-gtk
 
 - name: Flathub Remote
   flatpak_remote:
@@ -11,6 +14,7 @@
     state: present
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
+  # Don't run this task if running inside a docker container (e.g. CircleCI)
   when: dockerenv.stat.exists == False
 
 - name: Flatpak Apps Installed
@@ -19,5 +23,5 @@
     state: present
     method: user
   loop: "{{ flatpak_apps }}"
-  # Dont run this task if running inside a docker container (e.g. Travis)
+  # Don't run this task if running inside a docker container (e.g. CircleCI)
   when: dockerenv.stat.exists == False

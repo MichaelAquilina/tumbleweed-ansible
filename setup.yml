@@ -8,17 +8,11 @@
       register: dockerenv
 
   roles:
+    - git
     - cli
     - docker
     - nvim
-    - git
-    - development
-    - gnomeshell
-    - gnomeshell-theme
-    - gnomeshell-apps
-    - gnomeshell-extensions
+    - i3
     - flatpak
     - mozilla
     - packman
-    - nightlight
-    - power
