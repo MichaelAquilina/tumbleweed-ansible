@@ -1,8 +1,10 @@
 ---
 
 i3_apps:
-  # Currently polybar is not in the standard Factory repo
+  # The following packages are currently not in the standard Factory repo
   # - polybar
+  # - rofi-pass
+  # - xidlehook
   - compton
   - dunst
   - feh
