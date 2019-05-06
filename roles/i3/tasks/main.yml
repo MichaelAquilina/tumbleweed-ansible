@@ -1,8 +1,0 @@
----
-
-- name: i3 packages installed
-  become: "yes"
-  zypper:
-    name: "{{ item }}"
-    state: latest
-  loop: "{{ i3_apps }}"
