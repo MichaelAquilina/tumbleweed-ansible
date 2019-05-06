@@ -11,10 +11,8 @@ sway_apps:
   - swaylock
   - playerctl
   - rofi
-  - rofi-calc
   - tilix
   - swayidle
-  - xdotool    # Required by rofi-pass
   - pavucontrol
   # Wayland support for qt
   - libqt5-qtwayland
