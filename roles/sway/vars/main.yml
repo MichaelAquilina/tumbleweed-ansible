@@ -1,0 +1,18 @@
+---
+
+sway_apps:
+  # - rofi-pass
+  - light
+  - mako
+  - waybar
+  - grim
+  - fontawesome-fonts
+  - sway
+  - swaylock
+  - playerctl
+  - rofi
+  - tilix
+  - swayidle
+  - pavucontrol
+  # Wayland support for qt
+  - libqt5-qtwayland

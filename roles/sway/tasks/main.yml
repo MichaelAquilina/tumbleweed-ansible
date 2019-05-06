@@ -1,0 +1,17 @@
+---
+
+# Currently required for light
+- name: personal repo added
+  become: "yes"
+  zypper_repository:
+    repo: https://download.opensuse.org/repositories/home:/MichaelAquilina/openSUSE_Tumbleweed/
+    name: MichaelAquilina
+    auto_import_keys: yes
+
+
+- name: sway packages installed
+  become: "yes"
+  zypper:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ sway_apps }}"
