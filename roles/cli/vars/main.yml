@@ -1,7 +1,6 @@
 ---
 
 cli_apps:
-  - ack
   - cargo
   - colordiff
   - fd
@@ -9,14 +8,11 @@ cli_apps:
   - jq
   - osc
   - neovim
-  - pandoc
   - password-store
   - ripgrep
-  - rpmbuild
   - rust
   - rust-std
   - ShellCheck
   - tig
-  - xsel
   - python3-virtualenv
   - nodejs10
