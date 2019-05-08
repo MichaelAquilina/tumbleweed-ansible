@@ -12,6 +12,7 @@ sway_apps:
   - playerctl
   - rofi
   - tilix
+  - slurp
   - swayidle
   - pavucontrol
   # Wayland support for qt
