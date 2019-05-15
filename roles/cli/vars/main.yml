@@ -1,18 +1,20 @@
 ---
 
 cli_apps:
+  - ShellCheck
+  - bat
   - cargo
   - colordiff
   - fd
+  - fzf
   - htop
   - jq
-  - osc
   - neovim
+  - nodejs10
+  - osc
   - password-store
+  - python3-virtualenv
   - ripgrep
   - rust
   - rust-std
-  - ShellCheck
   - tig
-  - python3-virtualenv
-  - nodejs10
