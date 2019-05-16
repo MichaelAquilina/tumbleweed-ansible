@@ -14,4 +14,12 @@
   zypper:
     name: "{{ item }}"
     state: latest
-  loop: "{{ sway_apps }}"
+    loop: "{{ sway_apps }}"
+
+ # Required for user to be able to adjust brightness settings with light
+- name: current user is in video group
+  become: "yes"
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: video
+    append: "yes"

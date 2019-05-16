@@ -12,14 +12,6 @@
     state: latest
   loop: "{{ cli_apps }}"
 
-# Required for user to be able to adjust brightness settings
-- name: current user is in video group
-  become: "yes"
-  user:
-    name: "{{ ansible_user_id }}"
-    groups: video
-    append: "yes"
-
 - name: ZPlug is installed
   git:
     repo: https://github.com/MichaelAquilina/zplug
