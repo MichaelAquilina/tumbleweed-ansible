@@ -1,6 +1,6 @@
 ---
 
-# Currently required for light
+# Currently required for light and wf-recorder
 - name: personal repo added
   become: "yes"
   zypper_repository:

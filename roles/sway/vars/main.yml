@@ -15,5 +15,6 @@ sway_apps:
   - slurp
   - swayidle
   - pavucontrol
+  - wf-recorder
   # Wayland support for qt
   - libqt5-qtwayland
