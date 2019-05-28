@@ -18,3 +18,4 @@ sway_apps:
   - wf-recorder
   # Wayland support for qt
   - libqt5-qtwayland
+  - gucharmap
