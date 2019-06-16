@@ -8,6 +8,7 @@ sway_apps:
   - grim
   - fontawesome-fonts
   - sway
+  - swaybg
   - swaylock
   - playerctl
   - rofi
