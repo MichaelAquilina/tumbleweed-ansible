@@ -7,6 +7,8 @@ sway_apps:
   - waybar
   - grim
   - fontawesome-fonts
+  - google-roboto-mono-fonts
+  - google-roboto-fonts
   - sway
   - swaybg
   - swaylock
