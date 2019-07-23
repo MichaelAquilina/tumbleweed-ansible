@@ -27,27 +27,6 @@
     src: "{{ ansible_env.PWD }}/roles/cli/files/dircolors"
     dest: "~/.dircolors"
 
-- name: zshrc repo
-  git:
-    repo: https://github.com/MichaelAquilina/zshrc.git
-    update: "yes"
-    remote: https-origin  # allow origin to be ssh url
-    dest: ~/Development/zshrc
-
-- name: ~/.zshrc
-  file:
-    state: link
-    force: "yes"
-    src: ~/Development/zshrc/zshrc
-    dest: ~/.zshrc
-
-- name: ~/.tigrc
-  file:
-    state: link
-    force: "yes"
-    src: "{{ ansible_env.PWD }}/roles/cli/files/tigrc"
-    dest: "~/.tigrc"
-
 - name: ZSH as default shell
   become: "yes"
   user:
