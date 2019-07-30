@@ -22,3 +22,5 @@ sway_apps:
   # Wayland support for qt
   - libqt5-qtwayland
   - gucharmap
+  # Required drivers for HP devices
+  - hplip
