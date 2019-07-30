@@ -20,13 +20,6 @@
     force: "yes"
     update: "yes"
 
-- name: dircolors
-  file:
-    state: link
-    force: "yes"
-    src: "{{ ansible_env.PWD }}/roles/cli/files/dircolors"
-    dest: "~/.dircolors"
-
 - name: ZSH as default shell
   become: "yes"
   user:
