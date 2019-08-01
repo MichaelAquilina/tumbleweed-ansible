@@ -14,7 +14,7 @@ sway_apps:
   - swaylock
   - playerctl
   - rofi
-  - tilix
+  - alacritty
   - slurp
   - swayidle
   - pavucontrol
