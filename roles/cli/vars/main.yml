@@ -18,3 +18,4 @@ cli_apps:
   - rust
   - rust-std
   - tig
+  - libnotify-tools
