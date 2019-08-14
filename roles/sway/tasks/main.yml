@@ -23,3 +23,10 @@
     name: "{{ ansible_user_id }}"
     groups: video
     append: "yes"
+
+- name: chronyd (NTP) service is running
+  become: "yes"
+  service:
+    name: "chronyd"
+    enabled: "yes"
+    state: "enabled"
