@@ -6,9 +6,9 @@
     name: docker
 
 - name: docker-compose is installed
-  become: "yes"
   pip:
     name: docker-compose
+    extra_args: --user
 
 - name: docker group
   become: "yes"
