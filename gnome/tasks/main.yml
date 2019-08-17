@@ -1,0 +1,19 @@
+---
+
+- name: Nautilus don't start with sidebar
+  gsettings:
+    schema: org.gnome.nautilus.window-state
+    key: start-with-sidebar
+    value: "false"
+
+- name: Nautilus sort directories first
+  gsettings:
+    schema: org.gtk.Settings.FileChooser
+    key: sort-directories-first
+    value: "true"
+
+- name: Nautilus default compression .tar.xz
+  gsettings:
+    schema: org.gnome.nautilus.compression
+    key: default-compression-format
+    value: "tar.xz"
