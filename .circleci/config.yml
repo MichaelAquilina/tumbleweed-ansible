@@ -21,7 +21,7 @@ jobs:
       - checkout
       - run:
           name: Install additional dependencies
-          command: zypper install -y python-pip git
+          command: zypper install -y python3-pip git
       - run:
           name: Install ansible
           command: pip install ansible==2.6.0  # Possible regression in 2.6.4?
