@@ -30,3 +30,5 @@
     name: "chronyd"
     enabled: "yes"
     state: "started"
+  # Dont run this task if running inside a docker container (e.g. Travis)
+  when: dockerenv.stat.exists == False
