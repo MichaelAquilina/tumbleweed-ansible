@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Install additional dependencies
           command: |
-            zypper install -y git
+            zypper install -y git || true  # Workaround bug in circleCI
             zypper install -y python3-pip
       - run:
           name: Install ansible
