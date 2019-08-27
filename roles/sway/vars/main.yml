@@ -4,6 +4,7 @@ sway_apps:
   # - rofi-pass
   - light
   - mako
+  - chronyd
   - waybar
   - grim
   - fontawesome-fonts
