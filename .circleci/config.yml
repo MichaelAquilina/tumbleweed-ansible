@@ -20,10 +20,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install additional dependencies
+          name: Install git dependency
           command: |
-            zypper install -y git || true  # Workaround bug in circleCI
-            zypper install -y python-pip
+            # Workaround bug in circleCI where zypper will return with 107
+            zypper install -y git || true
+          name: Install additional depdencies
+          command: zypper install -y python-pip
       - run:
           name: Install ansible
           command: pip install ansible==2.6.0  # Possible regression in 2.6.4?
