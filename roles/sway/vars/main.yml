@@ -18,6 +18,7 @@ sway_apps:
   - alacritty
   - slurp
   - swayidle
+  - kanshi
   - pavucontrol
   - wf-recorder
   # Wayland support for qt
