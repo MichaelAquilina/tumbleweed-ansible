@@ -15,7 +15,7 @@ sway_apps:
   - swaylock
   - playerctl
   - rofi
-  - alacritty
+  - kitty
   - slurp
   - swayidle
   - kanshi
