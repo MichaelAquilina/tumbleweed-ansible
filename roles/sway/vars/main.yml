@@ -7,6 +7,7 @@ sway_apps:
   - chrony
   - waybar
   - grim
+  - rhythmbox
   - fontawesome-fonts
   - google-roboto-mono-fonts
   - google-roboto-fonts
