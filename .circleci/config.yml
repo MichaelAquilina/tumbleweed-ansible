@@ -36,7 +36,7 @@ jobs:
             ln -sf /usr/bin/python2 /usr/bin/python
       - run:
           name: Run playbook
-          command: ansible-playbook -i local.inventory setup.yml -vvv
+          command: ansible-playbook -i local.inventory setup.yml
 
 workflows:
   version: 2
