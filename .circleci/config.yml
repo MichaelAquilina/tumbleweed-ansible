@@ -22,8 +22,7 @@ jobs:
       - run:
           name: Install git dependency
           command: |
-            # Workaround bug in circleCI where zypper will return with 107
-            zypper install -y git || true
+            zypper install -y git ssh
       - run:
           name: Install additional depdencies
           command: zypper install -y python-pip
