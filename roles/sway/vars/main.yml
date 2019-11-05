@@ -20,6 +20,7 @@ sway_apps:
   - slurp
   - swayidle
   - kanshi
+  - nautilus
   - pavucontrol
   - wf-recorder
   # Wayland support for qt
