@@ -16,6 +16,20 @@
     state: latest
   loop: "{{ sway_apps }}"
 
+- name: configuration files are linked
+  file:
+    state: link
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: ~/.config/{{ item }}
+  with_items:
+    - sway
+    - swaylock
+    - swaynag
+    - kitty
+    - mako
+    - waybar
+    - nvim/init.vim
+
  # Required for user to be able to adjust brightness settings with light
 - name: current user is in video group
   become: "yes"

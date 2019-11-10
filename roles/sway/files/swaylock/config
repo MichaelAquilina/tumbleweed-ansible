@@ -1,0 +1,4 @@
+ignore-empty-password
+daemonize
+color=000000
+indicator-radius=150

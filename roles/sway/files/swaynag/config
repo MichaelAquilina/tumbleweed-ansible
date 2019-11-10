@@ -1,0 +1,7 @@
+[poweroff]
+font=Roboto Mono Bold 10
+button-padding=4
+edge=top
+background=434859AA
+dismiss-button=cancel
+message=Power off?
