@@ -26,18 +26,22 @@
     name: "{{ ansible_user_id }}"
     shell: /bin/zsh
 
+- name: configuration files are linked
+  file:
+    state: link
+    src: "{{ role_path }}/files/{{ item }}"
+    path: ~/.{{ item }}
+  with_items:
+    - zshrc
+    - tigrc
+    - dircolors
+
 - name: User in systemd-journal group
   become: "yes"
   user:
     name: "{{ ansible_user_id }}"
     groups: systemd-journal
     append: "yes"
-
-- name: local bin dirtory
-  file:
-    state: directory
-    mode: 0700
-    path: ~/bin/
 
 - name: local man directory
   file:

@@ -14,6 +14,12 @@
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: ~/.local/share/nvim/site/autoload/plug.vim
 
+- name: configuration is linked
+  file:
+    state: link
+    src: "{{ role_path }}/files/init.vim"
+    path: ~/.config/nvim/init.vim
+
 - name: python neovim bindings installed
   become: "yes"
   zypper:

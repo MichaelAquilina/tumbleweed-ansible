@@ -21,8 +21,7 @@ jobs:
       - checkout
       - run:
           name: Install git dependency
-          command: |
-            zypper install -y git openssh
+          command: zypper install -y git openssh
       - run:
           name: Install additional depdencies
           command: zypper install -y python-pip
