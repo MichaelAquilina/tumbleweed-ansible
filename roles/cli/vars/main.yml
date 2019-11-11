@@ -10,7 +10,6 @@ cli_apps:
   - htop
   - jq
   - neovim
-  - nodejs10
   - osc
   - password-store
   - python3-virtualenv
