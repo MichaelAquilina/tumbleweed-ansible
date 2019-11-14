@@ -2,4 +2,3 @@
 
 flatpak_apps:
   - com.spotify.Client
-  - com.slack.Slack
