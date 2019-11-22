@@ -29,10 +29,6 @@ jobs:
           name: Install ansible
           command: pip install ansible==2.6.0  # Possible regression in 2.6.4?
       - run:
-          name: Fix python linking in tumbleweed
-          command: |
-            ln -sf /usr/bin/python2 /usr/bin/python
-      - run:
           name: Run playbook
           command: ansible-playbook -i local.inventory setup.yml
 
