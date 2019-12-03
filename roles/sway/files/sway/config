@@ -56,6 +56,8 @@ focus_follows_mouse no
 # Don't wrap between containers when moving
 focus_wrapping no
 
+layout splitv
+
 focus_on_window_activation focus
 
 # Define names for default workspaces for which we configure key bindings later on.
