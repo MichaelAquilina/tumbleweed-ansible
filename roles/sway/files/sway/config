@@ -15,6 +15,7 @@ exec_always light -N 10
 # Auto lock the screen after being idle
 exec swayidle -w \
     timeout 300 'swaylock' \
+    timeout 300 'playerctl pause' \
     timeout 300 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock'
