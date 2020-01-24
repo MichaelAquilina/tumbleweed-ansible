@@ -1,11 +1,8 @@
 ---
 
 cli_apps:
-  - ShellCheck
-  - bat
   - cargo
   - colordiff
-  - fd
   - fzf
   - htop
   - jq
