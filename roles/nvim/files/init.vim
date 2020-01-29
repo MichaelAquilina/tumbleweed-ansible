@@ -107,10 +107,26 @@ function! FloatingFZF()
         \ 'style': 'minimal'
         \ }
 
+  " Work around floating windows not having borders by creating
+  " a larger floating window below the main floating window
+  let top = "╭" . repeat("─", width - 2) . "╮"
+  let mid = "│" . repeat(" ", width - 2) . "│"
+  let bot = "╰" . repeat("─", width - 2) . "╯"
+  let lines = [top] + repeat([mid], height - 2) + [bot]
   let s:buf = nvim_create_buf(v:false, v:true)
-
-  " open the new window, floating, and enter to it
+  call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
   call nvim_open_win(s:buf, v:true, opts)
+
+  " this is the actual floating window that contains the target contents
+  set winhl=Normal:Floating
+  let opts.row += 1
+  let opts.height -= 2
+  let opts.col += 2
+  let opts.width -= 4
+  call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+
+  " automatically wipeout the buffer for the underlying "lines"
+  au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
 
 
