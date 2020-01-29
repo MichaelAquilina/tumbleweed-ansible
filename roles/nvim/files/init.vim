@@ -241,8 +241,10 @@ nnoremap <c-s> <nop>
 inoremap <c-b> <nop>
 inoremap <c-s> <nop>
 
+" Disable current search when double escape pressed
 nnoremap <esc><esc> :let @/ = ""<cr>
 
+" emulate emac style cursor movement
 nnoremap <c-right> w
 nnoremap <c-left> b
 nnoremap <c-up> ^
