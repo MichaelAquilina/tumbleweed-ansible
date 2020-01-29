@@ -89,9 +89,10 @@ function! FloatingFZF()
   " to be used in the floating window
 
   " % of the height
-  let height = float2nr(&lines * 0.75)
+  let height = float2nr(&lines * 0.9)
   " % of the height
-  let width = float2nr(&columns * 0.75)
+  let width = float2nr(&columns * 0.9)
+
   " horizontal position (centralized)
   let horizontal = float2nr((&columns - width) / 2)
   " vertical position (one line down of the top)
@@ -219,14 +220,16 @@ nnoremap <c-h> :BCommits<cr>
 let g:fzf_commits_log_options = '--color=always --format="%C(auto)%h %C(green)%an %C(auto)%s %C(black)%C(bold)%cr"'
 
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>,
-    \ {'options': [
-        \ '--layout=reverse',
-        \ '--info=inline',
-        \ '--preview-window=bottom:20',
-        \ '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}'
-    \ ]},
-    \ <bang>0)
+    \ call fzf#vim#files(
+    \   <q-args>,
+    \    {'options': [
+    \       '--layout=reverse',
+    \       '--preview',
+    \         'bat --color=always --decorations=never --theme=ansi-dark {}',
+    \       '--info=inline',
+    \       '--preview-window=bottom:25'
+    \   ]},
+    \   <bang>0)
 
 " Disable Ex-mode
 nnoremap Q <nop>
