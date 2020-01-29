@@ -87,27 +87,30 @@ let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
   " creates a scratch, unlisted, new, empty, unnamed buffer
   " to be used in the floating window
-  let buf = nvim_create_buf(v:false, v:true)
 
-  " 90% of the height
-  let height = float2nr(&lines * 0.6)
-  " 60% of the height
-  let width = float2nr(&columns * 0.6)
+  " % of the height
+  let height = float2nr(&lines * 0.75)
+  " % of the height
+  let width = float2nr(&columns * 0.75)
   " horizontal position (centralized)
   let horizontal = float2nr((&columns - width) / 2)
   " vertical position (one line down of the top)
   let vertical = float2nr((&lines - height) / 2)
 
+  " floating window options
   let opts = {
         \ 'relative': 'editor',
         \ 'row': vertical,
         \ 'col': horizontal,
         \ 'width': width,
-        \ 'height': height
+        \ 'height': height,
+        \ 'style': 'minimal'
         \ }
 
+  let s:buf = nvim_create_buf(v:false, v:true)
+
   " open the new window, floating, and enter to it
-  call nvim_open_win(buf, v:true, opts)
+  call nvim_open_win(s:buf, v:true, opts)
 endfunction
 
 
@@ -198,6 +201,16 @@ nnoremap <c-p> :Files<cr>
 nnoremap <c-b> :Buffers<cr>
 nnoremap <c-h> :BCommits<cr>
 let g:fzf_commits_log_options = '--color=always --format="%C(auto)%h %C(green)%an %C(auto)%s %C(black)%C(bold)%cr"'
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>,
+    \ {'options': [
+        \ '--layout=reverse',
+        \ '--info=inline',
+        \ '--preview-window=bottom:20',
+        \ '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}'
+    \ ]},
+    \ <bang>0)
 
 " Disable Ex-mode
 nnoremap Q <nop>
