@@ -213,13 +213,13 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " FZF bindings
-nnoremap <c-L> :History:<cr>
 nnoremap <c-p> :Files<cr>
 nnoremap <c-b> :Buffers<cr>
-nnoremap <c-h> :BCommits<cr>
+nnoremap <c-k> :Rg<cr>
+
 let g:fzf_commits_log_options = '--color=always --format="%C(auto)%h %C(green)%an %C(auto)%s %C(black)%C(bold)%cr"'
 
-function! FzfWindow(args)
+function! FilesPreview(args)
     " dynamically determine where to place the preview based on the
     " space available on the screen
     let l:preview = 'bottom:25'
@@ -227,18 +227,46 @@ function! FzfWindow(args)
         let l:preview='right'
     endif
 
+    " TODO: Fix hardcoded path to preview script
+    " This can be fixed when bug described in RgPreview is also fixed
+    " This is just kept the same for consistency of the theme
     call fzf#vim#files(
     \    a:args,
     \    {'options': [
     \       '--layout=reverse',
-    \       '--preview',
-    \         'bat --color=always --decorations=never --theme=ansi-dark {}',
+    \       '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}',
     \       '--info=inline',
     \       '--preview-window='.l:preview
     \   ]})
 endfunction
 
-command! -bang -nargs=? -complete=dir Files call FzfWindow(<q-args>)
+" Overwrite FZF Files command to use preview
+command! -bang -nargs=? -complete=dir Files call FilesPreview(<q-args>)
+
+function! RgPreview(args)
+     " dynamically determine where to place the preview based on the
+    " space available on the screen
+    let l:preview = 'bottom:25'
+    if &columns > 150
+        let l:preview='right'
+    endif
+
+    " TODO: Fix hardcoded path to preview script
+    " fzf#vim#preview overrides the --preview-windows setting which prevents
+    " being able to use it
+    let command = 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(a:args)
+    let spec = {'options': [
+    \       '--layout=reverse',
+    \       '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}',
+    \       '--info=inline',
+    \       '--preview-window', l:preview
+    \   ]}
+
+    call fzf#vim#grep(l:command, 1, l:spec)
+endfunction
+
+" Overwrite FZF Rg command to show preview
+command! -bang -nargs=* Rg call RgPreview(<q-args>)
 
 " Disable Ex-mode
 nnoremap Q <nop>
