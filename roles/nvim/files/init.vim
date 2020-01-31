@@ -219,17 +219,26 @@ nnoremap <c-b> :Buffers<cr>
 nnoremap <c-h> :BCommits<cr>
 let g:fzf_commits_log_options = '--color=always --format="%C(auto)%h %C(green)%an %C(auto)%s %C(black)%C(bold)%cr"'
 
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(
-    \   <q-args>,
+function! FzfWindow(args)
+    " dynamically determine where to place the preview based on the
+    " space available on the screen
+    let l:preview = 'bottom:25'
+    if &columns > 150
+        let l:preview='right'
+    endif
+
+    call fzf#vim#files(
+    \    a:args,
     \    {'options': [
     \       '--layout=reverse',
     \       '--preview',
     \         'bat --color=always --decorations=never --theme=ansi-dark {}',
     \       '--info=inline',
-    \       '--preview-window=bottom:25'
-    \   ]},
-    \   <bang>0)
+    \       '--preview-window='.l:preview
+    \   ]})
+endfunction
+
+command! -bang -nargs=? -complete=dir Files call FzfWindow(<q-args>)
 
 " Disable Ex-mode
 nnoremap Q <nop>
