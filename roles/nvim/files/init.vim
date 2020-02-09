@@ -68,6 +68,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}  " langua
 Plug 'Shougo/neosnippet'
 Plug 'MichaelAquilina/neosnippet-snippets'
 Plug 'challenger-deep-theme/vim'
+Plug 'dikiaap/minimalist'
 
 call plug#end()
 filetype plugin indent on    " required!
@@ -75,7 +76,7 @@ filetype plugin indent on    " required!
 " enable hyperlinks in man pages
 runtime 'ftplugin/man.vim'
 
-colorscheme challenger_deep
+colorscheme minimalist
 
 let g:mapleader=' '
 
