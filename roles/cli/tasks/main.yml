@@ -32,6 +32,7 @@
     src: "{{ role_path }}/files/{{ item }}"
     path: ~/.{{ item }}
   with_items:
+    - p10k.zsh
     - zshrc
     - tigrc
     - dircolors
