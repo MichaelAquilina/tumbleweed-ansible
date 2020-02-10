@@ -53,7 +53,7 @@ TERM terminator
 # 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 
 # Custom Colors Start Here
-DIR       01;38;5;33
+DIR       01;38;5;039
 NORMAL    00;38;5;73
 FILE      00;38;5;70
 EXEC      01;04;38;5;113
@@ -131,31 +131,6 @@ ORPHAN    01;38;5;196
 *Vagrantfile        04;01;38;5;220
 *requirements.txt   04;01;38;5;220
 *requirements.in    04;01;38;5;220
-
-.jpg    00;38;5;198
-.jpeg   00;38;5;198
-.png    00;38;5;198
-.gif    00;38;5;198
-.bmp    00;38;5;198
-.svg    00;38;5;198
-.ico    00;38;5;198
-.mkv    00;38;5;200
-.mp4    00;38;5;200
-.avi    00;38;5;200
-.webm   00;38;5;200
-.ogg    00;38;5;202
-.mp3    00;38;5;203
-.wav    00;38;5;202
-.aac    00;38;5;202
-.m4a    00;38;5;202
-.flac   00;38;5;202
-.opus   00;38;5;203
-.ttf    00;38;5;205
-.woff   00;38;5;205
-.woff2  00;38;5;205
-.eot    00;38;5;205
-.ttc    00;38;5;205
-.otf    00;38;5;205
 
 .py     00;38;5;112  # Python
 .coffee 00;38;5;112  # coffeescript
