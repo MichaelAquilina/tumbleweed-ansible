@@ -82,60 +82,6 @@ colorscheme nightfly
 
 let g:mapleader=' '
 
-" Reverse the layout to make the FZF list top-down
-let $FZF_DEFAULT_OPTS='--layout=reverse'
-
-" Using the custom window creation function
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-
-" Function to create the custom floating window
-function! FloatingFZF()
-  " creates a scratch, unlisted, new, empty, unnamed buffer
-  " to be used in the floating window
-
-  " % of the height
-  let height = float2nr(&lines * 0.9)
-  " % of the height
-  let width = float2nr(&columns * 0.9)
-
-  " horizontal position (centralized)
-  let horizontal = float2nr((&columns - width) / 2)
-  " vertical position (one line down of the top)
-  let vertical = float2nr((&lines - height) / 2)
-
-  " floating window options
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': vertical,
-        \ 'col': horizontal,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
-
-  " Work around floating windows not having borders by creating
-  " a larger floating window below the main floating window
-  let top = "╭" . repeat("─", width - 2) . "╮"
-  let mid = "│" . repeat(" ", width - 2) . "│"
-  let bot = "╰" . repeat("─", width - 2) . "╯"
-  let lines = [top] + repeat([mid], height - 2) + [bot]
-  let s:buf = nvim_create_buf(v:false, v:true)
-  call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-  call nvim_open_win(s:buf, v:true, opts)
-
-  " this is the actual floating window that contains the target contents
-  set winhl=Normal:Floating
-  let opts.row += 1
-  let opts.height -= 2
-  let opts.col += 2
-  let opts.width -= 4
-  call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-
-  " automatically wipeout the buffer for the underlying "lines"
-  au BufWipeout <buffer> exe 'bw '.s:buf
-endfunction
-
-
 " Setup status line
 set laststatus=2
 set statusline=
