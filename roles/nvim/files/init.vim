@@ -69,6 +69,8 @@ Plug 'Shougo/neosnippet'
 Plug 'MichaelAquilina/neosnippet-snippets'
 Plug 'challenger-deep-theme/vim'
 Plug 'dikiaap/minimalist'
+" contains some minor tweaks from original upstream
+Plug 'MichaelAquilina/vim-nightfly-guicolors'
 
 call plug#end()
 filetype plugin indent on    " required!
@@ -76,7 +78,7 @@ filetype plugin indent on    " required!
 " enable hyperlinks in man pages
 runtime 'ftplugin/man.vim'
 
-colorscheme minimalist
+colorscheme nightfly
 
 let g:mapleader=' '
 
