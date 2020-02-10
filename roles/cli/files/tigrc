@@ -17,10 +17,10 @@ set diff-options = --show-signature
 # general
 color   default                 15      235
 color   cursor                  15      241
-color   title-focus             242     221
+color   title-focus             039     236         bold
 color   title-blur              242     221
 color   delimiter               213     default
-color   author                  156     default
+color   author                  076     default
 color   date                    81      default
 color   line-number             221     default
 color   mode                    255     default
