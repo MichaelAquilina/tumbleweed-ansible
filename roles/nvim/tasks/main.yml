@@ -14,11 +14,14 @@
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: ~/.local/share/nvim/site/autoload/plug.vim
 
-- name: configuration is linked
+- name: configuration files are linked
   file:
     state: link
-    src: "{{ role_path }}/files/init.vim"
-    path: ~/.config/nvim/init.vim
+    src: "{{ role_path }}/files/{{ item }}"
+    path: "~/.config/nvim/{{ item }}"
+  loop:
+    - "init.vim"
+    - "coc-settings.json"
 
 - name: python neovim bindings installed
   become: "yes"
