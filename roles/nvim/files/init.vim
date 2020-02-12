@@ -129,9 +129,6 @@ augroup GetGitBranch
   autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
 augroup END
 
-" Allow opening github enterprise urls
-let g:github_enterprise_urls = ['https://git.lystit.com']
-
 " Shortcuts for editing commonly used configs
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ev :edit $MYVIMRC<cr>
