@@ -1,218 +1,58 @@
-" Set encoding before setting script encoding
-set encoding=utf-8
-scriptencoding utf-8
-
-filetype indent on
-filetype off
-set autoindent
-set autoread
-set colorcolumn=100
-set cursorcolumn
-set cursorline
-set endofline
-set expandtab
-set hidden
-set history=100
-set hlsearch
-set inccommand=nosplit " Enables previewing what is being substituted with %s/
-set incsearch
-set laststatus=2
-set list
-set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<, " Show whitespace characters
-set mouse=a
-set nofoldenable
-set noswapfile
-set nowrap
-set number
-set shiftwidth=4
-set showmatch
-set spell spelllang=en_gb
-set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
-set tabstop=4
 set termguicolors
-syntax enable
+set t_Co=256 " explicitly use 256 colors
 
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
-" Text objects
-Plug 'kana/vim-textobj-user'
-Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'kana/vim-textobj-entire'
-Plug 'sgur/vim-textobj-parameter'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
+" ========== GUI and User Interface ==========
+Plug 'MichaelAquilina/vim-nightfly-guicolors'  " has some tweaks
 
-Plug 'christoomey/vim-system-copy'
-Plug 'neomake/neomake'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim'
-
-" Add syntax highlighting for all popular languages
-Plug 'MichaelAquilina/vim-polyglot', {'branch': 'fix_spellcheck_dockerfile'}
-Plug 'tpope/vim-markdown'
+" ========= Syntax Highlighting ==========
 Plug 'terminalnode/sway-vim-syntax'
 
-" Disable markdown in polyglot to use vim-markdown and enable code block
-" highlighting
-let g:polyglot_disabled = ['md', 'markdown']
-let g:markdown_fenced_languages = ['python', 'html', 'css', 'scss', 'sql', 'javascript', 'go', 'python', 'bash=sh', 'c', 'ruby']
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter' " Shows git changes near line numbers
-Plug 'tpope/vim-fugitive' " Add git commands within vim
-Plug 'tpope/vim-rhubarb' " Browse code in github
-Plug 'tpope/vim-repeat' " Allow plugin commands to be repeatable
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}  " language server
-Plug 'Shougo/neosnippet'
-Plug 'MichaelAquilina/neosnippet-snippets'
-Plug 'challenger-deep-theme/vim'
-Plug 'dikiaap/minimalist'
-" contains some minor tweaks from original upstream
-Plug 'MichaelAquilina/vim-nightfly-guicolors'
+" ========== Text Objects ==========
+Plug 'kana/vim-textobj-user'
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'sgur/vim-textobj-parameter'
+
+" ========== Functionality ==========
+Plug 'junegunn/fzf', {'do': './install --bin'}
+Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" ========== Git ===========
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
-filetype plugin indent on    " required!
-"
-" enable hyperlinks in man pages
-runtime 'ftplugin/man.vim'
+
+" =========== General Configuration ==========
 
 colorscheme nightfly
 
 let g:mapleader=' '
 
-" Setup status line
-set laststatus=2
-set statusline=
-set statusline+=%f
-set statusline+=%=
-set statusline+=\ %l:%c
-set statusline+=\ %y
-set statusline+=\ %{b:gitbranch}
+filetype plugin indent on
+set encoding=utf-8
+set emoji
+set inccommand=nosplit  " Enable previewing of %s//
+set mouse=a
+set nowrap
+set number
+set hidden
+set nobackup
+set nowritebackup
+set noswapfile
 
-function! StatuslineMode()
-  let l:mode=mode()
-  if l:mode==#'n'
-    return 'NORMAL'
-  elseif l:mode==?'v'
-    return 'VISUAL'
-  elseif l:mode==#'i'
-    return 'INSERT'
-  elseif l:mode==#'R'
-    return 'REPLACE'
-  elseif l:mode==?'s'
-    return 'SELECT'
-  elseif l:mode==#'t'
-    return 'TERMINAL'
-  elseif l:mode==#'c'
-    return 'COMMAND'
-  elseif l:mode==#'!'
-    return 'SHELL'
-  endif
-endfunction
+" Show whitespace
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<,
 
-function! StatuslineGitBranch()
-  let b:gitbranch=''
-  if &modifiable
-    lcd %:p:h
-    let l:gitrevparse=system('git rev-parse --abbrev-ref HEAD')
-    lcd -
-    if l:gitrevparse!~?'fatal: not a git repository'
-      let b:gitbranch='(  '.substitute(l:gitrevparse, '\n', '', 'g').' ) '
-    endif
-  endif
-endfunction
+" Python configuration
+let g:python_host_prog = expand('/usr/bin/python')
+let g:python3_host_prog = expand('/usr/bin/python3')
 
-augroup GetGitBranch
-  autocmd!
-  autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
-augroup END
-
-" Shortcuts for editing commonly used configs
-nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>ev :edit $MYVIMRC<cr>
-nnoremap <leader>ez :edit ~/.zshrc<cr>
-nnoremap <leader>es :edit ~/.config/sway/config<cr>
-nnoremap <leader>ew :edit ~/.config/waybar/config<cr>
-nnoremap <leader>em :edit ~/.config/mako/config<cr>
-nnoremap <leader>et :edit ~/.config/kitty/kitty.conf<cr>
-
-" Quickly move lines up and down
-nnoremap - ddp
-nnoremap _ ddkP
-
-" NerdTree Shortcuts
-nnoremap <leader>/ :NERDTreeToggle<cr>
-
-nnoremap <leader>]  :GitGutterNextHunk<cr>
-nnoremap <leader>[  :GitGutterPrevHunk<cr>
-nnoremap <leader>+ :GitGutterLineHighlightsToggle<cr>
-nnoremap <leader>c :GitGutterUndoHunk<cr>
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> rn <Plug>(coc-rename)
-
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" FZF bindings
-nnoremap <c-p> :FzfPreviewProjectFiles<cr>
-nnoremap <c-b> :FzfPreviewBuffers<cr>
-nnoremap <c-k> :Rg<cr>
-
-let g:fzf_commits_log_options = '--color=always --format="%C(auto)%h %C(green)%an %C(auto)%s %C(black)%C(bold)%cr"'
-
-" Disable Ex-mode
-nnoremap Q <nop>
-
-" Disable stop redraw
-nnoremap <c-s> <nop>
-
-" Don't insert odd characters into buffer by mistake
-inoremap <c-b> <nop>
-inoremap <c-s> <nop>
-
-" Disable current search when double escape pressed
-nnoremap <esc><esc> :let @/ = ""<cr>
-
-" emulate emac style cursor movement
-nnoremap <c-right> w
-nnoremap <c-left> b
-nnoremap <c-up> ^
-nnoremap <c-down> $
-
-" Copy the relative path + row number to the clipboard
-function! CopyRelativePath(linenumber)
-    if a:linenumber
-        echom 'Copied relative path to clipboard (with line number)'
-        let @+ = @% . ':' . line('.')
-    else
-        echom 'Copied relative path to clipboard'
-        let @+ = @%
-    endif
-endfunction
-
-nnoremap <leader>, :call CopyRelativePath(0) <cr>
-nnoremap <leader>. :call CopyRelativePath(1) <cr>
-vnoremap <leader>gb :Gbrowse <cr>
-nnoremap <leader>gb v:Gbrowse <cr>
-nnoremap <leader>gd :Gdiff <cr>
-
-" Enable word wrapping in text files
-augroup WrapLineInMarkdownFile
-    autocmd!
-    autocmd FileType markdown setlocal wrap lbr
-augroup END
-
+" ============ Auto Commands ==========
 augroup vimrc
     autocmd!
-
-    call neomake#configure#automake('nw')
 
     " Remove extra whitespaces
     autocmd BufWritePre,BufLeave,FocusLost * silent! :%s/\s\+$//e
@@ -226,8 +66,47 @@ augroup vimrc
     autocmd BufLeave,FocusLost * silent! wall
 augroup END
 
-if &term =~# '256color'
-  " Disable Background Color Erase (BCE) so that color schemes
-  " work properly when Vim is used inside tmux and GNU screen.
-  set t_ut=
-endif
+" ========== Custom Functions ==========
+
+" Copy the relative path + row number to the clipboard
+function! CopyRelativePath(linenumber)
+    if a:linenumber
+        echom 'Copied relative path to clipboard (with line number)'
+        let @+ = @% . ':' . line('.')
+    else
+        echom 'Copied relative path to clipboard'
+        let @+ = @%
+    endif
+endfunction
+
+" ========== Custom Mappings ==========
+
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ez :edit ~/.zshrc<cr>
+nnoremap <leader>es :edit ~/.config/sway/config<cr>
+
+" Disable Ex-mode
+nnoremap Q <nop>
+" Disable stop redraw
+nnoremap <c-s> <nop>
+
+" Cancel current search
+nnoremap <esc> :let @/=""<cr>
+
+" Quickly move lines up and down
+nnoremap - ddp
+nnoremap _ ddkP
+
+nnoremap <leader>, :call CopyRelativePath(0)<cr>
+nnoremap <leader>. :call CopyRelativePath(1)<cr>
+
+" =========== Fzf Configuration ==========
+
+nnoremap <c-p> :Files<cr>
+nnoremap <c-b> :Buffers<cr>
+nnoremap <c-k> :Rg<cr>
+
+" =========== CoC Configuration ==========
+nmap <silent> gd <Plug>(coc-definition)
+let g:coc_global_extensions = ['coc-python', 'coc-json']

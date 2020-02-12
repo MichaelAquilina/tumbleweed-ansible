@@ -17,6 +17,7 @@
 - name: configuration files are linked
   file:
     state: link
+    force: yes
     src: "{{ role_path }}/files/{{ item }}"
     path: "~/.config/nvim/{{ item }}"
   loop:
