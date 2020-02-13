@@ -18,6 +18,7 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'junegunn/fzf', {'do': './install --bin'}
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
 
 " ========== Git ===========
 Plug 'airblade/vim-gitgutter'
@@ -110,3 +111,6 @@ nnoremap <c-k> :Rg<cr>
 " =========== CoC Configuration ==========
 nmap <silent> gd <Plug>(coc-definition)
 let g:coc_global_extensions = ['coc-python', 'coc-json']
+
+" =========== NERDTree Configuration ==========
+nnoremap <leader>/ :NERDTreeToggle<cr>
