@@ -76,6 +76,13 @@ bindkey '5B' beginning-of-line    # ctrl+down
 bindkey '^[[F' end-of-line        # end key
 bindkey '5A' end-of-line          # ctrl+up
 
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+# Emacs style
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+#
 # Use the gnome-keyring-daemon
 if [[ -n "$DESKTOP_SESSION" ]]; then
     # Work around a bug where gnome keyring wont work unless ssh-agent is first launched
