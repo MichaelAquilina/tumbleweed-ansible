@@ -43,6 +43,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Use system clipboard for yanking
+set clipboard+=unnamedplus
+
 " Show whitespace
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<,
