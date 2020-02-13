@@ -82,7 +82,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
-#
+
 # Use the gnome-keyring-daemon
 if [[ -n "$DESKTOP_SESSION" ]]; then
     # Work around a bug where gnome keyring wont work unless ssh-agent is first launched
@@ -271,11 +271,6 @@ AUTO_NOTIFY_IGNORE+=("ipython")
 export YSU_MESSAGE_POSITION="after"
 export HISTORY_FILTER_EXCLUDE=("_KEY" "Authorization: ", "_TOKEN", "SECRET", "AWS_")
 export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs dir_writable)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_DIR_SHORTEN_STRATEGY="dir"
-POWERLEVEL9K_DIR_SHORTEN_LENGTH=2
-POWERLEVEL9K_VIRTUALENV_BACKGROUND="cyan"
 
 t1=$(date "+%s.%N")
 printf "Profile took %.3f seconds to load\n" $((t1-t0))
