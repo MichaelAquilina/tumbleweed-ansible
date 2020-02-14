@@ -2,6 +2,8 @@
   "coc.preferences.colorSupport": true,
   "suggest.detailField": "abbr",
   "python.jediEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
   "suggest.noselect": false,
   "rust-client.disableRustup": true
 }
