@@ -117,7 +117,11 @@ nnoremap <c-k> :Rg<cr>
 
 " =========== CoC Configuration ==========
 nmap <silent> gd <Plug>(coc-definition)
-let g:coc_global_extensions = ['coc-python', 'coc-json']
+let g:coc_global_extensions = [
+	\'coc-python',
+	\'coc-json',
+	\'coc-yaml',
+	\]
 
 " =========== NERDTree Configuration ==========
 nnoremap <leader>/ :NERDTreeToggle<cr>
