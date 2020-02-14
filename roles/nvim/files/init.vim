@@ -45,9 +45,6 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" Use system clipboard for yanking
-set clipboard+=unnamedplus
-
 " Show whitespace
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<,
@@ -91,6 +88,10 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ez :edit ~/.zshrc<cr>
 nnoremap <leader>es :edit ~/.config/sway/config<cr>
+
+" Shortcuts for copying and pasting to system clipboard
+vnoremap cp "+y
+vnoremap vp "+p
 
 " Disable Ex-mode
 nnoremap Q <nop>
