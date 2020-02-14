@@ -93,11 +93,3 @@ color   'Reviewed-by'                221     default
 
 # tree
 color   tree.directory                221     default
-
-# LINE(PALETTE_0, "", COLOR_MAGENTA, COLOR_DEFAULT, 0), \
-#   LINE(PALETTE_1, "", COLOR_YELLOW, COLOR_DEFAULT, 0), \
-#   LINE(PALETTE_2, "", COLOR_CYAN, COLOR_DEFAULT, 0), \
-#   LINE(PALETTE_3, "", COLOR_GREEN, COLOR_DEFAULT, 0), \
-#   LINE(PALETTE_4, "", COLOR_DEFAULT, COLOR_DEFAULT, 0), \
-#   LINE(PALETTE_5, "", COLOR_WHITE, COLOR_DEFAULT, 0), \
-#   LINE(PALETTE_6, "", COLOR_RED, )
