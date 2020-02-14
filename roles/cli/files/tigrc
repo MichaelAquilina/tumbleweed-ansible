@@ -11,7 +11,7 @@ bind generic Y !@sh -c "echo -n %(commit) | nohup wl-copy"
 set vertical-split = false
 set line-graphics = utf-8
 set id-width = 4
-set main-view = line-number:no,interval=5 date:default author:full id:yes commit-title:yes,overflow=no,refs:yes
+set main-view = line-number:no date:default,local:yes author:full,maxwidth:16 id:yes commit-title:yes,overflow=no,refs:yes,graph:v2
 set diff-options = --show-signature
 
 # general
