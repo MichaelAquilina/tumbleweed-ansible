@@ -8,6 +8,7 @@ Plug 'MichaelAquilina/vim-nightfly-guicolors'  " has some tweaks
 
 " ========= Syntax Highlighting ==========
 Plug 'terminalnode/sway-vim-syntax'
+Plug 'sheerun/vim-polyglot'
 
 " ========== Text Objects ==========
 Plug 'kana/vim-textobj-user'
