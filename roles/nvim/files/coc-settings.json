@@ -2,5 +2,6 @@
   "coc.preferences.colorSupport": true,
   "suggest.detailField": "abbr",
   "python.jediEnabled": true,
-  "suggest.noselect": false
+  "suggest.noselect": false,
+  "rust-client.disableRustup": true
 }

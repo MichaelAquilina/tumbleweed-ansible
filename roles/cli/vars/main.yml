@@ -13,5 +13,6 @@ cli_apps:
   - ripgrep
   - rust
   - rust-std
+  - rls
   - tig
   - libnotify-tools

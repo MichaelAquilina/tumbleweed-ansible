@@ -121,6 +121,7 @@ let g:coc_global_extensions = [
 	\'coc-python',
 	\'coc-json',
 	\'coc-yaml',
+	\'coc-rls',
 	\]
 
 " =========== NERDTree Configuration ==========
