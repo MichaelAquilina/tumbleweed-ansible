@@ -1,3 +1,4 @@
+# vim: ft=swayconfig
 # Use "man 5 sway" to get configuration documentation
 
 font pango:Roboto Mono 10
