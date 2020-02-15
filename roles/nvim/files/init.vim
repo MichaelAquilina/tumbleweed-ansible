@@ -93,7 +93,7 @@ nnoremap <leader>et :edit ~/.config/kitty/kitty.conf<cr>
 
 " Shortcuts for copying and pasting to system clipboard
 vnoremap cp "+y
-vnoremap vp "+p
+nnoremap vp "+p
 
 " Disable Ex-mode
 nnoremap Q <nop>
