@@ -89,6 +89,7 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ez :edit ~/.zshrc<cr>
 nnoremap <leader>es :edit ~/.config/sway/config<cr>
+nnoremap <leader>et :edit ~/.config/kitty/kitty.conf<cr>
 
 " Shortcuts for copying and pasting to system clipboard
 vnoremap cp "+y
