@@ -98,9 +98,6 @@ fi
 
 eval $(dircolors ~/.dircolors)
 
-# Disable ansible from using cowsay
-export ANSIBLE_NOCOWS=1
-
 export WORDCHARS=''
 
 setopt extended_glob
