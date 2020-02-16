@@ -46,6 +46,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Enable spellchecking
+set spell spelllang=en_gb
+
 " Show whitespace
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<,
