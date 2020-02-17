@@ -73,6 +73,12 @@ augroup vimrc
     autocmd BufLeave,FocusLost * silent! wall
 augroup END
 
+augroup MarkdownSettings
+    autocmd!
+
+    autocmd FileType markdown set wrap linebreak
+augroup END
+
 " ========== Custom Functions ==========
 
 " Copy the relative path + row number to the clipboard
