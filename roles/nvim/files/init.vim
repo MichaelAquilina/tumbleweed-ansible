@@ -73,10 +73,10 @@ augroup vimrc
     autocmd BufLeave,FocusLost * silent! wall
 augroup END
 
-augroup MarkdownSettings
+augroup TextSettings
     autocmd!
 
-    autocmd FileType markdown set wrap linebreak
+    autocmd FileType markdown,rst,text set wrap linebreak
 augroup END
 
 " ========== Custom Functions ==========
