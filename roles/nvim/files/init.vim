@@ -25,6 +25,7 @@ Plug 'tpope/vim-commentary'
 " ========== Git ===========
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 call plug#end()
 
@@ -118,6 +119,10 @@ nnoremap _ ddkP
 
 nnoremap <leader>, :call CopyRelativePath(0)<cr>
 nnoremap <leader>. :call CopyRelativePath(1)<cr>
+
+" =========== Fugitive configuration ===========
+
+vnoremap <leader>gb :GBrowse<cr>
 
 " =========== Fzf Configuration ==========
 
