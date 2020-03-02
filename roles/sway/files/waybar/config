@@ -11,9 +11,9 @@
     ],
     "modules-right": [
         "pulseaudio#2",
-        "network",
-        "backlight",
         "pulseaudio",
+        "backlight",
+        "network",
         "cpu",
         "memory",
         "battery",
