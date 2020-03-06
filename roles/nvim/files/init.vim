@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'  " Automatic tab expand configuration
 
 " ========== Git ===========
 Plug 'airblade/vim-gitgutter'
@@ -46,7 +47,6 @@ set hidden
 set nobackup
 set nowritebackup
 set noswapfile
-set tabstop=4 shiftwidth=4 expandtab  " Expand tabs into spaces
 
 " Enable spellchecking
 set spell spelllang=en_gb
