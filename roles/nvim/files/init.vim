@@ -46,6 +46,7 @@ set hidden
 set nobackup
 set nowritebackup
 set noswapfile
+set tabstop=4 shiftwidth=4 expandtab  " Expand tabs into spaces
 
 " Enable spellchecking
 set spell spelllang=en_gb
