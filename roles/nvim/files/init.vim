@@ -139,6 +139,7 @@ let g:coc_global_extensions = [
 	\'coc-yaml',
 	\'coc-rls',
 	\'coc-highlight',
+	\'coc-tsserver',
 	\]
 
 " =========== NERDTree Configuration ==========
