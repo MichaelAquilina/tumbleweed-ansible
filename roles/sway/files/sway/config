@@ -125,7 +125,8 @@ bindsym {
     Mod1+i exec nautilus
 
     # Screenshots
-    Shift+Print exec $HOME/bin/grim_wrapper.sh -g
+    Shift+Print exec $HOME/bin/grim_wrapper.sh -w
+    Ctrl+Shift+Print exec $HOME/bin/grim_wrapper.sh -g
     Print exec  $HOME/bin/grim_wrapper.sh
 
     # Moving between windows
