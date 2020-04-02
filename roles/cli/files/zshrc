@@ -272,9 +272,5 @@ export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-if type pyenv >/dev/null; then
-    eval "$(pyenv init -)"
-fi
-
 t1=$(date "+%s.%N")
 printf "Profile took %.3f seconds to load\n" $((t1-t0))
