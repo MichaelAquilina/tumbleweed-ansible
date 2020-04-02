@@ -12,4 +12,4 @@ else
     grim "$location"
 fi
 
-notify-send "Screenshot saved to $(realpath $location --relative-to=$HOME)"
+notify-send -i "$location" "Screenshot saved to $(realpath $location --relative-to=$HOME)"
