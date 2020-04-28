@@ -30,4 +30,3 @@
     name: "{{ item }}"
   loop:
     - python3-neovim
-    - python-neovim
