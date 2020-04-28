@@ -127,7 +127,7 @@ bindsym {
     # Screenshots
     Shift+Print exec $HOME/bin/grim_wrapper.sh -w
     Ctrl+Shift+Print exec $HOME/bin/grim_wrapper.sh -g
-    Print exec  $HOME/bin/grim_wrapper.sh
+    Print exec $HOME/bin/grim_wrapper.sh
 
     # Moving between windows
     Mod1+Left focus left
