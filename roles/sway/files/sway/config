@@ -25,7 +25,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 for_window [class=".*"] inhibit_idle fullscreen
 
 # Zoom specific configuration
-for_window [title="Zoom Meeting.*"] inhibit_idle visible
+for_window [title="Zoom"] inhibit_idle visible
 
 for_window [app_id="KittyPopup"] floating enable
 
