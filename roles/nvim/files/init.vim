@@ -23,6 +23,7 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'  " Automatic tab expand configuration
 Plug 'tpope/vim-commentary'  " Comment out blocks of code
+Plug 'tpope/vim-surround'  " change surrounding elements
 
 " ========== Git ===========
 Plug 'airblade/vim-gitgutter'
