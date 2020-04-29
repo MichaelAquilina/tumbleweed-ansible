@@ -23,6 +23,11 @@
   loop:
     - "init.vim"
     - "coc-settings.json"
+  register: configuration_result
+
+- name: run PlugUpdate on vim
+  command: "vim +'PlugUpdate --sync' +qa"
+  when: configuration_result.changed
 
 - name: python neovim bindings installed
   become: "yes"
