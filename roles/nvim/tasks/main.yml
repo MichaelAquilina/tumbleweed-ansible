@@ -26,7 +26,7 @@
   register: configuration_result
 
 - name: run PlugUpdate on vim
-  command: "vim +'PlugUpdate --sync' +qa"
+  command: "nvim +'PlugUpdate --sync' +qa"
   when: configuration_result.changed
 
 - name: python neovim bindings installed
