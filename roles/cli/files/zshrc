@@ -242,13 +242,15 @@ fi
 
 fpath+=~/.zfunc
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
+
+[ -f "$HOME/.fzf/shell/completion.zsh" ] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+[ -f "$HOME/.fzf/shell/key-bindings.zsh" ] && source "$HOME/.fzf/shell/key-bindings.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "/opt/google/google-cloud-sdk/path.zsh.inc" ]; then . "/opt/google/google-cloud-sdk/path.zsh.inc"; fi
