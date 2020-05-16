@@ -16,7 +16,7 @@ Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'sgur/vim-textobj-parameter'
 
 " ========== Functionality ==========
-Plug 'junegunn/fzf', {'do': './install --bin'}
+Plug 'junegunn/fzf', {'do': { -> fzf#install() }  }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
