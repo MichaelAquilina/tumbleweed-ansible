@@ -5,6 +5,5 @@
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
   "suggest.noselect": false,
-  "rust-client.disableRustup": true,
   "rust-analyzer.serverPath": "~/.local/bin/rust-analyzer"
 }
