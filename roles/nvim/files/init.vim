@@ -135,6 +135,8 @@ nnoremap <c-k> :Rg<cr>
 
 " =========== CoC Configuration ==========
 nmap <silent> gd <Plug>(coc-definition)
+command! -nargs=0 Format :call CocAction('format')
+
 let g:coc_global_extensions = [
 	\'coc-python',
 	\'coc-json',
