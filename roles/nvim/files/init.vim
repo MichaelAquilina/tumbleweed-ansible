@@ -137,6 +137,9 @@ nnoremap <c-k> :Rg<cr>
 nmap <silent> gd <Plug>(coc-definition)
 command! -nargs=0 Format :call CocAction('format')
 
+" Customize the colors of type hints
+hi CocHintSign cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=grey35 guibg=NONE
+
 let g:coc_global_extensions = [
 	\'coc-python',
 	\'coc-json',
