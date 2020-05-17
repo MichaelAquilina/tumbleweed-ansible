@@ -251,7 +251,6 @@ function _fzf_complete_git() {
     _fzf_complete +m -- "$@" < <(
       git branch | cut -c 3-
     )
-    return
   else
     # Fallback to default zsh completion otherwise
     zle ${fzf_default_completion:-expand-or-complete}
