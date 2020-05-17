@@ -46,8 +46,11 @@ output DP-1 {
     scale 1.0
 }
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod1
+
+set $mod Mod1
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 # Don't focus windows when the mouse hovers over them
 focus_follows_mouse no
@@ -75,15 +78,15 @@ bindsym --release {
     # Important that this is executed under bindsym --release AND sleep 0.2
     # This workaround gives a few milliseconds for the keys on the keyboard to release (alt and L)
     # before swayidle can detect them as activity and enter the active state again
-    Mod1+l exec sleep 0.2 && killall -SIGUSR1 swayidle
+    $mod+l exec sleep 0.2 && killall -SIGUSR1 swayidle
 }
 
 bindsym --locked {
     # Volume Control
-    Mod1+F3 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    Mod1+F2 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    Mod1+F1 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    Mod1+F12 exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    $mod+F3 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    $mod+F2 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    $mod+F1 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    $mod+F12 exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
     XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -94,35 +97,35 @@ bindsym --locked {
     XF86MonBrightnessDown exec light -U 10
 
     # Media Controls
-    Mod1+F5 exec playerctl previous
-    Mod1+F6 exec playerctl play-pause
-    Mod1+F7 exec playerctl next
+    $mod+F5 exec playerctl previous
+    $mod+F6 exec playerctl play-pause
+    $mod+F7 exec playerctl next
 
     XF86AudioPrev exec playerctl previous
     XF86AudioPlay exec playerctl play-pause
     XF86AudioNext exec playerctl next
 
     # Allow enabling main screen
-    Mod1+Insert output eDP-1 toggle scale 2.0
+    $mod+Insert output eDP-1 toggle scale 2.0
 }
 
 bindsym {
     # kill focused window
-    Mod1+q kill
+    $mod+q kill
 
     # rotate background wallpaper in the backgrounds folder
-    Mod1+Shift+r output * background $(ls $HOME/backgrounds/*.png | shuf -n 1) fill
+    $mod+Shift+r output * background $(ls $HOME/backgrounds/*.png | shuf -n 1) fill
 
     # Notifications
-    Mod1+n exec makoctl invoke
-    Mod1+m exec makoctl dismiss
+    $mod+n exec makoctl invoke
+    $mod+m exec makoctl dismiss
 
-    Mod1+b exec MOZ_ENABLE_WAYLAND="wayland" firefox
-    Mod1+Return exec kitty
-    Mod1+p exec kitty --class "KittyPopup" "$HOME/bin/lofi.sh"
-    Mod1+j exec kitty --class "KittyPopup" "$HOME/bin/git_project.sh"
-    Mod1+d exec kitty --class "KittyPopup" "$HOME/bin/desktop_search.py"
-    Mod1+i exec nautilus
+    $mod+b exec MOZ_ENABLE_WAYLAND="wayland" firefox
+    $mod+Return exec kitty
+    $mod+p exec kitty --class "KittyPopup" "$HOME/bin/lofi.sh"
+    $mod+j exec kitty --class "KittyPopup" "$HOME/bin/git_project.sh"
+    $mod+d exec kitty --class "KittyPopup" "$HOME/bin/desktop_search.py"
+    $mod+i exec nautilus
 
     # Screenshots
     Shift+Print exec $HOME/bin/grim_wrapper.sh -w
@@ -130,59 +133,59 @@ bindsym {
     Print exec $HOME/bin/grim_wrapper.sh
 
     # Moving between windows
-    Mod1+Left focus left
-    Mod1+Down focus down
-    Mod1+Up focus up
-    Mod1+Right focus right
+    $mod+Left focus left
+    $mod+Down focus down
+    $mod+Up focus up
+    $mod+Right focus right
 
-    Mod1+Shift+Left move left
-    Mod1+Shift+Down move down
-    Mod1+Shift+Up move up
-    Mod1+Shift+Right move right
+    $mod+Shift+Left move left
+    $mod+Shift+Down move down
+    $mod+Shift+Up move up
+    $mod+Shift+Right move right
 
     # Sway controls
-    Mod1+h split h
-    Mod1+v split v
-    Mod1+f fullscreen toggle
-    Shift+Mod1+f floating toggle
-    Mod1+space focus mode_toggle
-    Mod1+a focus parent
-    Mod1+c focus child
+    $mod+h split h
+    $mod+v split v
+    $mod+f fullscreen toggle
+    Shift+$mod+f floating toggle
+    $mod+space focus mode_toggle
+    $mod+a focus parent
+    $mod+c focus child
 
     # Workspace bindings
-    Mod1+1 workspace $ws1
-    Mod1+2 workspace $ws2
-    Mod1+3 workspace $ws3
-    Mod1+4 workspace $ws4
-    Mod1+5 workspace $ws5
-    Mod1+6 workspace $ws6
-    Mod1+7 workspace $ws7
-    Mod1+8 workspace $ws8
-    Mod1+9 workspace $ws9
-    Mod1+0 workspace $ws10
-    Mod1+tab workspace back_and_forth
+    $mod+1 workspace $ws1
+    $mod+2 workspace $ws2
+    $mod+3 workspace $ws3
+    $mod+4 workspace $ws4
+    $mod+5 workspace $ws5
+    $mod+6 workspace $ws6
+    $mod+7 workspace $ws7
+    $mod+8 workspace $ws8
+    $mod+9 workspace $ws9
+    $mod+0 workspace $ws10
+    $mod+tab workspace back_and_forth
 
     # move focused container to workspace
-    Mod1+Shift+1 move container to workspace number $ws1
-    Mod1+Shift+2 move container to workspace number $ws2
-    Mod1+Shift+3 move container to workspace number $ws3
-    Mod1+Shift+4 move container to workspace number $ws4
-    Mod1+Shift+5 move container to workspace number $ws5
-    Mod1+Shift+6 move container to workspace number $ws6
-    Mod1+Shift+7 move container to workspace number $ws7
-    Mod1+Shift+8 move container to workspace number $ws8
-    Mod1+Shift+9 move container to workspace number $ws9
-    Mod1+Shift+0 move container to workspace number $ws10
+    $mod+Shift+1 move container to workspace number $ws1
+    $mod+Shift+2 move container to workspace number $ws2
+    $mod+Shift+3 move container to workspace number $ws3
+    $mod+Shift+4 move container to workspace number $ws4
+    $mod+Shift+5 move container to workspace number $ws5
+    $mod+Shift+6 move container to workspace number $ws6
+    $mod+Shift+7 move container to workspace number $ws7
+    $mod+Shift+8 move container to workspace number $ws8
+    $mod+Shift+9 move container to workspace number $ws9
+    $mod+Shift+0 move container to workspace number $ws10
 
     # reload the configuration file
-    Mod1+Shift+c reload
+    $mod+Shift+c reload
     # exit sway (logs you out of your session)
-    Mod1+Shift+e exec $HOME/bin/sway-power.sh
+    $mod+Shift+e exec $HOME/bin/sway-power.sh
     # Start resize mode
-    Mod1+r mode "resize"
+    $mod+r mode "resize"
 
-    Mod1+s move window to scratchpad
-    Mod1+Shift+s scratchpad show
+    $mod+s move window to scratchpad
+    $mod+Shift+s scratchpad show
 }
 
 
@@ -199,10 +202,10 @@ mode "resize" {
     bindsym Up          resize shrink height 10 px or 10 ppt
     bindsym Right       resize grow width 10 px or 10 ppt
 
-    # back to normal: Enter or Escape or Mod1+r
+    # back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym Mod1+r mode "default"
+    bindsym $mod+r mode "default"
 }
 
 
