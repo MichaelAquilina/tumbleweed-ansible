@@ -39,6 +39,7 @@
     # os_icon               # os identifier
     dir                     # current directory
     vcs                     # git status
+    rust_version            # rustc version (https://www.rust-lang.org)
     # prompt_char           # prompt symbol
   )
 
@@ -61,7 +62,6 @@
     # nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
     # node_version          # node.js version
     # go_version            # go version (https://golang.org)
-    rust_version          # rustc version (https://www.rust-lang.org)
     # dotnet_version        # .NET version (https://dotnet.microsoft.com)
     # rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
     # rvm                     # ruby version from rvm (https://rvm.io)
