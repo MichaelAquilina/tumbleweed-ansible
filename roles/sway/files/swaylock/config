@@ -1,4 +1,5 @@
 ignore-empty-password
 daemonize
 color=222222
+ring-color=00FF88
 indicator-radius=150
