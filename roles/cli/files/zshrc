@@ -288,5 +288,18 @@ export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# p10k configuration
+# ------------------
+
+function prompt_git_user() {
+  if [[ -d ".git" ]]; then
+    p10k segment -i "👥" -t "$(git config user.email)"
+  fi
+}
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=git_user
+POWERLEVEL9K_GIT_USER_FOREGROUND=37
+POWERLEVEL9K_GIT_USER_SHOW_ON_COMMAND='git'
+
 t1=$(date "+%s.%N")
 printf "Profile took %.3f seconds to load\n" $((t1-t0))
