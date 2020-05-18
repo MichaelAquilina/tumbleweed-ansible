@@ -213,7 +213,7 @@ default_border pixel 2
 for_window [class=.*] border pixel 2
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #FF0000 #285577 #ffffff #00FF88   #FF0000
+client.focused          #00FF88 #285577 #ffffff #00FFFF   #00FF88
 client.focused_inactive #777777 #5f676a #ffffff #484e50   #777777
 client.unfocused        #777777 #222222 #777777 #292d2e   #777777
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
