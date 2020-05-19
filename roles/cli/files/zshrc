@@ -300,16 +300,30 @@ function prompt_git_user() {
 
 # Originally written by romkatv here:
 # https://github.com/romkatv/powerlevel10k/issues/734
-# TODO: Fix the fact that it does not work with aliases (unlike SHOW_ON_COMMAND)
+# tweaked by myself so that it works with all aliases associated with the trigger
 function p10k-on-post-widget() {
-  # If $BUFFER invokes `git` and contains "commit", show prompt
-  # segment "git_user". Otherwise hide it.
-  local z=$'\0'
-  if [[ $P9K_COMMANDS[(I)(|*[/$z])git] != 0 && $BUFFER == *commit* ]]; then
-    p10k display '*/git_user'=show
-  else
-    p10k display '*/git_user'=hide
+  # if P9K_COMMANDS does not contain git, we can exit early
+  if [[ $P9K_COMMANDS[(I)(|*[/$z])git] != 0 ]]; then
+    # if buffer contains "commit" then user is likely using 'git commit'
+    local z=$'\0'
+    if [[ $BUFFER == *commit* ]]; then
+      p10k display '*/git_user'=show
+      return
+    fi
+
+    # check if buffer matches any aliases for git commit we have
+    local key
+    for key in "${(@k)aliases}"; do
+      local value="${aliases[$key]}"
+      if [[ "$value" == "git commit"* && "$BUFFER" == "$key"* ]]; then
+        p10k display '*/git_user'=show
+        return
+      fi
+    done
   fi
+
+  # if nothing matches, hide the prompt
+  p10k display '*/git_user'=hide
 }
 
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=git_user
