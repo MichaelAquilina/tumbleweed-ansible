@@ -285,11 +285,12 @@ export YSU_MESSAGE_POSITION="after"
 export HISTORY_FILTER_EXCLUDE=("_KEY" "Authorization: ", "_TOKEN", "SECRET", "AWS_")
 export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # p10k configuration
 # ------------------
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 function prompt_git_user() {
   if [[ -d ".git" ]]; then
@@ -297,9 +298,22 @@ function prompt_git_user() {
   fi
 }
 
+# Originally written by romkatv here:
+# https://github.com/romkatv/powerlevel10k/issues/734
+# TODO: Fix the fact that it does not work with aliases (unlike SHOW_ON_COMMAND)
+function p10k-on-post-widget() {
+  # If $BUFFER invokes `git` and contains "commit", show prompt
+  # segment "git_user". Otherwise hide it.
+  local z=$'\0'
+  if [[ $P9K_COMMANDS[(I)(|*[/$z])git] != 0 && $BUFFER == *commit* ]]; then
+    p10k display '*/git_user'=show
+  else
+    p10k display '*/git_user'=hide
+  fi
+}
+
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=git_user
 POWERLEVEL9K_GIT_USER_FOREGROUND=37
-POWERLEVEL9K_GIT_USER_SHOW_ON_COMMAND='git'
 
 t1=$(date "+%s.%N")
 printf "Profile took %.3f seconds to load\n" $((t1-t0))
