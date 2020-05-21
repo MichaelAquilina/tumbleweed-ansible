@@ -315,7 +315,7 @@ function p10k-on-post-widget() {
     local key
     for key in "${(@k)aliases}"; do
       local value="${aliases[$key]}"
-      if [[ "$value" == "git commit"* && "$BUFFER" == "$key"* ]]; then
+      if [[ "$value" == "git commit"* && ("$BUFFER" == "$key" || "$BUFFER" == "$key "*) ]]; then
         p10k display '*/git_user'=show
         return
       fi
