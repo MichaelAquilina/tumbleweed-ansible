@@ -166,6 +166,8 @@ alias v="vim"
 # See https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 alias watch='watch '
 
+alias kc="kubectl"
+
 alias json="jq '.' -C"
 
 alias curl="curl --silent"
