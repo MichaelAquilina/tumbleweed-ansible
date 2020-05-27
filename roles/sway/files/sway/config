@@ -153,16 +153,16 @@ bindsym {
     $mod+c focus child
 
     # Workspace bindings
-    $mod+1 workspace $ws1
-    $mod+2 workspace $ws2
-    $mod+3 workspace $ws3
-    $mod+4 workspace $ws4
-    $mod+5 workspace $ws5
-    $mod+6 workspace $ws6
-    $mod+7 workspace $ws7
-    $mod+8 workspace $ws8
-    $mod+9 workspace $ws9
-    $mod+0 workspace $ws10
+    $mod+1 workspace number $ws1
+    $mod+2 workspace number $ws2
+    $mod+3 workspace number $ws3
+    $mod+4 workspace number $ws4
+    $mod+5 workspace number $ws5
+    $mod+6 workspace number $ws6
+    $mod+7 workspace number $ws7
+    $mod+8 workspace number $ws8
+    $mod+9 workspace number $ws9
+    $mod+0 workspace number $ws10
     $mod+tab workspace back_and_forth
 
     # move focused container to workspace
