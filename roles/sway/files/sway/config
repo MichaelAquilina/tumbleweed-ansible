@@ -5,6 +5,8 @@ font pango:Roboto Mono 10
 
 # notification daemon
 exec mako
+# always restart since its still early in development, might want to change this in the future
+exec_always killall rename_workspaces.py & $HOME/bin/rename_workspaces.py > $HOME/srw.log
 exec_always makoctl reload
 
 # Gnome policy kit authentication agent
