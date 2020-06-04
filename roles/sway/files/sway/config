@@ -130,8 +130,14 @@ bindsym {
     $mod+i exec nautilus
 
     # Screenshots
+
+    # screenshot of focused window
     Shift+Print exec $HOME/bin/grim_wrapper.sh -w
+
+    # screenshot of specified region (using grim)
     Ctrl+Shift+Print exec $HOME/bin/grim_wrapper.sh -g
+
+    # screenshot of entire workspace
     Print exec $HOME/bin/grim_wrapper.sh
 
     # Moving between windows
