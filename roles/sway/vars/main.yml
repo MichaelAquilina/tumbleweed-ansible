@@ -15,7 +15,6 @@ sway_apps:
   - swaybg
   - swaylock
   - playerctl
-  - rofi
   - kitty
   - slurp
   - swayidle
