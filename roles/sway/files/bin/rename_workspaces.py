@@ -32,14 +32,28 @@ def rename_workspaces(i3, _):
             logger.exception("Unexpected error")
 
 
+def get_key_from_node(node) -> str:
+    # X windows
+    if node.app_id is None:
+        return node.ipc_data.get("window_properties", {}).get("class")
+    else:
+        return node.app_id
+
+
 def set_workspace_name(i3, workspace):
     icons = []
+    for node in workspace.floating_nodes:
+        key = get_key_from_node(node)
+
+        print("Floating: ", key)
+
+        if key in GLYPH_MAP:
+            icons.append(GLYPH_MAP[key])
+
+
+
     for node in workspace.leaves():
-        # X windows
-        if node.app_id is None:
-            key = node.ipc_data.get("window_properties", {}).get("class")
-        else:
-            key = node.app_id
+        key = get_key_from_node(node)
 
         print(key)
 
