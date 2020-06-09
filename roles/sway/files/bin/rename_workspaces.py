@@ -78,6 +78,7 @@ def main():
     i3.on(Event.WINDOW_NEW, rename_workspaces)
     i3.on(Event.WINDOW_CLOSE, rename_workspaces)
     i3.on(Event.WINDOW_MOVE, rename_workspaces)
+    i3.on(Event.WINDOW_MOVE, rename_workspaces)
     i3.main()
 
 
