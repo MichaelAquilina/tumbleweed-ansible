@@ -23,7 +23,9 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock'
 
+# wayland
 for_window [app_id=".*"] inhibit_idle fullscreen
+# x-wayland
 for_window [class=".*"] inhibit_idle fullscreen
 
 # Zoom specific configuration
