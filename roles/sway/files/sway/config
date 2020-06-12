@@ -30,6 +30,8 @@ for_window [class=".*"] inhibit_idle fullscreen
 for_window [title="Zoom"] inhibit_idle visible
 
 for_window [app_id="KittyPopup"] floating enable
+# Workaround the fact that this about page is not marked as a floating window
+for_window [title="About Mozilla Firefox"] floating enable
 
 bar {
     swaybar_command waybar
