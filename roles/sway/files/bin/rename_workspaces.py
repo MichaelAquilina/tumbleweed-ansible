@@ -50,16 +50,12 @@ def set_workspace_name(i3, workspace):
         if key in GLYPH_MAP:
             icons.append(GLYPH_MAP[key])
 
-
-
     for node in workspace.leaves():
         key = get_key_from_node(node)
-
         print(key)
 
         if key in GLYPH_MAP:
             icons.append(GLYPH_MAP[key])
-
 
     old = workspace.name
     if icons:
