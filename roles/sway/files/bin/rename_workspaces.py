@@ -22,6 +22,8 @@ GLYPH_MAP = {
     "zoom": "",
     "org.gnome.Nautilus": "",
     "Steam": "",
+    "dontstarve_steam": "",
+    "default": "",
 }
 
 def rename_workspaces(i3, _):
@@ -56,6 +58,8 @@ def set_workspace_name(i3, workspace):
 
         if key in GLYPH_MAP:
             icons.append(GLYPH_MAP[key])
+        else:
+            icons.append(GLYPH_MAP["default"])
 
     old = workspace.name
     if icons:
