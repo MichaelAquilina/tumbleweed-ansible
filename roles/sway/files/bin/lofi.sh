@@ -23,7 +23,7 @@ echo "Unlock your password now 🔑"
 # TODO: is this a bug or expected behaviour on -e bash scripts?
 password="$(pass "$result")"
 
-echo "$password" | head -1 | nohup wl-copy -p -r --paste-once 2>/dev/null
+echo "$password" | head -1 | nohup wl-copy --paste-once 2>/dev/null
 
 notify-send --app-name=password-store \
 " " \
