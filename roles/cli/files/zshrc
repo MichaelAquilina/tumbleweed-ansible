@@ -264,6 +264,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
 
 eval "$(pyenv init -)"
+export PATH="$PATH:/usr/lib/postgresql11/bin"
+
 
 [ -f "$HOME/.fzf/shell/completion.zsh" ] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
 [ -f "$HOME/.fzf/shell/key-bindings.zsh" ] && source "$HOME/.fzf/shell/key-bindings.zsh"
