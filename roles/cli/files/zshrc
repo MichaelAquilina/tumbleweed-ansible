@@ -132,10 +132,10 @@ function pass() {
         local target="$HOME/.password-store/${@[-2]}.gpg"
 
         if stat "$target" &> /dev/null && [ ${@[(ie)-i]} -gt ${#@} ]; then
-            printf "${RED}"
-            echo "Don't use generate without -i (in-place)!"
-            echo "Automatically inserting -i for you"
-            printf "${NORMAL}"
+            (>&2 printf "${RED}")
+            (>&2 printf "Don't use generate without -i (in-place)!\n")
+            (>&2 printf "Automatically inserting -i for you\n")
+            (>&2 printf "${NORMAL}")
             # automatically insert -i
             params=("${@[@]:1:1}" "-i" "${@[@]:2}")
         fi
@@ -145,7 +145,7 @@ function pass() {
     if [[ -z "$params" ]]; then
         params=("${@[@]:1}")
     fi
-    echo "Generated pass command: $passbin ${params[@]}"
+    (>&2 printf "Generated pass command: $passbin ${params[@]}\n")
     "$passbin" ${params[@]}
 }
 
