@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 # See https://fontawesome.com/cheatsheet
 # for a quick way to search appropriate icons
 GLYPH_MAP = {
-    "kitty": "" ,
+    "kitty": "",
     "firefox": "",
     "rhythmbox": "",
     "Spotify": "",
@@ -23,8 +23,10 @@ GLYPH_MAP = {
     "org.gnome.Nautilus": "",
     "Steam": "",
     "dontstarve_steam": "",
+    "discord": "",
     "default": "",
 }
+
 
 def rename_workspaces(i3, _):
     for workspace in i3.get_tree().workspaces():
