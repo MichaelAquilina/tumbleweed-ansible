@@ -20,6 +20,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Gnome pattern
+          command: zypper install -y -t pattern gnome
+      - run:
           name: Install git dependency
           command: zypper install -y git openssh
       - run:
