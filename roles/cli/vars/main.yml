@@ -6,6 +6,7 @@ cli_apps:
   - fzf
   - htop
   - jq
+  - exa
   - neovim
   - osc
   - password-store

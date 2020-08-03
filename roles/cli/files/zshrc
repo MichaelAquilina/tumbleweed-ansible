@@ -172,9 +172,9 @@ alias json="jq '.' -C"
 
 alias curl="curl --silent"
 
-alias ls="ls --color=auto"
-alias ll="ls -lh --group-directories-first"
-alias l="ls -lah --group-directories-first"
+alias ls="exa -lg"
+alias ll="exa -lg --group-directories-first"
+alias la="exa -lga --group-directories-first"
 
 alias less="less -R"
 
