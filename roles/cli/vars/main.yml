@@ -12,7 +12,5 @@ cli_apps:
   - password-store
   - python3-virtualenv
   - ripgrep
-  - rust
-  - rust-std
   - tig
   - libnotify-tools
