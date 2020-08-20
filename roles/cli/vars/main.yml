@@ -1,7 +1,6 @@
 ---
 
 cli_apps:
-  - cargo
   - colordiff
   - fzf
   - htop
