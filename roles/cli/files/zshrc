@@ -341,5 +341,9 @@ POWERLEVEL9K_GIT_USER_FOREGROUND=37
 # k8s autocompletion
 source <(kubectl completion zsh)
 
+# Enable terraform autocomplete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
 t1=$(date "+%s.%N")
 printf "Profile took %.3f seconds to load\n" $((t1-t0))
