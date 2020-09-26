@@ -49,6 +49,8 @@ set hidden
 set nobackup
 set nowritebackup
 set noswapfile
+set cursorline
+set cursorcolumn
 
 " Enable spellchecking
 set spell spelllang=en_gb
