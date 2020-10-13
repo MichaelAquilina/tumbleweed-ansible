@@ -125,6 +125,10 @@ nnoremap _ ddkP
 nnoremap <leader>, :call CopyRelativePath(0)<cr>
 nnoremap <leader>. :call CopyRelativePath(1)<cr>
 
+" =========== gitgutter configuration ==========
+nmap <leader>] <Plug>(GitGutterNextHunk)
+nmap <leader>[ <Plug>(GitGutterPrevHunk)
+
 " =========== Fugitive configuration ===========
 
 vnoremap <leader>gb :GBrowse<cr>
