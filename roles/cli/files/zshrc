@@ -228,7 +228,6 @@ alias t="tig"
 alias dcr="docker-compose run --rm"
 
 # Utilities
-alias pm="pygmentize"
 alias xopen="xdg-open"
 alias explore="nautilus"
 alias xc="xsel -i -b"
