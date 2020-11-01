@@ -145,7 +145,11 @@ function pass() {
     if [[ -z "$params" ]]; then
         params=("${@[@]:1}")
     fi
-    (>&2 printf "Generated pass command: $passbin ${params[@]}\n")
+    (>&2 printf "${YELLOW}")
+    (>&2 printf "Generated pass command: %s %s\n" "$passbin" "${(j: :)params[@]}")
+    (>&2 printf "${NORMAL}")
+
+    # Actually execute the command
     "$passbin" ${params[@]}
 }
 
