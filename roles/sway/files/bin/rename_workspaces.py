@@ -16,6 +16,7 @@ logger = logging.getLogger(__name__)
 GLYPH_MAP = {
     "kitty": "",
     "firefox": "",
+    "Chromium-browser": "",
     "rhythmbox": "",
     "Spotify": "",
     "steam": "",
