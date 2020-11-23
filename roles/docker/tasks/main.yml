@@ -4,6 +4,7 @@
   become: "yes"
   zypper:
     name: docker
+  when: dockerenv.stat.exists == False
 
 - name: docker-compose is installed
   pip:
