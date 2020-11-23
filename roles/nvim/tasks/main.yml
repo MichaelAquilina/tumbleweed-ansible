@@ -25,8 +25,8 @@
     - "coc-settings.json"
   register: configuration_result
 
-- name: run PlugUpdate on vim
-  command: "nvim +'PlugUpdate --sync' +qa"
+- name: run PlugInstall on vim
+  command: "nvim +'PlugInstall --sync' +qa"
   when: configuration_result.changed
 
 - name: python neovim bindings installed
