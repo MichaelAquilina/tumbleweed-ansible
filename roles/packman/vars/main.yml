@@ -1,5 +1,0 @@
----
-
-repos:
-  - uri: "https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/Essentials/"
-    name: "PackmanEssentials"
