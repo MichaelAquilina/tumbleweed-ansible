@@ -25,6 +25,14 @@
     - "coc-settings.json"
   register: configuration_result
 
+- name: node dependencies installed
+  become: "yes"
+  zypper:
+    name: "{{ item }}"
+  loop:
+    - nodejs
+    - npm
+
 - name: run PlugInstall on vim
   command: "nvim +'PlugInstall --sync' +qa"
   when: configuration_result.changed
