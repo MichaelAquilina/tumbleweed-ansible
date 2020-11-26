@@ -153,6 +153,28 @@ function pass() {
     "$passbin" ${params[@]}
 }
 
+# Make it very obvious when we are running in a k8s shell
+function kubectl {
+   if [[ "$1" == "exec" ]]; then
+       local context="$(command kubectl config current-context)"
+       local background
+
+       if [[ "$context" = *"_prd" ]]; then
+         background="#783333"
+       else
+         background="#655511"
+       fi
+
+       kitty @ set-colors "background=$background"
+   fi
+
+   command kubectl $@
+
+   if [[ "$1" == "exec" ]]; then
+       kitty @ set-colors --reset
+   fi
+}
+
 function whatismyip() {
   curl ifconfig.co -s --connect-timeout 1
 }
