@@ -3,8 +3,12 @@ set t_Co=256 " explicitly use 256 colors
 
 call plug#begin()
 
+if has('nvim-0.5')
+    Plug 'nvim-treesitter/nvim-treesitter'
+endif
+
 " ========== GUI and User Interface ==========
-Plug 'MichaelAquilina/vim-nightfly-guicolors'  " has some tweaks
+Plug 'bluz71/vim-nightfly-guicolors'  " has some tweaks
 
 " ========= Syntax Highlighting ==========
 Plug 'terminalnode/sway-vim-syntax'
@@ -31,6 +35,18 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 call plug#end()
+
+if has('nvim-0.5')
+    lua <<EOF
+  local treesitter = require'nvim-treesitter.configs'
+  treesitter.setup {
+    ensure_installed = "all",
+    highlight = {
+      enable = true
+    }
+  }
+EOF
+endif
 
 " =========== General Configuration ==========
 
