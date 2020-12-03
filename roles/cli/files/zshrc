@@ -261,7 +261,6 @@ fi
 
 alias plog='pass git log --pretty="format:%C(bold) %G? %C(cyan) %ai %C(bold yellow)%s"'
 
-export MANPAGER="nvim -c 'set ft=man' -"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git'"
 
@@ -296,6 +295,7 @@ export PATH="$HOME/.rvm/bin:$PATH"
 eval "$(pyenv init -)"
 export PATH="$PATH:/usr/lib/postgresql11/bin"
 
+export MANPAGER="nvim +Man!"
 
 [ -f "$HOME/.fzf/shell/completion.zsh" ] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
 [ -f "$HOME/.fzf/shell/key-bindings.zsh" ] && source "$HOME/.fzf/shell/key-bindings.zsh"
