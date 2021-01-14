@@ -163,14 +163,14 @@ command! -nargs=0 Format :call CocAction('format')
 hi CocHintSign cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=grey35 guibg=NONE
 
 let g:coc_global_extensions = [
-	\'coc-python',
-	\'coc-json',
-	\'coc-yaml',
-	\'coc-rust-analyzer',
-	\'coc-highlight',
-	\'coc-tsserver',
-	\'coc-snippets',
-	\]
+  \'coc-pyright',
+  \'coc-json',
+  \'coc-yaml',
+  \'coc-rust-analyzer',
+  \'coc-highlight',
+  \'coc-tsserver',
+  \'coc-snippets',
+  \]
 
 " =========== NERDTree Configuration ==========
 nnoremap <leader>/ :NERDTreeToggle<cr>
