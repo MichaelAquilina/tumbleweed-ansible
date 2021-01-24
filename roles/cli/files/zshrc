@@ -317,6 +317,7 @@ zplug load
 
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export AUTO_NOTIFY_THRESHOLD=8
+export AUTO_NOTIFY_EXPIRE_TIME=4000
 AUTO_NOTIFY_IGNORE+=("ipython")
 export YSU_MESSAGE_POSITION="after"
 export HISTORY_FILTER_EXCLUDE=("_KEY" "Authorization: ", "_TOKEN", "SECRET", "AWS_")
