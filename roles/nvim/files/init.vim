@@ -28,6 +28,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'  " Automatic tab expand configuration
 Plug 'tpope/vim-commentary'  " Comment out blocks of code
 Plug 'tpope/vim-surround'  " change surrounding elements
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 
 " ========== Git ===========
 Plug 'airblade/vim-gitgutter'
@@ -163,7 +164,6 @@ command! -nargs=0 Format :call CocAction('format')
 hi CocHintSign cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=grey35 guibg=NONE
 
 let g:coc_global_extensions = [
-  \'coc-pyright',
   \'coc-json',
   \'coc-yaml',
   \'coc-rust-analyzer',
