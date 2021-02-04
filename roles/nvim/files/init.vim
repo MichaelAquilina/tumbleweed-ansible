@@ -28,7 +28,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'  " Automatic tab expand configuration
 Plug 'tpope/vim-commentary'  " Comment out blocks of code
 Plug 'tpope/vim-surround'  " change surrounding elements
-Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+Plug 'pappasam/coc-jedi', { 'do': 'npm install --frozen-lockfile && npm build' }
 
 " ========== Git ===========
 Plug 'airblade/vim-gitgutter'
@@ -170,6 +170,7 @@ let g:coc_global_extensions = [
   \'coc-highlight',
   \'coc-tsserver',
   \'coc-snippets',
+  \'coc-jedi',
   \]
 
 " =========== NERDTree Configuration ==========
