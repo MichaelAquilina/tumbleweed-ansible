@@ -165,13 +165,15 @@ function kubectl {
          background="#655511"
        fi
 
-       kitty @ set-colors "background=$background"
+       # Escape command to set background colours
+       echo -ne "\033]11;$background\007"
    fi
 
    command kubectl $@
 
    if [[ "$1" == "exec" ]]; then
-       kitty @ set-colors --reset
+     # Escape command to reset background colours
+     echo -ne "\033]110;\007\033]111;\007"
    fi
 }
 
