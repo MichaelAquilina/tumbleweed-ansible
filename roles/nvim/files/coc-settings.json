@@ -1,9 +1,9 @@
 {
   "coc.preferences.colorSupport": true,
   "suggest.detailField": "abbr",
-  "python.jediEnabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
-  "suggest.noselect": false,
-  "rust-analyzer.serverPath": "~/.local/bin/rust-analyzer"
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black",
+  "suggest.noselect": false
 }
