@@ -292,8 +292,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PATH:/usr/lib/postgresql11/bin"
 export PATH="$$HOME/.poetry/bin:$PATH"
 
-eval "$(pyenv init -)"
-
 export MANPAGER="nvim +Man!"
 
 [ -f "$HOME/.fzf/shell/completion.zsh" ] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
@@ -376,3 +374,5 @@ printf "Profile took %.3f seconds to load\n" $((t1-t0))
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(pyenv init -)"
