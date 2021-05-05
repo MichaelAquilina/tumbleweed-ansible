@@ -15,7 +15,7 @@ source ~/.zplug/init.zsh
 zplug "zplug/zplug", hook-build: 'zplug --self-manage'
 
 zplug "zsh-users/zsh-autosuggestions"
-zplug "MichaelAquilina/zsh-auto-notify"
+# zplug "MichaelAquilina/zsh-auto-notify"
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "MichaelAquilina/zsh-history-filter"
 zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
@@ -265,13 +265,6 @@ alias plog='pass git log --pretty="format:%C(bold) %G? %C(cyan) %ai %C(bold yell
 
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git'"
-
-local DEFAULT_WEB_BROWSER="firefox-wayland.desktop"
-
-# Check before setting. This is because setting is slow
-if [[ "$(xdg-settings get default-web-browser)" != "$DEFAULT_WEB_BROWSER" ]]; then
-    xdg-settings set default-web-browser "$DEFAULT_WEB_BROWSER"
-fi
 
 # Use filtering branch names using fzf when triggered with 'git checkout **<TAB>'
 # the trigger can be customised with the environment variable $FZF_COMPLETION_TRIGGER
