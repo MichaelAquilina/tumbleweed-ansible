@@ -159,11 +159,13 @@ function kubectl {
        local context="$(command kubectl config current-context)"
        local background
 
-       if [[ "$context" = *"_prd" ]]; then
+       if [[ "$context" = *"-prod" ]]; then
          background="#783333"
-       else
+       elif [[ "$context" = *"-dev" ]]; then
          background="#655511"
-       fi
+       else
+         background="#965599"
+        fi
 
        # Escape command to set background colours
        echo -ne "\033]11;$background\007"
