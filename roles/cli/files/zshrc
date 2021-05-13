@@ -165,7 +165,7 @@ function kubectl {
          background="#655511"
        else
          background="#965599"
-        fi
+       fi
 
        # Escape command to set background colours
        echo -ne "\033]11;$background\007"
