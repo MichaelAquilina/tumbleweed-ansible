@@ -39,7 +39,7 @@ Plug 'tpope/vim-rhubarb'
 call plug#end()
 
 lua <<EOF
-local treesitter = require'nvim-treesitter.configs'
+local treesitter = require('nvim-treesitter.configs')
 treesitter.setup {
     ensure_installed = "all",
     highlight = {
