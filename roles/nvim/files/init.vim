@@ -4,7 +4,7 @@ set t_Co=256 " explicitly use 256 colors
 call plug#begin()
 
 if has('nvim-0.5')
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat'}
 endif
 
 " ========== GUI and User Interface ==========
