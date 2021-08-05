@@ -20,6 +20,7 @@ Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'sgur/vim-textobj-parameter'
 
 " ========== Functionality ==========
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }  }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -37,17 +38,15 @@ Plug 'tpope/vim-rhubarb'
 
 call plug#end()
 
-if has('nvim-0.5')
-    lua <<EOF
-  local treesitter = require'nvim-treesitter.configs'
-  treesitter.setup {
+lua <<EOF
+local treesitter = require'nvim-treesitter.configs'
+treesitter.setup {
     ensure_installed = "all",
     highlight = {
       enable = true
     }
-  }
+}
 EOF
-endif
 
 " =========== General Configuration ==========
 
@@ -74,7 +73,6 @@ set spell spelllang=en_gb
 
 " Show whitespace
 set list
-set listchars=tab:>-,trail:~,extends:>,precedes:<,
 
 " Python configuration
 let g:python_host_prog = expand('/usr/bin/python')
