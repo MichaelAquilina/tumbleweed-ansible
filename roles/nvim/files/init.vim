@@ -19,6 +19,7 @@ Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'sgur/vim-textobj-parameter'
 
 " ========== Functionality ==========
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }  }
 Plug 'junegunn/fzf.vim'
