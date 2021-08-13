@@ -21,17 +21,23 @@ Plug 'sgur/vim-textobj-parameter'
 " ========== Tree View ===========
 Plug 'kyazdani42/nvim-tree.lua'
 
+" ========== LSP functionality ========
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'hrsh7th/nvim-compe'
+Plug 'onsails/lspkind-nvim'
+
 " ========== Functionality ==========
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }  }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'  " Automatic tab expand configuration
 Plug 'tpope/vim-commentary'  " Comment out blocks of code
 Plug 'tpope/vim-surround'  " change surrounding elements
-Plug 'pappasam/coc-jedi', { 'do': 'npm install --frozen-lockfile && npm build' }
 
 " ========== Git ===========
 Plug 'airblade/vim-gitgutter'
@@ -48,6 +54,68 @@ treesitter.setup {
       enable = true
     }
 }
+
+local lspconfig = require('lspconfig')
+local lspinstall = require('lspinstall')
+lspinstall.setup()
+
+lspconfig['jedi_language_server'].setup{}
+
+local servers = lspinstall.installed_servers()
+for _, server in pairs(servers) do
+  lspconfig[server].setup{}
+end
+
+local saga = require('lspsaga')
+saga.init_lsp_saga()
+
+-- local lsp_signature = require('lsp_signature')
+-- lsp_signature.setup()
+
+require('lspkind').init({
+    -- enables text annotations
+    --
+    -- default: true
+    with_text = true,
+
+    -- default symbol map
+    -- can be either 'default' or
+    -- 'codicons' for codicon preset (requires vscode-codicons font installed)
+    --
+    -- default: 'default'
+    preset = 'codicons',
+
+    -- override preset symbols
+    --
+    -- default: {}
+    symbol_map = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "ﰠ",
+      Variable = "",
+      Class = "ﴯ",
+      Interface = "",
+      Module = "",
+      Property = "ﰠ",
+      Unit = "塞",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "פּ",
+      Event = "",
+      Operator = "",
+      TypeParameter = ""
+    },
+})
 EOF
 
 " =========== General Configuration ==========
@@ -58,6 +126,8 @@ colorscheme tokyonight
 let g:mapleader=' '
 
 filetype plugin indent on
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
 set encoding=utf-8
 set emoji
 set inccommand=nosplit  " Enable previewing of %s//
@@ -147,6 +217,36 @@ nnoremap <leader>. :call CopyRelativePath(1)<cr>
 nmap <leader>] <Plug>(GitGutterNextHunk)
 nmap <leader>[ <Plug>(GitGutterPrevHunk)
 
+" =========== LSP configuration =========
+nnoremap <silent> gs :Lspsaga signature_help<CR>
+nnoremap <silent> K :Lspsaga hover_doc<CR>
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.resolve_timeout = 800
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+let g:compe.source.ultisnips = v:true
+let g:compe.source.luasnip = v:true
+let g:compe.source.emoji = v:true
+
 " =========== Fugitive configuration ===========
 
 vnoremap <leader>gb :GBrowse<cr>
@@ -157,22 +257,8 @@ nnoremap <c-p> :Files<cr>
 nnoremap <c-b> :Buffers<cr>
 nnoremap <c-k> :Rg<cr>
 
-" =========== CoC Configuration ==========
-nmap <silent> gd <Plug>(coc-definition)
-command! -nargs=0 Format :call CocAction('format')
-
 " Customize the colors of type hints
 hi CocHintSign cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=grey35 guibg=NONE
-
-let g:coc_global_extensions = [
-  \'coc-json',
-  \'coc-yaml',
-  \'coc-rust-analyzer',
-  \'coc-highlight',
-  \'coc-tsserver',
-  \'coc-snippets',
-  \'coc-jedi',
-  \]
 
 " =========== Tree Configuration ==========
 nnoremap <leader>/ :NvimTreeToggle<cr>
