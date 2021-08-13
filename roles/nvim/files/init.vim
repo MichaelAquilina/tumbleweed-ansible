@@ -3,9 +3,8 @@ set t_Co=256 " explicitly use 256 colors
 
 call plug#begin()
 
-if has('nvim-0.5')
-  Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat'}
-endif
+" ========== Tresitter support ==========
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat'}
 
 " ========== GUI and User Interface ==========
 Plug 'bluz71/vim-nightfly-guicolors'  " has some tweaks
