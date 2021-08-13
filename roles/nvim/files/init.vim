@@ -18,13 +18,15 @@ Plug 'kana/vim-textobj-user'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'sgur/vim-textobj-parameter'
 
+" ========== Tree View ===========
+Plug 'kyazdani42/nvim-tree.lua'
+
 " ========== Functionality ==========
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }  }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'  " Automatic tab expand configuration
 Plug 'tpope/vim-commentary'  " Comment out blocks of code
@@ -171,5 +173,14 @@ let g:coc_global_extensions = [
   \'coc-jedi',
   \]
 
-" =========== NERDTree Configuration ==========
-nnoremap <leader>/ :NERDTreeToggle<cr>
+" =========== Tree Configuration ==========
+nnoremap <leader>/ :NvimTreeToggle<cr>
+
+" default will show icon by default if no icon is provided
+" default shows no icon by default
+let g:nvim_tree_show_icons = {
+    \ 'git': 0,
+    \ 'folders': 1,
+    \ 'files': 0,
+    \ 'folder_arrows': 1,
+    \ }
