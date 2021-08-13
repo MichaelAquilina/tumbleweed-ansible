@@ -9,6 +9,7 @@ endif
 
 " ========== GUI and User Interface ==========
 Plug 'bluz71/vim-nightfly-guicolors'  " has some tweaks
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " ========= Syntax Highlighting ==========
 Plug 'sheerun/vim-polyglot'
@@ -52,7 +53,8 @@ EOF
 
 " =========== General Configuration ==========
 
-colorscheme nightfly
+let g:tokyonight_style = 'night'
+colorscheme tokyonight
 
 let g:mapleader=' '
 
