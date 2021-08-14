@@ -78,9 +78,9 @@ vnoremap <leader>gb :GBrowse<cr>
 
 " =========== Fzf Configuration ==========
 
-nnoremap <c-p> :Files<cr>
-nnoremap <c-b> :Buffers<cr>
-nnoremap <c-k> :Rg<cr>
+nnoremap <c-p> :Telescope find_files<cr>
+nnoremap <c-b> :Telescope buffers<cr>
+nnoremap <c-k> :Telescope live_grep<cr>
 
 " =========== Tree Configuration ==========
 nnoremap <leader>/ :NvimTreeToggle<cr>

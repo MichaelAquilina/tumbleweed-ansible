@@ -18,10 +18,12 @@ packer.startup(function(use)
   -- Functionality
   use('sheerun/vim-polyglot');
   use('kyazdani42/nvim-tree.lua');
-  use('junegunn/fzf');
-  use('junegunn/fzf.vim');
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
+  use({
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  })
 
   -- LSP
   use('neovim/nvim-lspconfig');
@@ -54,6 +56,9 @@ vim.cmd("source ~/.config/nvim/legacy.vim");
 
 vim.g.tokyonight_style = 'night';
 vim.cmd("colorscheme tokyonight");
+
+-- Coloroize
+require('telescope').setup({})
 
 -- Colorize
 
