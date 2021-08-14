@@ -55,6 +55,10 @@ vim.cmd("source ~/.config/nvim/legacy.vim");
 vim.g.tokyonight_style = 'night';
 vim.cmd("colorscheme tokyonight");
 
+-- Colorize
+
+require('colorizer').setup()
+
 -- Treesitter configuration
 
 local treesitter = require('nvim-treesitter.configs')
