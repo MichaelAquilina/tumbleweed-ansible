@@ -24,6 +24,7 @@ packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   })
+  use('Pocco81/AutoSave.nvim')
 
   -- LSP
   use('neovim/nvim-lspconfig');
@@ -63,6 +64,13 @@ require('telescope').setup({})
 -- Colorize
 
 require('colorizer').setup()
+
+-- Autosave
+
+local autosave = require("autosave")
+autosave.setup({
+  events = {"BufLeave", "FocusLost"}
+})
 
 -- Treesitter configuration
 

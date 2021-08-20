@@ -11,9 +11,6 @@ augroup vimrc
 
     " Autoreload on external changes
     autocmd BufEnter,FocusGained * :checktime
-
-    " Save on Focus Lost
-    autocmd BufLeave,FocusLost * silent! wall
 augroup END
 
 augroup TextSettings
