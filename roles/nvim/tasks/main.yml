@@ -33,10 +33,6 @@
     - nodejs
     - npm
 
-- name: run PackerInstall on vim
-  command: "nvim +'PackerInstall --sync' +qa"
-  when: configuration_result.changed
-
 - name: python neovim bindings installed
   become: "yes"
   zypper:
