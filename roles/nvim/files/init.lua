@@ -25,6 +25,7 @@ packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   })
   use('Pocco81/AutoSave.nvim')
+  use('svermeulen/vimpeccable')  -- keymaps in lua
 
   -- LSP
   use('neovim/nvim-lspconfig');
@@ -143,6 +144,47 @@ vim.g.nvim_tree_show_icons = {
     files = 0,
     folder_arrows = 1,
 };
+
+-- Keymaps in vimpeccable
+
+local vimp = require('vimp')
+
+vimp.nnoremap('<leader>ev', ':edit $MYVIMRC<cr>')
+vimp.nnoremap('<leader>el', ':edit ~/.config/nvim/init.lua<cr>')
+vimp.nnoremap('<leader>sv', ':source $MYVIMRC<cr>')
+vimp.nnoremap('<leader>ez', ':edit ~/.zshrc<cr>')
+vimp.nnoremap('<leader>es', ':edit ~/.config/sway/config<cr>')
+vimp.nnoremap('<leader>et', ':edit ~/.config/kitty/kitty.conf<cr>')
+
+vimp.nnoremap('<c-p>', ':Telescope find_files<cr>')
+vimp.nnoremap('<c-b>', ':Telescope buffers<cr>')
+vimp.nnoremap('<c-k>', ':Telescope live_grep<cr>')
+
+vimp.vnoremap('cp', '"+y')
+vimp.nnoremap('vp', '"+p')
+
+vimp.nnoremap('Q', '<nop>') -- Disable Ex mode
+vimp.nnoremap('<c-s>', '<nop>') -- Disable stop redraw
+
+vimp.nnoremap('<esc>',':let @/=""<cr>') -- Cancel current search
+
+-- Quickly move lines up and down
+vimp.nnoremap('-', 'ddp')
+vimp.nnoremap('_', 'ddkP')
+
+vimp.nnoremap('<leader>,', ':call CopyRelativePath(0)<cr>')
+vimp.nnoremap('<leader>.', ':call CopyRelativePath(1)<cr>')
+
+vimp.nmap('<leader>]', '<Plug>(GitGutterNextHunk)')
+vimp.nmap('<leader>[', '<Plug>(GitGutterPrevHunk)')
+
+vimp.nnoremap('<silent> gs', ':Lspsaga signature_help<CR>')
+vimp.nnoremap('<silent> K', ':Lspsaga hover_doc<CR>')
+vimp.nnoremap('<silent> gd', ':lua vim.lsp.buf.definition()<CR>')
+
+vimp.vnoremap('<leader>gb', ':GBrowse<cr>')
+
+vimp.nnoremap('<leader>/', ':NvimTreeToggle<cr>')
 
 -- Miscellaneous options
 
