@@ -9,10 +9,10 @@
     - "~/.local/share/nvim/site/autoload"
     - "~/.config/nvim/"
 
-- name: vim-plug is installed
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: ~/.local/share/nvim/site/autoload/plug.vim
+- name: packer is installed
+  git:
+    repo: https://github.com/wbthomason/packer.nvim
+    dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 - name: configuration files are linked
   file:
@@ -21,8 +21,8 @@
     src: "{{ role_path }}/files/{{ item }}"
     path: "~/.config/nvim/{{ item }}"
   loop:
-    - "init.vim"
-    - "coc-settings.json"
+    - "init.lua"
+    - "legacy.vim"
   register: configuration_result
 
 - name: node dependencies installed
@@ -32,10 +32,6 @@
   loop:
     - nodejs
     - npm
-
-- name: run PlugInstall on vim
-  command: "nvim +'PlugInstall --sync' +qa"
-  when: configuration_result.changed
 
 - name: python neovim bindings installed
   become: "yes"
