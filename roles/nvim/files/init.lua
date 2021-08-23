@@ -178,9 +178,9 @@ vimp.nnoremap('<leader>.', ':call CopyRelativePath(1)<cr>')
 vimp.nmap('<leader>]', '<Plug>(GitGutterNextHunk)')
 vimp.nmap('<leader>[', '<Plug>(GitGutterPrevHunk)')
 
-vimp.nnoremap('<silent> gs', ':Lspsaga signature_help<CR>')
-vimp.nnoremap('<silent> K', ':Lspsaga hover_doc<CR>')
-vimp.nnoremap('<silent> gd', ':lua vim.lsp.buf.definition()<CR>')
+vimp.nnoremap('gs', ':Lspsaga signature_help<CR>')
+vimp.nnoremap('K', ':Lspsaga hover_doc<CR>')
+vimp.nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
 
 vimp.vnoremap('<leader>gb', ':GBrowse<cr>')
 
