@@ -380,5 +380,5 @@ eval "$(pyenv init --path)"
 
 if [[ "$TERM" == "xterm-kitty" ]]; then
   # this alias ensures the correct terminfo is sent automatically
-  alias ssh="kitten +kitten ssh"
+  alias ssh="kitty +kitten ssh"
 fi
