@@ -59,10 +59,18 @@ vim.cmd("source ~/.config/nvim/legacy.vim");
 vim.g.tokyonight_style = 'night';
 vim.cmd("colorscheme tokyonight");
 
--- Coloroize
-require('telescope').setup({})
+-- Telescope
+require('telescope').setup({
+  pickers = {
+    buffers = {
+      ignore_current_buffer = true,
+      sort_mru = true,
+      sort_lastused = true,
+    }
+  }
+})
 
--- Colorize
+-- Colorizer
 
 require('colorizer').setup()
 
