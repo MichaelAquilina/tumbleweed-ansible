@@ -20,12 +20,16 @@ packer.startup(function(use)
   use('kyazdani42/nvim-tree.lua');
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
+
+  use('Pocco81/AutoSave.nvim')
+  use('svermeulen/vimpeccable')  -- keymaps in lua
+
+  -- Telescope
   use({
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   })
-  use('Pocco81/AutoSave.nvim')
-  use('svermeulen/vimpeccable')  -- keymaps in lua
+  use({'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
   -- LSP
   use('neovim/nvim-lspconfig');
@@ -60,7 +64,16 @@ vim.g.tokyonight_style = 'night';
 vim.cmd("colorscheme tokyonight");
 
 -- Telescope
-require('telescope').setup({
+local telescope = require('telescope')
+telescope.setup({
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+    }
+  },
   pickers = {
     buffers = {
       ignore_current_buffer = true,
@@ -68,7 +81,8 @@ require('telescope').setup({
       sort_lastused = true,
     }
   }
-})
+});
+telescope.load_extension("fzf");
 
 -- Colorizer
 
