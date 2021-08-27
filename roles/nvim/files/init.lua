@@ -1,5 +1,10 @@
 local vim = vim
 
+vim.g.cp = false;
+
+-- old init.vim code will slowly be migrated out of this file
+vim.cmd("source ~/.config/nvim/legacy.vim");
+
 vim.o.termguicolors = true;
 
 vim.g.mapleader = " ";
@@ -57,8 +62,6 @@ packer.startup(function(use)
   use('tpope/vim-surround');  -- change surrounding elements
 end);
 
--- old init.vim code will slowly be migrated out of this file
-vim.cmd("source ~/.config/nvim/legacy.vim");
 
 vim.g.tokyonight_style = 'night';
 vim.cmd("colorscheme tokyonight");
