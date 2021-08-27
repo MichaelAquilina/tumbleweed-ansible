@@ -173,6 +173,7 @@ vim.g.nvim_tree_show_icons = {
 -- Keymaps in vimpeccable
 
 local vimp = require('vimp')
+vimp.always_override = true;
 
 vimp.nnoremap('<leader>ev', ':edit $MYVIMRC<cr>')
 vimp.nnoremap('<leader>el', ':edit ~/.config/nvim/init.lua<cr>')
