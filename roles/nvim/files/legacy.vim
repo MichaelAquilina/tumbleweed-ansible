@@ -1,4 +1,4 @@
-filetype plugin indent on
+filetype plugin on
 
 " ============ Auto Commands ==========
 augroup vimrc
