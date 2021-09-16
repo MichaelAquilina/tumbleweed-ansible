@@ -4,6 +4,11 @@
 # store folder.
 # It is named mockingly after "rofi" due to how simple it is
 
+# Make sure we only have one running
+if [[ "$(pgrep lofi.sh --count)" != "1" ]]; then
+    pkill lofi.sh --oldest
+fi
+
 set -e
 PASSWORD_STORE="$HOME/.password-store"
 
@@ -23,7 +28,7 @@ echo "Unlock your password now 🔑"
 # TODO: is this a bug or expected behaviour on -e bash scripts?
 password="$(pass "$result")"
 
-echo "$password" | head -1 | nohup wl-copy --paste-once 2>/dev/null
+echo "$password" | head -1 | xclip -selection c
 
 notify-send --app-name=password-store \
 " " \
