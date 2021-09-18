@@ -258,6 +258,7 @@ alias xopen="xdg-open"
 alias explore="nautilus"
 alias xc="xsel -i -b"
 alias md="mkdir"
+alias ip="ip -c=auto"
 
 if [[ -n "$WAYLAND_DISPLAY" ]]; then
     alias xc="wl-copy"
