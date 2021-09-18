@@ -31,6 +31,6 @@ password="$(pass "$result")"
 echo "$password" | head -1 | xclip -selection c
 
 notify-send --app-name=password-store \
-" " \
-"Copied <b>$result</b> to clipboard 🔑
+"$result 🔑" \
+"Copied to clipboard.
 Password will only paste ONCE"
