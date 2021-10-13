@@ -24,7 +24,7 @@ packer.startup(function(use)
 
   -- Functionality
   use('sheerun/vim-polyglot');
-  use('kyazdani42/nvim-tree.lua');
+  use({'kyazdani42/nvim-tree.lua', tag = '1.2.8'});
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
 
