@@ -17,3 +17,9 @@
     schema: org.gnome.nautilus.compression
     key: default-compression-format
     value: "tar.xz"
+
+- name: Disable the overlay key
+  gsettings:
+    schema: org.gnome.mutter
+    key: overlay-key
+    value: ""
