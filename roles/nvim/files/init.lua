@@ -42,7 +42,7 @@ packer.startup(function(use)
   use('neovim/nvim-lspconfig');
   use('glepnir/lspsaga.nvim');
   use('ray-x/lsp_signature.nvim');
-  use('kabouzeid/nvim-lspinstall');
+  use('williamboman/nvim-lsp-installer');
   use('hrsh7th/nvim-compe');
   use('onsails/lspkind-nvim');
 
@@ -113,18 +113,15 @@ treesitter.setup {
 
 -- Lsp configuration
 local lspconfig = require('lspconfig')
-local lspinstall = require('lspinstall')
-lspinstall.setup()
+local lsp_installer = require('nvim-lsp-installer')
+lsp_installer.on_server_ready(function (server) server:setup {} end)
 
 lspconfig['jedi_language_server'].setup{}
 
-local servers = lspinstall.installed_servers()
-for _, server in pairs(servers) do
-  lspconfig[server].setup{}
-end
-
 local saga = require('lspsaga')
-saga.init_lsp_saga();
+saga.init_lsp_saga({
+  code_action_prompt = {enable = false}
+});
 
 local lspkind = require('lspkind');
 lspkind.init({})
