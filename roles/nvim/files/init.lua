@@ -184,7 +184,7 @@ vimp.nnoremap('<leader>ez', ':edit ~/.zshrc<cr>')
 vimp.nnoremap('<leader>es', ':edit ~/.config/sway/config<cr>')
 vimp.nnoremap('<leader>et', ':edit ~/.config/kitty/kitty.conf<cr>')
 
-vimp.nnoremap('<c-p>', ':Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>')
+vimp.nnoremap('<c-p>', ':Telescope find_files find_command=rg,--ignore,-g,!.git/,--hidden,--files<cr>')
 vimp.nnoremap('<c-b>', ':Telescope buffers<cr>')
 vimp.nnoremap('<c-k>', ':Telescope live_grep<cr>')
 
