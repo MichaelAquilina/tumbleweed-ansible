@@ -12,6 +12,7 @@
     - cli
     - docker
     - nvim
+    - sway
     - gnome
     - gnomeshell-theme
     - flatpak
