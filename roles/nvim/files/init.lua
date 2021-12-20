@@ -52,7 +52,7 @@ packer.startup(function(use)
   use('sgur/vim-textobj-parameter');
 
   -- Treesitter
-  use({'nvim-treesitter/nvim-treesitter', branch = '0.5-compat'});
+  use({'nvim-treesitter/nvim-treesitter'});
 
   -- Git
   use('airblade/vim-gitgutter');
