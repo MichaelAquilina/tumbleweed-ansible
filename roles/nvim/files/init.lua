@@ -43,7 +43,10 @@ packer.startup(function(use)
   use('glepnir/lspsaga.nvim');
   use('ray-x/lsp_signature.nvim');
   use('williamboman/nvim-lsp-installer');
-  use('hrsh7th/nvim-compe');
+  use('hrsh7th/nvim-cmp');
+  use('hrsh7th/cmp-nvim-lsp');
+  use('L3MON4D3/LuaSnip');
+  use('saadparwaiz1/cmp_luasnip');
   use('onsails/lspkind-nvim');
 
   -- Textobjects
@@ -112,11 +115,12 @@ treesitter.setup {
 }
 
 -- Lsp configuration
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
-lsp_installer.on_server_ready(function (server) server:setup {} end)
+lsp_installer.on_server_ready(function (server) server:setup { capabilities = capabilities } end)
 
-lspconfig['jedi_language_server'].setup{}
+lspconfig['jedi_language_server'].setup{ capabilities = capabilities }
 
 local saga = require('lspsaga')
 saga.init_lsp_saga({
@@ -126,39 +130,20 @@ saga.init_lsp_saga({
 local lspkind = require('lspkind');
 lspkind.init({})
 
-local compe = require('compe')
-compe.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  resolve_timeout = 800;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = {
-    border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
-    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-    max_width = 120,
-    min_width = 60,
-    max_height = math.floor(vim.o.lines * 0.3),
-    min_height = 1,
-  };
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-    luasnip = true;
-  };
+local cmp = require('cmp')
+cmp.setup {
+ snippet = {
+  -- REQUIRED - you must specify a snippet engine
+  expand = function(args)
+    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+  end,
+ },
+ mapping = {
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+ },
+ sources = cmp.config.sources({
+  { name = 'nvim_lsp' }
+ })
 };
 
 -- NvimTree
