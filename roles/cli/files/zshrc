@@ -190,7 +190,7 @@ function whatismyip() {
 # xterm-kitty is not handled very well on ssh connections
 # which results in very frustrating behaviour
 # setting as xterm is the next closest thing
-alias= ssh="TERM=xterm ssh"
+alias ssh="TERM=xterm ssh"
 
 alias h="history"
 alias -g NE="2>/dev/null"
