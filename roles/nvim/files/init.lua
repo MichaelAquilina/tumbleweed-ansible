@@ -115,10 +115,14 @@ treesitter.setup {
 }
 
 -- Lsp configuration
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local lspconfig = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
-lsp_installer.on_server_ready(function (server) server:setup { capabilities = capabilities } end)
+
+local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+lsp_installer.on_server_ready(
+  function (server) server:setup { capabilities = capabilities }
+end)
 
 local saga = require('lspsaga')
 saga.init_lsp_saga({
