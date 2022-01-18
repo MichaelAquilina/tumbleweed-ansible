@@ -27,6 +27,7 @@ packer.startup(function(use)
   use({'kyazdani42/nvim-tree.lua', tag = '1.2.8'});
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
+  use({'lewis6991/spellsitter.nvim'});
 
   use('Pocco81/AutoSave.nvim')
   use('svermeulen/vimpeccable')  -- keymaps in lua
@@ -70,6 +71,13 @@ end);
 
 vim.g.tokyonight_style = 'night';
 vim.cmd("colorscheme tokyonight");
+
+-- Spellsitter
+local spellsitter = require('spellsitter');
+spellsitter.setup({
+    enable = true
+});
+vim.o.spell = true;
 
 -- Telescope
 local telescope = require('telescope')
@@ -116,7 +124,6 @@ treesitter.setup {
 
 -- Lsp configuration
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
-local lspconfig = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
 
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
