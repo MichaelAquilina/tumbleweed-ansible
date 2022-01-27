@@ -27,7 +27,6 @@ packer.startup(function(use)
   use({'kyazdani42/nvim-tree.lua', tag = '1.2.8'});
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
-  use({'lewis6991/spellsitter.nvim'});
 
   use('Pocco81/AutoSave.nvim')
   use('svermeulen/vimpeccable')  -- keymaps in lua
@@ -53,6 +52,7 @@ packer.startup(function(use)
   -- Treesitter
   use({'nvim-treesitter/nvim-treesitter'});
   use({'nvim-treesitter/nvim-treesitter-textobjects'});
+  use({'lewis6991/spellsitter.nvim'});
 
   -- Git
   use('airblade/vim-gitgutter');
@@ -118,10 +118,7 @@ treesitter.setup({
   textobjects = {
     select = {
       enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
-
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
