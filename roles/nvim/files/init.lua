@@ -50,13 +50,9 @@ packer.startup(function(use)
   use('saadparwaiz1/cmp_luasnip');
   use('onsails/lspkind-nvim');
 
-  -- Textobjects
-  use('kana/vim-textobj-user');
-  use('jeetsukumaran/vim-pythonsense');
-  use('sgur/vim-textobj-parameter');
-
   -- Treesitter
   use({'nvim-treesitter/nvim-treesitter'});
+  use({'nvim-treesitter/nvim-treesitter-textobjects'});
 
   -- Git
   use('airblade/vim-gitgutter');
@@ -92,7 +88,6 @@ telescope.setup({
   },
   pickers = {
     buffers = {
-      ignore_current_buffer = true,
       sort_mru = true,
       sort_lastused = true,
     }
@@ -115,12 +110,28 @@ autosave.setup({
 -- Treesitter configuration
 
 local treesitter = require('nvim-treesitter.configs')
-treesitter.setup {
-    ensure_installed = "all",
-    highlight = {
-      enable = true
-    }
-}
+treesitter.setup({
+  ensure_installed = "all",
+  highlight = {
+    enable = true
+  },
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
+})
 
 -- Lsp configuration
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
