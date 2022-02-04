@@ -27,6 +27,7 @@ packer.startup(function(use)
   use({'kyazdani42/nvim-tree.lua', tag = '1.2.8'});
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
+  use({'akinsho/bufferline.nvim'});
 
   use('Pocco81/AutoSave.nvim')
   use('svermeulen/vimpeccable')  -- keymaps in lua
@@ -67,6 +68,10 @@ end);
 
 vim.g.tokyonight_style = 'night';
 vim.cmd("colorscheme tokyonight");
+
+-- Bufferline
+
+require("bufferline").setup{}
 
 -- Spellsitter
 local spellsitter = require('spellsitter');
