@@ -171,7 +171,7 @@ function kubectl {
        echo -ne "\033]11;$background\007"
    fi
 
-   command kubectl $@
+   command "kubectl1.19" $@
 
    if [[ "$1" == "exec" ]]; then
      # Escape command to reset background colours
