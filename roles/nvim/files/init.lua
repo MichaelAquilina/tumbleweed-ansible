@@ -190,6 +190,7 @@ vimp.nnoremap('<leader>sv', ':source $MYVIMRC<cr>')
 vimp.nnoremap('<leader>ez', ':edit ~/.zshrc<cr>')
 vimp.nnoremap('<leader>es', ':edit ~/.config/sway/config<cr>')
 vimp.nnoremap('<leader>et', ':edit ~/.config/kitty/kitty.conf<cr>')
+vimp.nnoremap('<leader>d', ':lua vim.diagnostic.open_float()<cr>')
 
 vimp.nnoremap('<c-p>', ':Telescope find_files find_command=rg,--ignore,-g,!.git/,--hidden,--files<cr>')
 vimp.nnoremap('<c-b>', ':Telescope buffers<cr>')
