@@ -27,7 +27,7 @@ packer.startup(function(use)
   use({'kyazdani42/nvim-tree.lua', tag = '1.2.8'});
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
-  use({'akinsho/bufferline.nvim'});
+  use({'akinsho/bufferline.nvim', branch = 'main'});
 
   use('Pocco81/AutoSave.nvim')
   use('svermeulen/vimpeccable')  -- keymaps in lua
@@ -40,7 +40,7 @@ packer.startup(function(use)
   use({'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
   -- LSP
-  use('neovim/nvim-lspconfig');
+  use({'neovim/nvim-lspconfig', tag = 'v0.1.3'});
   use('glepnir/lspsaga.nvim');
   use('ray-x/lsp_signature.nvim');
   use('williamboman/nvim-lsp-installer');
