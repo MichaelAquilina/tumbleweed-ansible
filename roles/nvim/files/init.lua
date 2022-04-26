@@ -154,21 +154,39 @@ saga.init_lsp_saga({
 local lspkind = require('lspkind');
 lspkind.init({})
 
-local cmp = require('cmp')
-cmp.setup {
- snippet = {
-  -- REQUIRED - you must specify a snippet engine
-  expand = function(args)
-    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-  end,
- },
- mapping = {
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
- },
- sources = cmp.config.sources({
-  { name = 'nvim_lsp' }
- })
-};
+local lspconfig = require('lspconfig')
+lspconfig.pylsp.setup {
+  cmd = {"pylsp"},
+  filetypes = {"python"},
+  settings = {
+    pylsp = {
+      configurationSources = {"flake8"},
+      plugins = {
+        jedi_completion = {enabled = true},
+        jedi_hover = {enabled = true},
+        jedi_references = {enabled = true},
+        jedi_signature_help = {enabled = true},
+        jedi_symbols = {enabled = true, all_scopes = true},
+        pycodestyle = {enabled = false},
+        flake8 = {
+          enabled = true,
+          ignore = {},
+          maxLineLength = 160
+        },
+        mypy = {enabled = false},
+        isort = {enabled = false},
+        yapf = {enabled = false},
+        pylint = {enabled = false},
+        pydocstyle = {enabled = false},
+        mccabe = {enabled = false},
+        preload = {enabled = false},
+        rope_completion = {enabled = false}
+      }
+    }
+  },
+  on_attach = on_attach
+}
+
 
 -- NvimTree
 
