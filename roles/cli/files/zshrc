@@ -164,6 +164,7 @@ function kubectl {
        elif [[ "$context" = *"-dev" ]]; then
          background="#655511"
        else
+         printf "WARNING! Unknown context: %s" "$context"
          background="#965599"
        fi
 
@@ -171,6 +172,7 @@ function kubectl {
        echo -ne "\033]11;$background\007"
    fi
 
+   # Need a better way of pinning kubectl here
    command "kubectl1.19" $@
 
    if [[ "$1" == "exec" ]]; then
@@ -201,7 +203,7 @@ alias v="vim"
 # See https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 alias watch='watch '
 
-alias kc="kubectl"
+alias kc="kubectl1.19"
 
 alias json="jq '.' -C"
 
