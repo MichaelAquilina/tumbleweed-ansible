@@ -54,6 +54,7 @@ packer.startup(function(use)
   use({'nvim-treesitter/nvim-treesitter'});
   use({'nvim-treesitter/nvim-treesitter-textobjects'});
   use({'lewis6991/spellsitter.nvim'});
+  use({'windwp/nvim-ts-autotag'});
 
   -- Git
   use('airblade/vim-gitgutter');
@@ -116,6 +117,7 @@ autosave.setup({
 
 local treesitter = require('nvim-treesitter.configs')
 treesitter.setup({
+  autotag = { enable = true },
   ensure_installed = "all",
   highlight = {
     enable = true
