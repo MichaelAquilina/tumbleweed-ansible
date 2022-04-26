@@ -255,6 +255,7 @@ vimp.nmap('<leader>[', '<Plug>(GitGutterPrevHunk)')
 vimp.nnoremap('gs', ':Lspsaga signature_help<CR>')
 vimp.nnoremap('K', ':Lspsaga hover_doc<CR>')
 vimp.nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
+vimp.nnoremap('ca', ':lua vim.lsp.buf.code_action()<CR>')
 
 vimp.vnoremap('<leader>gb', ':GBrowse<cr>')
 
