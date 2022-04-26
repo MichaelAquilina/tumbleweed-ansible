@@ -138,6 +138,24 @@ treesitter.setup({
 })
 
 -- Lsp configuration
+
+local cmp = require('cmp')
+cmp.setup({
+ snippet = {
+  -- REQUIRED - you must specify a snippet engine
+  expand = function(args)
+    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+  end,
+ },
+
+ mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+ }),
+ sources = cmp.config.sources({
+  { name = 'nvim_lsp' }
+ })
+});
+
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local lsp_installer = require('nvim-lsp-installer')
 
