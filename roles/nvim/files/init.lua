@@ -40,7 +40,7 @@ packer.startup(function(use)
   use({'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
   -- LSP
-  use({'neovim/nvim-lspconfig', tag = 'v0.1.3'});
+  use({'neovim/nvim-lspconfig'});
   use('glepnir/lspsaga.nvim');
   use('ray-x/lsp_signature.nvim');
   use('williamboman/nvim-lsp-installer');
