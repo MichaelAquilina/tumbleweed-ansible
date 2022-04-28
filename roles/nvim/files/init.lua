@@ -30,7 +30,6 @@ packer.startup(function(use)
   use({'akinsho/bufferline.nvim', branch = 'main'});
 
   use('Pocco81/AutoSave.nvim')
-  use('svermeulen/vimpeccable')  -- keymaps in lua
 
   -- Telescope
   use({
@@ -217,49 +216,44 @@ vim.g.nvim_tree_show_icons = {
     folder_arrows = 1,
 };
 
--- Keymaps in vimpeccable
+vim.keymap.set('n', '<leader>ev', ':edit $MYVIMRC<cr>')
+vim.keymap.set('n', '<leader>el', ':edit ~/.config/nvim/init.lua<cr>')
+vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<cr>')
+vim.keymap.set('n', '<leader>ez', ':edit ~/.zshrc<cr>')
+vim.keymap.set('n', '<leader>es', ':edit ~/.config/sway/config<cr>')
+vim.keymap.set('n', '<leader>et', ':edit ~/.config/kitty/kitty.conf<cr>')
+vim.keymap.set('n', '<leader>d', ':lua vim.diagnostic.open_float()<cr>')
 
-local vimp = require('vimp')
-vimp.always_override = true;
+vim.keymap.set('n', '<c-p>', ':Telescope find_files find_command=rg,--ignore,-g,!.git/,--hidden,--files<cr>')
+vim.keymap.set('n', '<c-b>', ':Telescope buffers<cr>')
+vim.keymap.set('n', '<c-k>', ':Telescope live_grep<cr>')
 
-vimp.nnoremap('<leader>ev', ':edit $MYVIMRC<cr>')
-vimp.nnoremap('<leader>el', ':edit ~/.config/nvim/init.lua<cr>')
-vimp.nnoremap('<leader>sv', ':source $MYVIMRC<cr>')
-vimp.nnoremap('<leader>ez', ':edit ~/.zshrc<cr>')
-vimp.nnoremap('<leader>es', ':edit ~/.config/sway/config<cr>')
-vimp.nnoremap('<leader>et', ':edit ~/.config/kitty/kitty.conf<cr>')
-vimp.nnoremap('<leader>d', ':lua vim.diagnostic.open_float()<cr>')
+vim.keymap.set('v', 'cp', '"+y')
+vim.keymap.set('n', 'vp', '"+p')
 
-vimp.nnoremap('<c-p>', ':Telescope find_files find_command=rg,--ignore,-g,!.git/,--hidden,--files<cr>')
-vimp.nnoremap('<c-b>', ':Telescope buffers<cr>')
-vimp.nnoremap('<c-k>', ':Telescope live_grep<cr>')
+vim.keymap.set('n', 'Q', '<nop>') -- Disable Ex mode
+vim.keymap.set('n', '<c-s>', '<nop>') -- Disable stop redraw
 
-vimp.vnoremap('cp', '"+y')
-vimp.nnoremap('vp', '"+p')
-
-vimp.nnoremap('Q', '<nop>') -- Disable Ex mode
-vimp.nnoremap('<c-s>', '<nop>') -- Disable stop redraw
-
-vimp.nnoremap('<esc>',':let @/=""<cr>') -- Cancel current search
+vim.keymap.set('n', '<esc>',':let @/=""<cr>') -- Cancel current search
 
 -- Quickly move lines up and down
-vimp.nnoremap('-', 'ddp')
-vimp.nnoremap('_', 'ddkP')
+vim.keymap.set('n', '-', 'ddp')
+vim.keymap.set('n', '_', 'ddkP')
 
-vimp.nnoremap('<leader>,', ':call CopyRelativePath(0)<cr>')
-vimp.nnoremap('<leader>.', ':call CopyRelativePath(1)<cr>')
+vim.keymap.set('n', '<leader>,', ':call CopyRelativePath(0)<cr>')
+vim.keymap.set('n', '<leader>.', ':call CopyRelativePath(1)<cr>')
 
-vimp.nmap('<leader>]', '<Plug>(GitGutterNextHunk)')
-vimp.nmap('<leader>[', '<Plug>(GitGutterPrevHunk)')
+vim.keymap.set('n', '<leader>]', '<Plug>(GitGutterNextHunk)')
+vim.keymap.set('n', '<leader>[', '<Plug>(GitGutterPrevHunk)')
 
-vimp.nnoremap('gs', ':Lspsaga signature_help<CR>')
-vimp.nnoremap('K', ':Lspsaga hover_doc<CR>')
-vimp.nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
-vimp.nnoremap('ca', ':lua vim.lsp.buf.code_action()<CR>')
+vim.keymap.set('n', 'gs', ':Lspsaga signature_help<CR>')
+vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>')
+vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set('n', 'ca', ':lua vim.lsp.buf.code_action()<CR>')
 
-vimp.vnoremap('<leader>gb', ':GBrowse<cr>')
+vim.keymap.set('v', '<leader>gb', ':GBrowse<cr>')
 
-vimp.nnoremap('<leader>/', ':NvimTreeToggle<cr>')
+vim.keymap.set('n', '<leader>/', ':NvimTreeToggle<cr>')
 
 -- Miscellaneous options
 
