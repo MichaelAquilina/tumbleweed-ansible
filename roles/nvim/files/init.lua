@@ -250,6 +250,7 @@ vim.keymap.set('n', 'gs', ':Lspsaga signature_help<CR>')
 vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>')
 vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', 'ca', ':lua vim.lsp.buf.code_action()<CR>')
+vim.keymap.set('n', 'cd', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
 
 vim.keymap.set('v', '<leader>gb', ':GBrowse<cr>')
 
