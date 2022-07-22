@@ -23,7 +23,6 @@ packer.startup(function(use)
   use({'folke/tokyonight.nvim', branch = 'main' });
 
   -- Functionality
-  use('sheerun/vim-polyglot');
   use({'kyazdani42/nvim-tree.lua', tag = '1.2.8'});
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
