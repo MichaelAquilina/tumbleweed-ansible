@@ -315,7 +315,7 @@ export AUTO_NOTIFY_EXPIRE_TIME=4000
 AUTO_NOTIFY_IGNORE+=("ipython")
 export YSU_MESSAGE_POSITION="after"
 export HISTORY_FILTER_EXCLUDE=("_KEY" "Authorization: ", "_TOKEN", "SECRET", "AWS_")
-export AUTOSWITCH_DEFAULT_PYTHON="python3.9"
+export AUTOSWITCH_DEFAULT_PYTHON="python3.10"
 
 
 # p10k configuration
