@@ -61,7 +61,7 @@ packer.startup(function(use)
 
   use('tpope/vim-sleuth');  -- Automatic tab expand configuration
   use('tpope/vim-commentary');  -- Comment out blocks of code
-  use('tpope/vim-surround');  -- change surrounding elements
+  use('kylechui/nvim-surround');  -- change surrounding elements
 end);
 
 
