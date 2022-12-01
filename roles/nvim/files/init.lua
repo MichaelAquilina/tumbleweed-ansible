@@ -28,7 +28,15 @@ packer.startup(function(use)
   use('lukas-reineke/indent-blankline.nvim');
   use({'akinsho/bufferline.nvim', branch = 'main'});
 
-  use('Pocco81/AutoSave.nvim')
+  use({
+    'Pocco81/auto-save.nvim',
+    config = function()
+      require("auto-save").setup {
+        -- your config goes here
+	-- or just leave it empty :)
+      }
+    end
+  })
 
   -- Telescope
   use({
@@ -37,9 +45,22 @@ packer.startup(function(use)
   })
   use({'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
+  -- Language support
+  use({'towolf/vim-helm'});
+
   -- LSP
   use({'neovim/nvim-lspconfig'});
-  use('glepnir/lspsaga.nvim');
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      local saga = require("lspsaga")
+      saga.init_lsp_saga({
+        -- your configuration
+      })
+    end,
+  })
+
   use('ray-x/lsp_signature.nvim');
   use('williamboman/nvim-lsp-installer');
   use('hrsh7th/nvim-cmp');
@@ -55,13 +76,20 @@ packer.startup(function(use)
   use({'windwp/nvim-ts-autotag'});
 
   -- Git
-  use('airblade/vim-gitgutter');
+  use('airblade/vim-gitgutter')
   use('tpope/vim-fugitive');
   use('tpope/vim-rhubarb');
 
   use('tpope/vim-sleuth');  -- Automatic tab expand configuration
   use('tpope/vim-commentary');  -- Comment out blocks of code
-  use('kylechui/nvim-surround');  -- change surrounding elements
+  use({
+    'kylechui/nvim-surround',
+    tag = '*',
+    config = function()
+        require("nvim-surround").setup({
+        })
+    end
+  });  -- change surrounding elements
 end);
 
 
@@ -102,14 +130,6 @@ telescope.load_extension("fzf");
 -- Colorizer
 
 require('colorizer').setup()
-
--- Autosave
-
-local autosave = require("autosave")
-autosave.setup({
-  write_all_buffers = true,
-  events = {"BufLeave", "FocusLost"}
-})
 
 -- Treesitter configuration
 
@@ -157,15 +177,10 @@ cmp.setup({
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local lsp_installer = require('nvim-lsp-installer')
 
-local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 lsp_installer.on_server_ready(
   function (server) server:setup { capabilities = capabilities }
 end)
-
-local saga = require('lspsaga')
-saga.init_lsp_saga({
-  code_action_prompt = {enable = false}
-});
 
 local lspkind = require('lspkind');
 lspkind.init({})
@@ -221,7 +236,6 @@ vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<cr>')
 vim.keymap.set('n', '<leader>ez', ':edit ~/.zshrc<cr>')
 vim.keymap.set('n', '<leader>es', ':edit ~/.config/sway/config<cr>')
 vim.keymap.set('n', '<leader>et', ':edit ~/.config/kitty/kitty.conf<cr>')
-vim.keymap.set('n', '<leader>d', ':lua vim.diagnostic.open_float()<cr>')
 
 vim.keymap.set('n', '<c-p>', ':Telescope find_files find_command=rg,--ignore,-g,!.git/,--hidden,--files<cr>')
 vim.keymap.set('n', '<c-b>', ':Telescope buffers<cr>')
@@ -249,7 +263,7 @@ vim.keymap.set('n', 'gs', ':Lspsaga signature_help<CR>')
 vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>')
 vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', 'ca', ':lua vim.lsp.buf.code_action()<CR>')
-vim.keymap.set('n', 'cd', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+vim.keymap.set('n', 'cd', ':lua vim.diagnostic.open_float()<CR>')
 
 vim.keymap.set('v', '<leader>gb', ':GBrowse<cr>')
 
