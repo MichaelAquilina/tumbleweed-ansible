@@ -1,13 +1,5 @@
 ---
 
-# Currently required for light and wf-recorder
-- name: personal repo added
-  become: "yes"
-  zypper_repository:
-    repo: https://download.opensuse.org/repositories/home:/MichaelAquilina/openSUSE_Tumbleweed/
-    name: MichaelAquilina
-    auto_import_keys: yes
-
 - name: sway packages installed
   become: "yes"
   zypper:
