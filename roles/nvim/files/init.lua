@@ -62,7 +62,8 @@ packer.startup(function(use)
   })
 
   use('ray-x/lsp_signature.nvim');
-  use('williamboman/nvim-lsp-installer');
+  use('williamboman/mason.nvim');
+
   use('hrsh7th/nvim-cmp');
   use('hrsh7th/cmp-nvim-lsp');
   use('L3MON4D3/LuaSnip');
@@ -175,12 +176,9 @@ cmp.setup({
 });
 
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
-local lsp_installer = require('nvim-lsp-installer')
+require('mason').setup()
 
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
-lsp_installer.on_server_ready(
-  function (server) server:setup { capabilities = capabilities }
-end)
 
 local lspkind = require('lspkind');
 lspkind.init({})
