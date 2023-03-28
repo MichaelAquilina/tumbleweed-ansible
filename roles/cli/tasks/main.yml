@@ -2,12 +2,12 @@
 
 - name: ZSH is installed
   become: "yes"
-  zypper:
+  package:
     name: zsh
 
 - name: Command Line Apps are Installed
   become: "yes"
-  zypper:
+  package:
     name: "{{ item }}"
     state: latest
   loop: "{{ cli_apps }}"

@@ -1,25 +1,64 @@
 ---
 
-- name: Nautilus don't start with sidebar
-  gsettings:
-    schema: org.gnome.nautilus.window-state
-    key: start-with-sidebar
+- name: set number of workspaces
+  dconf:
+    key: "/org/gnome/desktop/wm/preferences/num-workspaces"
+    value: "10"
+
+- name: disable hot corners
+  dconf:
+    key: "/org/gnome/desktop/interface/enable-hot-corners"
     value: "false"
 
-- name: Nautilus sort directories first
-  gsettings:
-    schema: org.gtk.Settings.FileChooser
-    key: sort-directories-first
+- name: show battery percentage
+  dconf:
+    key: "/org/gnome/desktop/interface/show-battery-percentage"
     value: "true"
 
-- name: Nautilus default compression .tar.xz
-  gsettings:
-    schema: org.gnome.nautilus.compression
-    key: default-compression-format
-    value: "tar.xz"
+- name: Unset switch to application shortcuts
+  dconf:
+    key: "/org/gnome/shell/keybindings/switch-to-application-{{ item }}"
+    value:  "['']"
+  with_items:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 0
 
-- name: Disable the overlay key
-  gsettings:
-    schema: org.gnome.mutter
-    key: overlay-key
-    value: ""
+- name: Setup workspace switching shortcuts
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-{{ item.workspace }}"
+    value:  "['<Super>{{ item.key }}']"
+  with_items:
+    - { workspace: 1, key: 1 }
+    - { workspace: 2, key: 2 }
+    - { workspace: 3, key: 3 }
+    - { workspace: 4, key: 4 }
+    - { workspace: 5, key: 5 }
+    - { workspace: 6, key: 6 }
+    - { workspace: 7, key: 7 }
+    - { workspace: 8, key: 8 }
+    - { workspace: 9, key: 9 }
+    - { workspace: 10, key: 0 }
+
+- name: Setup workspace moving shortcuts
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-{{ item.workspace }}"
+    value:  "['<Shift><Super>{{ item.key }}']"
+  with_items:
+    - { workspace: 1, key: 1 }
+    - { workspace: 2, key: 2 }
+    - { workspace: 3, key: 3 }
+    - { workspace: 4, key: 4 }
+    - { workspace: 5, key: 5 }
+    - { workspace: 6, key: 6 }
+    - { workspace: 7, key: 7 }
+    - { workspace: 8, key: 8 }
+    - { workspace: 9, key: 9 }
+    - { workspace: 10, key: 0 }

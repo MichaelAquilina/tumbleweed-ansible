@@ -2,7 +2,7 @@
 
 - name: flatpak and dependencies is installed
   become: "yes"
-  zypper:
+  package:
     name: "{{ item }}"
   loop:
     - flatpak

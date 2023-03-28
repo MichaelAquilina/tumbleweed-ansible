@@ -8,8 +8,9 @@ cli_apps:
   - exa
   - neovim
   - osc
-  - password-store
+  - pass
   - python3-virtualenv
+  - python3-pip
   - ripgrep
   - tig
-  - libnotify-tools
+  - g++

@@ -3,24 +3,27 @@
 # Required for some fallback icons on other themes
 - name: Default Gnome Icon Theme is Ignored
   become: "yes"
-  zypper:
+  package:
     name: gnome-icon-theme
     state: latest
 
 - name: Arc Theme is Installed
   become: "yes"
-  zypper:
+  package:
     name: "{{ item }}"
     state: latest
   loop:
-    - gtk3-metatheme-arc
-    - gtk2-metatheme-arc
+    - arc-theme
+
+- name: Set dark color schema
+  dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
 
 - name: Use Arc Theme
-  gsettings:
-    schema: org.gnome.desktop.interface
-    key: gtk-theme
-    value: "Arc-Darker"
+  dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Arc-Darker'"
 
 - name: Global Dark Theme is enabled
   ini_file:

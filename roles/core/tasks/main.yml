@@ -1,0 +1,36 @@
+---
+
+- name: packages installed
+  become: "yes"
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ apps }}"
+
+- name: configuration files are linked
+  file:
+    state: link
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: ~/.config/{{ item }}
+    force: yes
+  with_items:
+    - kitty
+
+- name: backgrounds folder linked
+  file:
+    state: link
+    src: "{{ role_path }}/files/backgrounds"
+    dest: ~/backgrounds
+
+- name: custom bin scripts linked
+  file:
+    force: yes  # FIXME: this is mostly here for the circle docker image
+    state: link
+    src: "{{ role_path }}/files/bin"
+    dest: ~/bin
+
+- name: applications directory exists
+  file:
+    state: directory
+    recurse: yes
+    path: ~/.local/share/applications

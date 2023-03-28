@@ -173,7 +173,7 @@ function kubectl {
    fi
 
    # Need a better way of pinning kubectl here
-   command "kubectl1.22" $@
+   command "kubectl" $@
 
    if [[ "$1" == "exec" ]]; then
      # Escape command to reset background colours
@@ -377,7 +377,10 @@ export NVM_DIR="$HOME/.nvm"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+
+if type pyenv > /dev/null; then
+  eval "$(pyenv init --path)"
+fi
 
 function prompt_my_aws_vault() {
   if [[ -n "$AWS_VAULT" ]]; then

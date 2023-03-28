@@ -27,7 +27,7 @@
 
 - name: node dependencies installed
   become: "yes"
-  zypper:
+  package:
     name: "{{ item }}"
   loop:
     - nodejs
@@ -35,7 +35,7 @@
 
 - name: python neovim bindings installed
   become: "yes"
-  zypper:
+  package:
     name: "{{ item }}"
   loop:
     - python3-neovim

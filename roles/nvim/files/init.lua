@@ -23,7 +23,7 @@ packer.startup(function(use)
   use({'folke/tokyonight.nvim', branch = 'main' });
 
   -- Functionality
-  use({'kyazdani42/nvim-tree.lua', tag = '1.2.8'});
+  use({'kyazdani42/nvim-tree.lua'});
   use('norcalli/nvim-colorizer.lua');
   use('lukas-reineke/indent-blankline.nvim');
   use({'akinsho/bufferline.nvim', branch = 'main'});
@@ -133,6 +133,8 @@ telescope.load_extension("fzf");
 require('colorizer').setup()
 
 -- Treesitter configuration
+
+require('nvim-tree').setup()
 
 local treesitter = require('nvim-treesitter.configs')
 treesitter.setup({

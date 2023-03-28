@@ -2,65 +2,68 @@
 
 - name: git is installed
   become: "yes"
-  zypper:
+  package:
     name: git
 
 - name: rebase on pull
-  git_config:
+  community.general.git_config:
     name: pull.rebase
     scope: global
     value: 'true'
 
 - name: autostash on rebase
-  git_config:
+  community.general.git_config:
     name: rebase.autostash
     scope: global
     value: 'true'
 
 - name: color ui is enabled
-  git_config:
+  community.general.git_config:
     name: color.ui
     scope: global
     value: 'true'
 
 - name: simple push
-  git_config:
+  community.general.git_config:
     name: push.default
     scope: global
     value: simple
 
 - name: dont prompt mergetool
-  git_config:
+  community.general.git_config:
     name: mergetool.prompt
     scope: global
     value: "false"
 
 - name: dont prompt difftool
-  git_config:
+  community.general.git_config:
     name: difftool.prompt
     scope: global
     value: "false"
 
-- name: cherry-pick alias
-  git_config:
-    name: alias.cp
+- name: global aliases
+  community.general.git_config:
+    name: alias.{{ item.alias }}
     scope: global
-    value: cherry-pick
+    value: "{{ item.value }}"
+  with_items:
+    - { alias: cp, value: cherry-pick }
+    - { alias: pushf, value: push --force-with-lease }
 
 - name: global git ignore file
-  git_config:
+  community.general.git_config:
     name: core.excludesfile
     scope: global
     value: "{{ ansible_env.HOME }}/.gitignore"
 
 - name: gpg sign is enabled
-  git_config:
+  community.general.git_config:
     name: commit.gpgsign
     scope: global
     value: "true"
 
 - name: neovim is core editor
-  git_config:
+  community.general.git_config:
     name: core.editor
     scope: global
     value: nvim

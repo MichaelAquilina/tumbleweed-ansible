@@ -10,9 +10,8 @@
   roles:
     - git
     - cli
-    - docker
     - nvim
-    - sway
+    - core
     - gnome
     - gnomeshell-theme
     - flatpak
