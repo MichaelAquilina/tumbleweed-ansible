@@ -10,6 +10,11 @@
     key: "/org/gnome/desktop/interface/enable-hot-corners"
     value: "false"
 
+- name: center new windows
+  dconf:
+    key: /org/gnome/mutter/center-new-windows
+    value: "true"
+
 - name: show battery percentage
   dconf:
     key: "/org/gnome/desktop/interface/show-battery-percentage"
