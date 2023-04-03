@@ -37,13 +37,6 @@
     - tigrc
     - dircolors
 
-- name: User in systemd-journal group
-  become: "yes"
-  user:
-    name: "{{ ansible_user_id }}"
-    groups: systemd-journal
-    append: "yes"
-
 - name: local man directory
   file:
     state: directory

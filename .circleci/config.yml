@@ -3,37 +3,19 @@
 version: 2
 
 jobs:
-  lint:
-    docker:
-      - image: "python:3.7-stretch"
-    steps:
-      - checkout
-      - run:
-          name: run linter
-          command: |
-            pip install yamllint
-            yamllint .
-
   run_playbook:
     docker:
-      - image: "opensuse/tumbleweed"
+      - image: "fedora"
     steps:
       - checkout
       - run:
-          name: Install Gnome pattern
-          command: zypper install -y -t pattern gnome
-      - run:
-          name: Install git dependency
-          command: zypper install -y git openssh
-      - run:
-          name: Install additional dependencies
-          command: zypper install -y python3-pip
-      - run:
-          name: Install ansible
-          command: pip3 install ansible
+          name: Install Epected Base Packages
+          command: >
+            dnf install -y ansible ansible-collection-community-general
+            dbus-daemon
       - run:
           name: Run playbook
-          command: ansible-playbook -i local.inventory setup.yml
+          command: ansible-playbook setup.yml
 
 workflows:
   version: 2

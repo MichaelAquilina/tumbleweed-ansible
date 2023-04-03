@@ -1,5 +1,9 @@
 ---
 
+- name: psutil is installed
+  pip:
+    name: psutil
+
 - name: set number of workspaces
   dconf:
     key: "/org/gnome/desktop/wm/preferences/num-workspaces"

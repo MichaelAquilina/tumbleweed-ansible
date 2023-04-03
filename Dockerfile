@@ -1,9 +1,10 @@
-FROM opensuse/tumbleweed
+FROM fedora
 
-RUN zypper install -y python-pip && \
-    pip install ansible==2.6.0
+RUN dnf install -y \
+        ansible ansible-collection-community-general \
+        dbus-daemon
 
-COPY . /home/suse/tumbleweed-ansible
-WORKDIR /home/suse/tumbleweed-ansible
+COPY . /home/fedora/tumbleweed-ansible
+WORKDIR /home/fedora/tumbleweed-ansible
 
-RUN ansible-playbook -i local.inventory setup.yml
+RUN ansible-playbook setup.yml
