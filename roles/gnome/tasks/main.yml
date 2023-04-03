@@ -20,6 +20,13 @@
     key: "/org/gnome/desktop/interface/show-battery-percentage"
     value: "true"
 
+- name: set media keys
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/{{ item.action }}"
+    value: "{{ item.key }}"
+  with_items:
+    - { action: "play", key: "['<Super>F6']" }
+
 - name: Unset switch to application shortcuts
   dconf:
     key: "/org/gnome/shell/keybindings/switch-to-application-{{ item }}"
