@@ -73,7 +73,6 @@ packer.startup(function(use)
   -- Treesitter
   use({'nvim-treesitter/nvim-treesitter'});
   use({'nvim-treesitter/nvim-treesitter-textobjects'});
-  use({'lewis6991/spellsitter.nvim'});
   use({'windwp/nvim-ts-autotag'});
 
   -- Git
@@ -101,11 +100,6 @@ vim.cmd("colorscheme tokyonight");
 
 require("bufferline").setup{}
 
--- Spellsitter
-local spellsitter = require('spellsitter');
-spellsitter.setup({
-    enable = true
-});
 vim.o.spell = true;
 
 -- Telescope
